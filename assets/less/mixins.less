@@ -1,0 +1,16 @@
+/* 
+    Created on : 16-Oct-2014, 19:54:37
+    Author     : Ryan
+*/
+.clearfix(){
+    &:before,
+        &:after{
+        clear: both;
+        content:'\0020'; 
+        display:block; 
+        overflow:hidden; 
+        visibility:hidden; 
+        width:0; 
+        height:0; 
+    }
+}
