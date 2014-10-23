@@ -2,9 +2,9 @@
 Contributors: syntaxart
 Donate link: http://www.syntaxthemes.co.uk/restaurant/donate/
 Author: Ryan Haworth
-Author URI: http://www.syntaxthemes.co.uk/Restaurant
-Tags: restaurant, reservations, bookings, table bookings, table reservations, reservation notifications, reservation confirm, reservation decline
-Requires at least: 3.7
+Author URI: http://www.syntaxthemes.co.uk/restaurant
+Tags: restaurant, reservations, bookings, table bookings, table reservations, reservation notifications, reservation confirm, reservation decline, schedules, schedule reservations
+Requires at least: 3.8
 Tested up to: 4.0
 Stable tag: 1.0.0
 Text Domain: syn_restaurant_plugin
@@ -30,20 +30,38 @@ Restaurant Manager Plugin will integrate seamlessly into your current theme.  It
 - Set your reservations to Pending, Confirmed or Rejected.
 - Setup your email notification messages.
 - Create booking schedules for your restaurant opening times.
+- Fast and easy to use.
+- Easily modify the CSS to better fit your theme.
+- Excellent documentation and online support.
 
 **Plugin Instructions**
 
-The plugin instructions are online and can be found at [http://www.syntaxthemes.co.uk/restaurant/documentation/](http://www.syntaxthemes.co.uk/restaurant/documentation/ "Restaurant Plugin Documentation")
+The plugin instructions are online and can be found at [Restaurant Manager Documentation](http://www.syntaxthemes.co.uk/restaurant/documentation/ "Restaurant Plugin Documentation"). The decision to not ship the documentation with the plugin is to save space and not bloat your plugin with more html code. Also you can read the documentation on the move and in your spare time.
 
 **Restaurant Themes**
 
 This plugin can be used with any theme!!
 
-SyntaxThemes are currently building restaurant themes for this plugin, so if you are looking for a restaurant theme more tailored to anything you can find on the market check us out.  The themes will have beautiful menus and food reviews so watch this space.  Keep upto date with progress at [http://www.syntaxthemes.co.uk/restaurant](http://www.syntaxthemes.co.uk/restaurant "Restaurant Themes")
+SyntaxThemes are currently building restaurant themes for this plugin, so if you are looking for a restaurant theme more tailored to anything you can find on the market check us out.  The themes will have beautiful menus and food reviews so watch this space.  Keep upto date with progress at [Restaurant Manager](http://www.syntaxthemes.co.uk/restaurant "Restaurant Themes")
+
+**Feature Requests**
+
+If the restauant manager has any features which you would like to see implemented in the future or you have any great ideas please let us know on our forum at [Feature Requests](http://www.syntaxthemes.co.uk/forums/forum/restaurant-plugin/feature-requests/ "Restaurant Manager feature requests").  We can have a look at the feature and then see how it fits into the plugin and then implement it. This helps understand better how your using the plugin to manage and assist your daily business activities.
+
+**Online Support**
+
+There is an online forum where you can ask questions and discuss with other plugin users any problems or discussions which you have. You can also talk directly to the developer to solve any problems or notify us on how to further improve the plugin.
 
 == Installation ==
 
-Upload your plugin to your wordpress site.  Once you have activated your plugin you will see a new menu option called Restaurant.  Go to your settings menu under Restaurant a set your required settings here.  Create a schedule and fill in your notifications email address and you are set to go.  Most options have be pre-filled to give you guidance.  If you get stuck at any point and you need more assistance visit our documentation at [http://www.syntaxthemes.co.uk/restaurant/documentation/](http://www.syntaxthemes.co.uk/restaurant/documentation/ "Restaurant Plugin Documentation")
+Upload your plugin to your wordpress site.  Once you have activated your plugin you will see a new menu option called Restaurant.  Go to your settings menu under Restaurant a set your required settings here.  Create a schedule and fill in your notifications email address and you are set to go.  Most options have be pre-filled to give you guidance.  If you get stuck at any point and you need more assistance visit our documentation at [Restaurant Manager Documentation](http://www.syntaxthemes.co.uk/restaurant/documentation/ "Restaurant Plugin Documentation")
+
+**Feedback**
+
+If you like this plugin, then please leave us a good rating and review. Your feedback is really appreciated and will help further support this plugin.  Any new features added to the plugin will be received free. So as we grow, your business will benefit from the extras.  
+Consider following us on Google+ [SyntaxThemes](https://plus.google.com/u/0/b/112709703915241928545/+SyntaxthemesCoUk/posts) | Twitter [syntaxthemes](https://twitter.com/syntaxthemes)
+
+> Thank you very much for downloading
 
 == Screenshots ==
 
@@ -55,9 +73,9 @@ Upload your plugin to your wordpress site.  Once you have activated your plugin 
 
 4. Here you can add notes to your customers booking at any time.  Just click edit then add your notes and update your order.
 
-5. Here are the general settings you can modify these settings to enhance your restaurant reservation plugin and fit it to your requirements.
+5. Here are the general settings, you can modify these settings to enhance your restaurant reservation plugin and fit it to your requirements.
 
-6. On the Reservation Schedule screen you can manage your restaurant open days and times.  You can combine opening anc closing times if you have two distinct open periods in one day.  Such as a cafe by day and restaurant by night establishment.
+6. On the Reservation Schedule screen you can manage your restaurant open days and times.  You can combine opening and closing times if you have two distinct open periods in one day.  Such as a cafe by day and restaurant by night establishment.
 
 7. The Notifications Screen will enable you to modify your email messages.  You are able to add tags to your emails to personalise them more.  When you change the status of your booking the correct email will be sent to your user.
 
