@@ -6,7 +6,7 @@ Author URI: http://www.syntaxthemes.co.uk/restaurant
 Tags: restaurant, reservations, bookings, table bookings, table reservations, reservation notifications, reservation confirm, reservation decline, schedules, schedule reservations
 Requires at least: 3.8
 Tested up to: 4.0
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 Text Domain: syn_restaurant_plugin
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -90,7 +90,10 @@ There are currently no upgrade notices.
 
 == Changelog ==
 
+**Version 1.0.1**
+
+- Updated the validation for the maximum party size of people.
+
 **Version 1.0.0**
 
-Initial Release!! - Happy Reservation Bookings.
-
+- Initial Release!! - Happy Reservation Bookings.

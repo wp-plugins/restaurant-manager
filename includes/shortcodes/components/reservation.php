@@ -62,6 +62,7 @@ class syn_restaurant_reservation extends syn_shortcode_script_loader {
         extract($atts);
 
         $session = new syn_session();
+        $group_size = get_option($this->_config->plugin_prefix . 'group_size', 0);
 
         ob_start();
         ?>
@@ -113,7 +114,7 @@ class syn_restaurant_reservation extends syn_shortcode_script_loader {
                         </div>
                         <div class="form-control">
                             <span class="inline-error"></span>
-                            <input id="guests_count" type="text" name="guests_count" data-rule-required="true" data-msg-required="<?php _e('Please tell us how many people will be in your party.', 'syn_restaurant_plugin') ?>" />
+                            <input id="guests_count" type="text" name="guests_count" data-rule-required="true" data-msg-required="<?php _e('Please tell us how many people will be in your party.', 'syn_restaurant_plugin') ?>" data-rule-max="<?php echo $group_size ?>" data-msg-max="<?php printf(__('Your party exceeds the maximum group size of %d.', 'syn_restaurant_plugin'), $group_size) ?>" />
                         </div>
                     </div>
                     <div class="form-field reservation-date-field">
