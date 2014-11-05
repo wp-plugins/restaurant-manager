@@ -1,0 +1,87 @@
+/* 
+    Created on : 14-Oct-2014, 11:32:12
+    Author     : Ryan
+*/
+
+@import "variables.less";
+@import "../fonts/restaurant-manager-icons/style.less";
+
+#syn_restaurant_manager{
+
+    /* =Form
+    -------------------------------------------------------------- */
+    .synth-form{
+
+        label{
+            &.error{
+                color: red;
+                width: 100%;
+                font-size: 90%;
+
+                &:before{
+                    display: inline;
+                    width: auto;
+                    height: auto;
+                    line-height: normal;
+                    vertical-align: baseline;
+                    background-image: none;
+                    background-position: 0% 0%;
+                    background-repeat: repeat;
+                    margin-top: 0;
+                    font-family: FontAwesome;
+                    font-weight: normal;
+                    font-style: normal;
+                    text-decoration: inherit;
+                    -webkit-font-smoothing: antialiased;
+                    content: "\f057";
+                    margin-right: 4px;
+                }
+            }
+        }
+        .form-field{
+            overflow: auto;
+            margin-bottom: 20px;
+        }
+        .form-label{
+            display: inline-block;
+            width: 30%;
+            margin: 0;
+
+            label{
+                width: 100%;            
+            }
+        }
+        .form-control{
+            display: inline-block;
+            width: 70%;
+            margin: 0;
+
+            .inline-error{
+                color: red;
+                display: none;
+            }
+            textarea{
+                height: 100px;
+            }
+        }
+        .captcha{
+            position: relative;
+            width: 30%;
+
+            .captcha-sum{
+                position: absolute;
+                display: inline-block;
+                padding: 8px 6px;
+                font-weight: bold;
+            }
+            .captcha-result{
+                padding-left: 60px;
+            }
+        }
+        
+        input[type=text],
+        textarea{
+            width: 100%;
+        }
+    }
+}
