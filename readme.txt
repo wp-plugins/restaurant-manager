@@ -36,13 +36,13 @@ Restaurant Manager Plugin will integrate seamlessly into your current theme.  It
 
 **Plugin Instructions**
 
-The plugin instructions are online and can be found at [Restaurant Manager Documentation](http://www.syntaxthemes.co.uk/restaurant/documentation/ "Restaurant Plugin Documentation"). The decision to not ship the documentation with the plugin is to save space and not bloat your plugin with more html code. Also you can read the documentation on the move and in your spare time.
+The plugin instructions are online and can be found at [Restaurant Manager Documentation](http://www.syntaxthemes.co.uk/restaurant-manager-documentation/ "Restaurant Plugin Documentation"). The decision to not ship the documentation with the plugin is to save space and not bloat your plugin with more html code. Also you can read the documentation on the move and in your spare time.
 
 **Restaurant Themes**
 
 This plugin can be used with any theme!!
 
-SyntaxThemes are currently building restaurant themes for this plugin, so if you are looking for a restaurant theme more tailored to anything you can find on the market check us out.  The themes will have beautiful menus and food reviews so watch this space.  Keep upto date with progress at [Restaurant Manager](http://www.syntaxthemes.co.uk/restaurant "Restaurant Themes")
+SyntaxThemes are currently building restaurant themes for this plugin, so if you are looking for a restaurant theme more tailored to anything you can find on the market check us out.  The themes will have beautiful menus and food reviews so watch this space.  Keep upto date with progress at [Restaurant Manager](http://www.syntaxthemes.co.uk/themes "Restaurant Themes")
 
 **Feature Requests**
 
@@ -61,7 +61,7 @@ Consider following us on Google+ [SyntaxThemes](https://plus.google.com/u/0/b/11
 
 == Installation ==
 
-Upload your plugin to your wordpress site.  Once you have activated your plugin you will see a new menu option called Restaurant.  Go to your settings menu under Restaurant a set your required settings here.  Create a schedule and fill in your notifications email address and you are set to go.  Most options have be pre-filled to give you guidance.  If you get stuck at any point and you need more assistance visit our documentation at [Restaurant Manager Documentation](http://www.syntaxthemes.co.uk/restaurant/documentation/ "Restaurant Plugin Documentation")
+Upload your plugin to your wordpress site.  Once you have activated your plugin you will see a new menu option called Restaurant.  Go to your settings menu under Restaurant a set your required settings here.  Create a schedule and fill in your notifications email address and you are set to go.  Most options have be pre-filled to give you guidance.  If you get stuck at any point and you need more assistance visit our documentation at [Restaurant Manager Documentation](http://www.syntaxthemes.co.uk/restaurant-manager-documentation/ "Restaurant Plugin Documentation")
 
 == Screenshots ==
 
