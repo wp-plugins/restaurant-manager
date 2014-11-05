@@ -82,6 +82,11 @@ class initialize {
             //check if the plugin is installed before running
             if ($this->_plugin->is_installed()) {
 
+                $taurus_shortcode_extensions = new shortcode_extensions();
+                $taurus_shortcode_extensions->create_shortcodes_button();
+                $taurus_shortcode_extensions->create_shortcodes();
+                $taurus_shortcode_extensions->initialise_tinymce_manager();
+
                 //$this->check_auto_update();
                 //add callbacks to hooks            
                 $this->_plugin->add_actions_and_filters();

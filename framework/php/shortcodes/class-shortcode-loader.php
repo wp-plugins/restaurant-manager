@@ -25,7 +25,7 @@ abstract class syn_shortcode_loader {
         $this->register_button();
         $this->register($this->shortcode['name']);
 
-        add_action('wp_ajax_syn_' . $this->shortcode['name'], array($this, 'shortcode_popup_editor_ajax'));
+        add_action('wp_ajax_' . $this->shortcode['name'], array($this, 'shortcode_popup_editor_ajax'));
     }
 
     public abstract function form_elements($shortcode = null);

@@ -28,7 +28,7 @@ require_once('helpers/class-synth-session.php');
 /**
  * Initialise synth controls.
  */
-require_once('controls/class-synth-control-manager.php');
+require_once('controls/class-control-manager.php');
 
 /**
  * Initialise template locator.

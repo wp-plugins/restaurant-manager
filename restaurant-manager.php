@@ -3,7 +3,7 @@
 /*
   Plugin Name: Restaurant Manager
   Plugin URI: http://www.syntaxthemes.co.uk
-  Version: 1.0.1
+  Version: 1.0.2
   Author: Ryan Haworth
   Description: Restaurant Manager is a plugin to manage your restaurant.  Create your dinner menus, take reservations and send and receive notifications with your customers.
   Text Domain: syn_restaurant_plugin

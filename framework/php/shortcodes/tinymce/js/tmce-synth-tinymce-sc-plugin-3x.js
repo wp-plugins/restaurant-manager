@@ -135,7 +135,7 @@ jQuery(document).ready(function() {
                                         }
                                         values = null;
 
-                                        output = window.switchEditors.wpautop(jQuery.synth_core.create_shortcode_tag(shortcode.name, params));
+                                        output = window.switchEditors.wpautop(syn_restaurant_manager_js_core.create_shortcode_tag(shortcode.name, params));
                                         tinymce.activeEditor.execCommand("mceInsertContent", false, output);
                                     }
                                 });

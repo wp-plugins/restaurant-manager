@@ -4,6 +4,29 @@
 		{
 			"icon": {
 				"paths": [
+					"M433 45c50 134 24 207-32 265-61 64-156 112-223 206-89 125-104 400 217 472-135-71-164-277-18-406-38 125 32 205 119 176 85-29 141 32 139 102-1 48-20 89-69 112 209-37 293-210 293-342 0-174-155-198-77-344-93 8-125 69-116 169 6 66-63 111-114 81-41-25-40-73-4-109 77-76 107-251-115-382z"
+				],
+				"attrs": [],
+				"tags": [
+					"flame"
+				],
+				"defaultCode": 61650,
+				"grid": 16
+			},
+			"attrs": [],
+			"properties": {
+				"id": 62,
+				"order": 2,
+				"prevSize": 32,
+				"code": 61663,
+				"name": "flame"
+			},
+			"setIdx": 0,
+			"iconIdx": 62
+		},
+		{
+			"icon": {
+				"paths": [
 					"M0 512q0-119.429 58.857-220.286t159.714-159.714 220.286-58.857 220.286 58.857 159.714 159.714 58.857 220.286-58.857 220.286-159.714 159.714-220.286 58.857-220.286-58.857-159.714-159.714-58.857-220.286zM128 512q0 84.571 41.714 156t113.143 113.143 156 41.714 156-41.714 113.143-113.143 41.714-156-41.714-156-113.143-113.143-156-41.714-156 41.714-113.143 113.143-41.714 156zM292.571 566.857v-36.571q0-8 5.143-13.143t13.143-5.143h128v-201.143q0-8 5.143-13.143t13.143-5.143h36.571q8 0 13.143 5.143t5.143 13.143v256q0 8-5.143 13.143t-13.143 5.143h-182.857q-8 0-13.143-5.143t-5.143-13.143z"
 				],
 				"tags": [
@@ -14,13 +37,13 @@
 			},
 			"properties": {
 				"id": 22,
-				"order": 6,
+				"order": 7,
 				"prevSize": 28,
 				"code": 61463,
 				"name": "clock-o",
 				"ligatures": ""
 			},
-			"setIdx": 0,
+			"setIdx": 1,
 			"iconIdx": 22
 		},
 		{
@@ -36,13 +59,13 @@
 			},
 			"properties": {
 				"id": 82,
-				"order": 3,
+				"order": 6,
 				"prevSize": 28,
 				"code": 61527,
 				"name": "times-circle",
 				"ligatures": ""
 			},
-			"setIdx": 0,
+			"setIdx": 1,
 			"iconIdx": 82
 		},
 		{
@@ -59,13 +82,13 @@
 			},
 			"properties": {
 				"id": 108,
-				"order": 7,
+				"order": 5,
 				"prevSize": 28,
 				"code": 61555,
 				"name": "calendar",
 				"ligatures": ""
 			},
-			"setIdx": 0,
+			"setIdx": 1,
 			"iconIdx": 108
 		},
 		{
@@ -81,13 +104,13 @@
 			},
 			"properties": {
 				"id": 280,
-				"order": 5,
+				"order": 3,
 				"prevSize": 28,
 				"code": 61753,
 				"name": "chevron-circle-up",
 				"ligatures": ""
 			},
-			"setIdx": 0,
+			"setIdx": 1,
 			"iconIdx": 280
 		},
 		{
@@ -109,7 +132,7 @@
 				"name": "chevron-circle-down",
 				"ligatures": ""
 			},
-			"setIdx": 0,
+			"setIdx": 1,
 			"iconIdx": 281
 		},
 		{
@@ -142,7 +165,7 @@
 				"name": "syntaxstudio",
 				"ligatures": ""
 			},
-			"setIdx": 1,
+			"setIdx": 2,
 			"iconIdx": 0
 		},
 		{
@@ -177,44 +200,56 @@
 				}
 			],
 			"properties": {
-				"order": 2,
+				"order": 8,
 				"id": 0,
 				"prevSize": 32,
 				"code": 58881,
 				"name": "knife-and-fork",
 				"ligatures": ""
 			},
-			"setIdx": 1,
+			"setIdx": 2,
 			"iconIdx": 1
 		}
 	],
 	"height": 1024,
 	"metadata": {
-		"name": "icomoon"
+		"name": "restaurant-manager-icons"
 	},
 	"preferences": {
 		"showGlyphs": true,
 		"showQuickUse": true,
 		"fontPref": {
-			"prefix": "icon-",
+			"prefix": "rman-",
 			"metadata": {
-				"fontFamily": "icomoon"
+				"fontFamily": "restaurant-manager-icons",
+				"majorVersion": 1,
+				"minorVersion": 0
 			},
 			"metrics": {
 				"emSize": 512,
 				"baseline": 6.25,
 				"whitespace": 50
-			}
+			},
+			"resetPoint": 58880,
+			"showMetrics": false,
+			"showMetadata": false,
+			"showVersion": false,
+			"showSelector": false
 		},
 		"imagePref": {
 			"color": 0,
 			"height": 32,
 			"columns": 16,
-			"margin": 16
+			"margin": 16,
+			"prefix": "icon-",
+			"useClassSelector": false,
+			"classSelector": ".icon"
 		},
 		"historySize": 100,
-		"showCodes": true,
+		"showCodes": false,
 		"search": "",
-		"showSVGs": true
+		"showSVGs": true,
+		"showQuickUse2": true,
+		"showLiga": false
 	}
 }

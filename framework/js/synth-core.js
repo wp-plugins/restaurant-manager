@@ -3,14 +3,16 @@
  * 
  * @author Ryan Haworth
  */
-(function($, window, document, undefined) {
+(function(context, window, document, undefined) {
 
-    $.synthCore = function(options) {
+    "use strict";
+
+    context.SynthCore = function(options) {
 
         this.initialize();
     };
 
-    $.synthCore.prototype = {
+    context.SynthCore.prototype = {
         initialize: function() {
 
             this.create_nested_shortcode_modal();
@@ -45,9 +47,9 @@
                         var shortcode;
                         var merged_template;
 
-                        params = jQuery.synth_core.extract_shortcode_params(nested_shortcode.name, values);
-                        merged_template = jQuery.synth_core.merge_template(template2, data, params);
-                        shortcode = jQuery.synth_core.create_shortcode_tag(config[parent_shortcode_name].nested_shortcode, params);
+                        params = syn_restaurant_manager_js_core.extract_shortcode_params(nested_shortcode.name, values);
+                        merged_template = syn_restaurant_manager_js_core.merge_template(template2, data, params);
+                        shortcode = syn_restaurant_manager_js_core.create_shortcode_tag(config[parent_shortcode_name].nested_shortcode, params);
 
                         //place the output into the text area.
                         selected_item.find('textarea').html(shortcode);
@@ -77,7 +79,7 @@
 
                     for (var i = 0; i < params.content.length; i++)
                     {
-                        params.content[i] = $.trim(params.content[i]);
+                        params.content[i] = jQuery.trim(params.content[i]);
                     }
                     content += params.content.join(seperator);
                 }
@@ -91,7 +93,7 @@
 
                 if (typeof params.editor === 'string') {
 
-                    content += $.trim(params.editor);
+                    content += jQuery.trim(params.editor);
                 }
                 delete params.editor;
             }
@@ -181,10 +183,4 @@
         }
     };
 
-})(jQuery, window, document);
-
-jQuery(document).ready(function()
-{
-    jQuery.synth_core = new jQuery.synthCore();
-});
-
+})(syn_restaurant_manager_js, window, document);

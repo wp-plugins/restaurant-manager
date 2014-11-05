@@ -180,7 +180,7 @@ function syn_restaurant_manager_get_scheduler() {
 
             $days_obj = array($monday_text, $tuesday_text, $wednesday_text, $thursday_text, $friday_text, $saturday_text, $sunday_text);
             $days_text = implode(', ', array_filter($days_obj));
-            $days_text = (!empty($days_text)) ? '<i class="icon-calendar"></i>' . $days_text : null;
+            $days_text = (!empty($days_text)) ? '<i class="rman-calendar"></i>' . $days_text : null;
             $time_text = date('H:i A', strtotime($starttime)) . ' - ' . date('H:i A', strtotime($endtime));
 
             $parameters = array(
@@ -214,7 +214,7 @@ function syn_restaurant_manager_schedule_template($parameters = array(), $key = 
     <div class="scheduler<?php echo $parameters['content_open'] ?>">
         <div class="schedule-header">
             <span class="schedule-days"><?php echo $parameters['days_text'] ?></span>
-            <span class="schedule-time"><i class="icon-clock-o"></i><?php echo $parameters['time_text'] ?></span>
+            <span class="schedule-time"><i class="rman-clock-o"></i><?php echo $parameters['time_text'] ?></span>
             <a class="delete-schedule-button" href="javascrip:void(0)"></a> 
             <a class="toggle-schedule-button" href="javascrip:void(0)"></a>
         </div>

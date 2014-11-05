@@ -23,11 +23,13 @@ class syn_tinymce_manager {
 
         add_action('admin_init', array($this, 'enqueue_scripts'));
         add_action('init', array($this, 'tinymce_init'));
+        
+        $this->tinymce_init();
     }
 
     public function enqueue_scripts() {
 
-        wp_enqueue_script('synth-modal', $this->_config->plugin_url . '/framework/js/synth-modal.js', array('jquery'), $this->_config->version, true);
+        //wp_enqueue_script('synth-modal', $this->_config->plugin_url . '/framework/js/synth-modal.js', array('jquery'), $this->_config->version, true);
     }
 
     public function tinymce_init() {

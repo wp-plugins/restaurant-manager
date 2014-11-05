@@ -10,7 +10,7 @@ function syn_restaurant_manager_admin_menu() {
 
     if (current_user_can('manage_options')) {
 
-        add_menu_page('Restaurant', 'Restaurant', 'manage_options', 'syn_restaurant_manager', null, null);
+        add_menu_page('Restaurant', 'Restaurant', 'manage_options', 'syn_restaurant_manager', null, null, 210);
 
         //create submenu items
         add_submenu_page('syn_restaurant_manager', __('Settings', 'syn_restaurant_plugin'), __('Settings', 'syn_restaurant_plugin'), 'manage_options', 'syn_restaurant_manager_settings', 'syn_restaurant_manager_settings_page');

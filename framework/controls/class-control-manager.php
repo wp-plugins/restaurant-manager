@@ -2,11 +2,14 @@
 
 namespace syntaxthemes\restaurant;
 
-require_once('class-synth-control.php');
-require_once('class-synth-text.php');
-require_once('class-synth-textarea.php');
-require_once('class-synth-datepicker.php');
-require_once('class-synth-timepicker.php');
+require_once('class-control.php');
+require_once('class-text.php');
+require_once('class-select.php');
+require_once('class-textarea.php');
+require_once('class-datepicker.php');
+require_once('class-timepicker.php');
+require_once('class-colorpicker.php');
+require_once('class-checkbox-list.php');
 
 /**
  * Description of class-synth-control-manager
