@@ -52,16 +52,16 @@ If the restauant manager has any features which you would like to see implemente
 
 There is an online forum where you can ask questions and discuss with other plugin users any problems or discussions which you have. You can also talk directly to the developer to solve any problems or notify us on how to further improve the plugin.
 
-== Installation ==
-
-Upload your plugin to your wordpress site.  Once you have activated your plugin you will see a new menu option called Restaurant.  Go to your settings menu under Restaurant a set your required settings here.  Create a schedule and fill in your notifications email address and you are set to go.  Most options have be pre-filled to give you guidance.  If you get stuck at any point and you need more assistance visit our documentation at [Restaurant Manager Documentation](http://www.syntaxthemes.co.uk/restaurant/documentation/ "Restaurant Plugin Documentation")
-
 **Feedback**
 
 If you like this plugin, then please leave us a good rating and review. Your feedback is really appreciated and will help further support this plugin.  Any new features added to the plugin will be received free. So as we grow, your business will benefit from the extras.  
 Consider following us on Google+ [SyntaxThemes](https://plus.google.com/u/0/b/112709703915241928545/+SyntaxthemesCoUk/posts) | Twitter [syntaxthemes](https://twitter.com/syntaxthemes)
 
 > Thank you very much for downloading
+
+== Installation ==
+
+Upload your plugin to your wordpress site.  Once you have activated your plugin you will see a new menu option called Restaurant.  Go to your settings menu under Restaurant a set your required settings here.  Create a schedule and fill in your notifications email address and you are set to go.  Most options have be pre-filled to give you guidance.  If you get stuck at any point and you need more assistance visit our documentation at [Restaurant Manager Documentation](http://www.syntaxthemes.co.uk/restaurant/documentation/ "Restaurant Plugin Documentation")
 
 == Screenshots ==
 
