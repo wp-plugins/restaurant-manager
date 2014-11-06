@@ -40,7 +40,20 @@ The plugin instructions are online and can be found at [Restaurant Manager Docum
 
 **Manage your restaurant menus online today**
 
-Create your restaurant meals through your administration screen and assign properties to your meals. Organize your meals into menus and display them on your website. Your can have multiple menus and assign the meal to each menu. This means you do not have to duplicate your content and quickly move meals around your menus.
+Create your restaurant meals through your administration screen and assign properties to your meals. Organize your meals into menus and display them on your website. You can have multiple menus and assign the meal to each menu. This means you do not have to duplicate your content and quickly move meals around your menus.
+
+Assign properties to your meals such as:
+
+- Full Pricing
+- Small Plate Pricing
+- Calorie Counts (kcal)
+- New Additions
+- Healthy Options
+- Gluten Free
+- Spice Ratings
+- Dietary Requirements (Vegetarian, Vegan, etc)
+
+Create menu courses and assign the meal to the courses and menus.
 
 This plugin is almost ready visit [Restaurant Menus](http://www.syntaxthemes.co.uk/restaurant-menus/ "Restaurant Menus Documentation")
 
