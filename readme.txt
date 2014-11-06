@@ -38,11 +38,19 @@ Restaurant Manager Plugin will integrate seamlessly into your current theme.  It
 
 The plugin instructions are online and can be found at [Restaurant Manager Documentation](http://www.syntaxthemes.co.uk/restaurant-manager-documentation/ "Restaurant Plugin Documentation"). The decision to not ship the documentation with the plugin is to save space and not bloat your plugin with more html code. Also you can read the documentation on the move and in your spare time.
 
+**Manage your restaurant menus online today**
+
+Create your restaurant meals through your administration screen and assign properties to your meals. Organize your meals into menus and display them on your website. Your can have multiple menus and assign the meal to each menu. This means you do not have to duplicate your content and quickly move meals around your menus.
+
+This plugin is almost ready visit [Restaurant Menus](http://www.syntaxthemes.co.uk/restaurant-menus/ "Restaurant Menus Documentation")
+
 **Restaurant Themes**
 
 This plugin can be used with any theme!!
 
 SyntaxThemes are currently building restaurant themes for this plugin, so if you are looking for a restaurant theme more tailored to anything you can find on the market check us out.  The themes will have beautiful menus and food reviews so watch this space.  Keep upto date with progress at [Restaurant Manager](http://www.syntaxthemes.co.uk/themes "Restaurant Themes")
+
+07/11/2014 - Almost there our first restaurant theme is only 8 days away from launch, and we are giving away our Restaurant Menus Builder plugin free with our themes!
 
 **Feature Requests**
 
