@@ -131,6 +131,12 @@ and open the template in the editor.
 #syn_restaurant_manager .synth-form textarea {
   width: 100%;
 }
+#syn_restaurant_manager .synth-form label input[type="checkbox"] {
+  position: relative;
+  vertical-align: middle;
+  bottom: 1px;
+  margin: 0 5px 0 0;
+}
 /*Restaurant Menu*/
 .syn-restaurant-menu {
   position: relative;

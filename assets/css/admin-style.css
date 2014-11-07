@@ -419,7 +419,7 @@ and open the template in the editor.
   background-color: #ffffff;
 }
 #schedule_container .scheduler .schedule-header {
-  border: 1px solid #cccccc;
+  border: 1px solid #e1e1e1;
   padding: 10px;
   line-height: 24px;
 }
@@ -476,7 +476,7 @@ and open the template in the editor.
   margin: 0 5px 0 0;
 }
 #schedule_container .scheduler .schedule-content {
-  border: 1px solid #cccccc;
+  border: 1px solid #e1e1e1;
   border-top: 0;
   padding: 10px;
 }
@@ -558,4 +558,72 @@ and open the template in the editor.
 }
 #syn_shortcode_restaurant_menu .meal-title {
   font-weight: bold;
+}
+/* =Restaurant Menus
+-------------------------------------------------------------- */
+#syn_restaurant_manager_addons .addons-list {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+}
+#syn_restaurant_manager_addons .addon-item {
+  display: table-cell;
+  padding: 0 20px 20px 0;
+  width: 33.33333333%;
+}
+#syn_restaurant_manager_addons .addon-block {
+  border: 1px solid #e1e1e1;
+  background-color: #ffffff;
+  margin: 0 20px 20px 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+#syn_restaurant_manager_addons .addon-title {
+  margin: 0;
+  padding: 20px;
+  border-bottom: 1px solid #e1e1e1;
+}
+#syn_restaurant_manager_addons .addon-content {
+  padding: 20px;
+  overflow: hidden;
+  border-bottom: 1px solid #e1e1e1;
+}
+#syn_restaurant_manager_addons .addon-content:before,
+#syn_restaurant_manager_addons .addon-content:after {
+  clear: both;
+  content: '\0020';
+  display: block;
+  overflow: hidden;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+#syn_restaurant_manager_addons .addon-image {
+  float: left;
+  display: block;
+  margin: 0 20px 20px 0;
+  width: 150px;
+  height: 150px;
+}
+#syn_restaurant_manager_addons .addon-footer {
+  line-height: 28px;
+  padding: 20px;
+  background-color: #fcfafa;
+}
+#syn_restaurant_manager_addons .addon-footer:before,
+#syn_restaurant_manager_addons .addon-footer:after {
+  clear: both;
+  content: '\0020';
+  display: block;
+  overflow: hidden;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+#syn_restaurant_manager_addons .addon-footer .read-more-link {
+  text-decoration: none;
+}
+#syn_restaurant_manager_addons .addon-footer .buy-now {
+  float: right;
 }

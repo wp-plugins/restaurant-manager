@@ -157,25 +157,7 @@ class meal_post_type {
                 'with_front' => false
             ))
         );
-
-        wp_insert_term(
-                'Vegan', // the term 
-                'syn_rest_diet', // the taxonomy
-                array(
-            'description' => 'Vegan meals.',
-            'slug' => 'vegan',
-            'parent' => ''
-        ));
-
-        wp_insert_term(
-                'Vegetarian', // the term 
-                'syn_rest_diet', // the taxonomy
-                array(
-            'description' => 'Vegetarian meals.',
-            'slug' => 'vegetarian',
-            'parent' => ''
-        ));
-
+        
         register_taxonomy('syn_rest_cuisine', array($this->_post_type), array(
             'labels' => array(
                 'name' => _x('Cuisines', 'taxonomy general name', 'syn_restaurant_plugin'),

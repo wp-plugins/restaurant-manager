@@ -525,3 +525,56 @@
         font-weight: bold;
     }
 }
+
+/* =Restaurant Menus
+-------------------------------------------------------------- */
+#syn_restaurant_manager_addons{
+
+    .addons-list{
+        display: table;
+        table-layout: fixed;
+        width: 100%;
+    }
+    .addon-item{
+        display: table-cell;       
+        padding: 0 20px 20px 0;
+        width: 33.33333333%;
+    }    
+    .addon-block{   
+        border: 1px solid @admin_border_color;
+        background-color: #ffffff;
+        margin: 0 20px 20px 0;
+        .box-sizing(border-box);
+    }
+    .addon-title{
+        margin: 0;
+        padding: 20px;
+        border-bottom: 1px solid @admin_border_color;
+    }
+    .addon-content{
+        padding: 20px;
+        overflow: hidden;
+        border-bottom: 1px solid @admin_border_color;
+        .clearfix();
+    }
+    .addon-image{
+        float: left;
+        display: block;
+        margin: 0 20px 20px 0;
+        width: 150px;
+        height: 150px;
+    }
+    .addon-footer{
+        line-height: 28px;
+        padding: 20px;
+        background-color: #fcfafa;
+        .clearfix();
+
+        .read-more-link{
+            text-decoration: none;
+        }
+        .buy-now{
+            float: right;
+        }
+    }
+}
