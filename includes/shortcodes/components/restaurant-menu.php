@@ -49,7 +49,7 @@ class syn_restaurant_menu extends syn_shortcode_script_loader {
                     'data' => array(
                         'visibility' => 'hidden'
                     ),
-                    'options' => syn_restaurant_menus_get_all_terms_options(array('syn_menu_type')),
+                    'options' => syn_restaurant_menus_get_all_terms_options(array('syn_rest_menu')),
                     'type' => 'select'
                 ),
                 array(
@@ -62,7 +62,7 @@ class syn_restaurant_menu extends syn_shortcode_script_loader {
                     'data' => array(
                         'visibility' => 'hidden'
                     ),
-                    'options' => syn_restaurant_menus_get_all_terms_options(array('syn_menu_course')),
+                    'options' => syn_restaurant_menus_get_all_terms_options(array('syn_rest_course')),
                     'type' => 'select'
                 ),
                 array(

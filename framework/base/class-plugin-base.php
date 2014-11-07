@@ -60,7 +60,7 @@ if (!class_exists('plugin_base')) {
         public function is_installed() {
 
             $installed = get_option($this->_config->plugin_prefix . 'activated');
-
+            
             return $installed;
         }
 

@@ -74,7 +74,7 @@ class meal_post_type {
      */
     public function register_taxonomies() {
 
-        register_taxonomy('syn_menu_type', array($this->_post_type), array(
+        register_taxonomy('syn_rest_menu', array($this->_post_type), array(
             'labels' => array(
                 'name' => _x('Menus', 'taxonomy general name', 'syn_restaurant_plugin'),
                 'singular_name' => _x('Menu', 'taxonomy singular name', 'syn_restaurant_plugin'),
@@ -102,7 +102,7 @@ class meal_post_type {
             ))
         );
 
-        register_taxonomy('syn_menu_course', array($this->_post_type), array(
+        register_taxonomy('syn_rest_course', array($this->_post_type), array(
             'labels' => array(
                 'name' => _x('Courses', 'taxonomy general name', 'syn_restaurant_plugin'),
                 'singular_name' => _x('Course', 'taxonomy singular name', 'syn_restaurant_plugin'),
@@ -130,7 +130,7 @@ class meal_post_type {
             ))
         );
 
-        register_taxonomy('syn_dietary_type', array($this->_post_type), array(
+        register_taxonomy('syn_rest_diet', array($this->_post_type), array(
             'labels' => array(
                 'name' => _x('Dietary', 'taxonomy general name', 'syn_restaurant_plugin'),
                 'singular_name' => _x('Dietary', 'taxonomy singular name', 'syn_restaurant_plugin'),
@@ -160,7 +160,7 @@ class meal_post_type {
 
         wp_insert_term(
                 'Vegan', // the term 
-                'syn_dietary_type', // the taxonomy
+                'syn_rest_diet', // the taxonomy
                 array(
             'description' => 'Vegan meals.',
             'slug' => 'vegan',
@@ -169,14 +169,14 @@ class meal_post_type {
 
         wp_insert_term(
                 'Vegetarian', // the term 
-                'syn_dietary_type', // the taxonomy
+                'syn_rest_diet', // the taxonomy
                 array(
             'description' => 'Vegetarian meals.',
             'slug' => 'vegetarian',
             'parent' => ''
         ));
 
-        register_taxonomy('syn_cuisine_type', array($this->_post_type), array(
+        register_taxonomy('syn_rest_cuisine', array($this->_post_type), array(
             'labels' => array(
                 'name' => _x('Cuisines', 'taxonomy general name', 'syn_restaurant_plugin'),
                 'singular_name' => _x('Cuisine', 'taxonomy singular name', 'syn_restaurant_plugin'),

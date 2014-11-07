@@ -40,11 +40,11 @@ class initialize {
         // Execute the plugin requirements 
         if ($this->_plugin->plugin_requirements_check()) {
 
+            // Perform any version-upgrade activities prior to activation (e.g. database changes)
+            $this->_plugin->upgrade();
+
             if (!$this->_plugin->is_installed()) {
                 $this->_plugin->activate();
-            } else {
-                // Perform any version-upgrade activities prior to activation (e.g. database changes)
-                $this->_plugin->upgrade();
             }
         }
     }

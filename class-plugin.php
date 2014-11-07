@@ -29,7 +29,7 @@ class plugin extends plugin_base {
      * When the plugin activates install any database tables which are required.
      */
     public function install_database_tables() {
-        
+
     }
 
     /**
@@ -62,7 +62,16 @@ class plugin extends plugin_base {
      * will make any ammendments which are required.
      */
     public function upgrade() {
-        
+
+        global $wpdb;
+
+        if (version_compare($this->plugin_installed_version(), '1.1.3') < 0) {
+
+            $result = $wpdb->update($wpdb->term_taxonomy, array('taxonomy' => 'syn_rest_menu'), array('taxonomy' => 'syn_rest_menu'));
+            $result = $wpdb->update($wpdb->term_taxonomy, array('taxonomy' => 'syn_rest_course'), array('taxonomy' => 'syn_menu_course'));
+            $result = $wpdb->update($wpdb->term_taxonomy, array('taxonomy' => 'syn_rest_diet'), array('taxonomy' => 'syn_dietary_type'));
+            $result = $wpdb->update($wpdb->term_taxonomy, array('taxonomy' => 'syn_rest_cuisine'), array('taxonomy' => 'syn_cuisine_type'));
+        }
     }
 
     /**

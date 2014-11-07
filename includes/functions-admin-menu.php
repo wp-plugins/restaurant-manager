@@ -57,7 +57,31 @@ function syn_restaurant_manager_admin_menu() {
                 'page_title' => 'Menus',
                 'menu_title' => 'Menus',
                 'capability' => 'manage_options',
-                'menu_slug' => 'edit-tags.php?taxonomy=syn_menu_type&post_type=syn_rest_meal',
+                'menu_slug' => 'edit-tags.php?taxonomy=syn_rest_menu&post_type=syn_rest_meal',
+                'function' => null, // Uses the same callback function as parent menu. 
+            ),
+            array(
+                'parent_slug' => $parent_menu_slug,
+                'page_title' => 'Courses',
+                'menu_title' => 'Courses',
+                'capability' => 'manage_options',
+                'menu_slug' => 'edit-tags.php?taxonomy=syn_rest_course&post_type=syn_rest_meal',
+                'function' => null, // Uses the same callback function as parent menu. 
+            ),
+            array(
+                'parent_slug' => $parent_menu_slug,
+                'page_title' => 'Diets',
+                'menu_title' => 'Diets',
+                'capability' => 'manage_options',
+                'menu_slug' => 'edit-tags.php?taxonomy=syn_rest_diet&post_type=syn_rest_meal',
+                'function' => null, // Uses the same callback function as parent menu. 
+            ),
+            array(
+                'parent_slug' => $parent_menu_slug,
+                'page_title' => 'Cuisines',
+                'menu_title' => 'Cuisines',
+                'capability' => 'manage_options',
+                'menu_slug' => 'edit-tags.php?taxonomy=syn_rest_cuisine&post_type=syn_rest_meal',
                 'function' => null, // Uses the same callback function as parent menu. 
             ),
             array(
@@ -110,7 +134,7 @@ if (!function_exists('mbe_set_current_menu')) {
             }
 
             if ($pagenow == 'edit-tags.php') {
-                $submenu_file = 'edit-tags.php?taxonomy=syn_menu_type&post_type=' . $current_screen->post_type;
+                $submenu_file = 'edit-tags.php?taxonomy=syn_rest_menu&post_type=' . $current_screen->post_type;
             }
 
             //$parent_file = 'syn_restaurant_manager';

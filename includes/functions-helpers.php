@@ -459,12 +459,12 @@ if (!function_exists('syn_restaurant_menus_get_meal_options')) {
                 'tax_query' => array(
                     'relation' => $relation,
                     array(
-                        'taxonomy' => 'syn_menu_type',
+                        'taxonomy' => 'syn_rest_menu',
                         'field' => 'id',
                         'terms' => $menu_id
                     ),
                     array(
-                        'taxonomy' => 'syn_menu_course',
+                        'taxonomy' => 'syn_rest_course',
                         'field' => 'id',
                         'terms' => $course_id
                     )

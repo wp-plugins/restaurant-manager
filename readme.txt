@@ -6,7 +6,7 @@ Author URI: http://www.syntaxthemes.co.uk/restaurant
 Tags: restaurant, reservations, bookings, table bookings, table reservations, reservation notifications, reservation confirm, reservation decline, schedules, schedule reservations
 Requires at least: 3.8
 Tested up to: 4.0
-Stable tag: 1.1.2
+Stable tag: 1.1.3
 Text Domain: syn_restaurant_plugin
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -113,9 +113,16 @@ There are currently no upgrade notices.
 
 == Changelog ==
 
+**Version 1.1.3**
+
+- Major Update: Added more meal properties and filters.
+- Course Types
+- Dietary Types
+- Cuisine Types
+
 **Version 1.1.2**
 
-- 
+- Updated the styling on admin and frontend also new enqueue.
 
 **Version 1.1.1**
 
