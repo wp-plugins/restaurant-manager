@@ -19,6 +19,8 @@ class plugin extends plugin_base {
         global $syn_restaurant_config;
         parent::__construct($syn_restaurant_config);
 
+        add_action('admin_enqueue_scripts', array($this, 'admin_scripts'));
+        add_action('wp_enqueue_scripts', array($this, 'frontend_scripts'));
         add_action('init', array($this, 'add_actions_and_filters'));
         add_action('init', array($this, 'register_script_files'));
     }
@@ -72,9 +74,6 @@ class plugin extends plugin_base {
          * Translations can be added to the /languages/ directory.
          */
         load_plugin_textdomain('syn_restaurant_plugin', false, $this->_config->plugin_path . '/languages/');
-
-        add_action('admin_enqueue_scripts', array($this, 'admin_scripts'));
-        add_action('wp_enqueue_scripts', array($this, 'frontend_scripts'));
     }
 
     /**
@@ -166,8 +165,8 @@ class plugin extends plugin_base {
         // load the jquery ui theme
         $url = "http://ajax.googleapis.com/ajax/libs/jqueryui/" . $queryui->ver . "/themes/smoothness/jquery-ui.css";
         wp_enqueue_style('jquery-ui-smoothness', $url, false, null);
-        
-        
+
+
         wp_enqueue_style('restaurant-menus-style');
     }
 
