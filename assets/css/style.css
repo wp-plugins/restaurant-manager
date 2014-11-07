@@ -1,0 +1,80 @@
+/* 
+    Created on : 14-Oct-2014, 11:32:12
+    Author     : Ryan
+*/
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 16-Oct-2014, 19:45:31
+    Author     : Ryan
+*/
+#syn_restaurant_manager {
+  /* =Form
+    -------------------------------------------------------------- */
+}
+#syn_restaurant_manager .synth-form label.error {
+  color: red;
+  width: 70%;
+}
+#syn_restaurant_manager .synth-form label.error:before {
+  display: inline;
+  width: auto;
+  height: auto;
+  line-height: normal;
+  vertical-align: baseline;
+  background-image: none;
+  background-position: 0% 0%;
+  background-repeat: repeat;
+  margin-top: 0;
+  font-family: FontAwesome;
+  font-weight: normal;
+  font-style: normal;
+  text-decoration: inherit;
+  -webkit-font-smoothing: antialiased;
+  content: "\f057";
+  margin-right: 4px;
+}
+#syn_restaurant_manager .synth-form .form-field {
+  overflow: auto;
+  margin-bottom: 20px;
+}
+#syn_restaurant_manager .synth-form .form-label {
+  display: inline-block;
+  width: 30%;
+  margin: 0;
+}
+#syn_restaurant_manager .synth-form .form-label label {
+  width: 100%;
+}
+#syn_restaurant_manager .synth-form .form-control {
+  display: inline-block;
+  width: 70%;
+  margin: 0;
+}
+#syn_restaurant_manager .synth-form .form-control .inline-error {
+  color: red;
+  display: none;
+}
+#syn_restaurant_manager .synth-form .form-control textarea {
+  height: 100px;
+}
+#syn_restaurant_manager .synth-form .captcha {
+  position: relative;
+  width: 30%;
+}
+#syn_restaurant_manager .synth-form .captcha .captcha-sum {
+  position: absolute;
+  display: inline-block;
+  padding: 8px 6px;
+  font-weight: bold;
+}
+#syn_restaurant_manager .synth-form .captcha .captcha-result {
+  padding-left: 60px;
+}
+#syn_restaurant_manager .synth-form input[type=text],
+#syn_restaurant_manager .synth-form textarea {
+  width: 100%;
+}
