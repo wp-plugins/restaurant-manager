@@ -51,9 +51,13 @@ Assign properties to your meals such as:
 
 Create menu courses and assign the meal to the courses and menus.
 
+**MailChimp Support**
+
+- MailChimp Support has now arrived.  Allow your users to subscribe to your MailChimp email list when they book a table. [Download MailChimp Support](http://www.syntaxthemes.co.uk/shop/restaurant-mailchimp-subscribe/ "MailChimp Support").
+
 **Future Developments**
 
-- MailChimp Support is coming soon.
+- Downloadable styling for your online booking form.  Have beautiful forms today for any theme!
 
 **Plugin Instructions**
 
