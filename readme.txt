@@ -16,7 +16,7 @@ reservations. Schedule booking times for your online booking form.
 
 == Description ==
 
-**Manage your restaurant reservations online today**
+**Managing Restaurant Reservations**
 
 Create or Accept restaurant bookings online with our easy to use restaurant manager plugin.  You can create your restaurant bookings through your WordPress Admin, or your customers can create their
 own bookings through your website.  When a booking comes in confirm or reject the booking and the customer will receive notifications to their email.
@@ -34,11 +34,7 @@ Restaurant Manager Plugin will integrate seamlessly into your current theme.  It
 - Easily modify the CSS to better fit your theme.
 - Excellent documentation and online support.
 
-**Plugin Instructions**
-
-The plugin instructions are online and can be found at [Restaurant Manager Documentation](http://www.syntaxthemes.co.uk/restaurant-manager-documentation/ "Restaurant Plugin Documentation"). The decision to not ship the documentation with the plugin is to save space and not bloat your plugin with more html code. Also you can read the documentation on the move and in your spare time.
-
-**Manage your restaurant menus online today**
+**Managing Restaurant Meals and Menus**
 
 Create your restaurant meals through your administration screen and assign properties to your meals. Organize your meals into menus and display them on your website. You can have multiple menus and assign the meal to each menu. This means you do not have to duplicate your content and quickly move meals around your menus.
 
@@ -54,6 +50,14 @@ Assign properties to your meals such as:
 - Dietary Requirements (Vegetarian, Vegan, etc)
 
 Create menu courses and assign the meal to the courses and menus.
+
+**Future Developments**
+
+- MailChimp Support is coming soon.
+
+**Plugin Instructions**
+
+The plugin instructions are online and can be found at [Restaurant Manager Documentation](http://www.syntaxthemes.co.uk/restaurant-manager-documentation/ "Restaurant Plugin Documentation"). The decision to not ship the documentation with the plugin is to save space and not bloat your plugin with more html code. Also you can read the documentation on the move and in your spare time.
 
 **Restaurant Themes**
 
