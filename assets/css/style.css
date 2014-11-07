@@ -12,6 +12,10 @@ and open the template in the editor.
     Author     : Ryan
 */
 /* 
+    Created on : 16-Oct-2014, 19:54:37
+    Author     : Ryan
+*/
+/* 
     Created on : 30-Oct-2014, 16:01:22
     Author     : Ryan
 */
@@ -126,4 +130,59 @@ and open the template in the editor.
 #syn_restaurant_manager .synth-form input[type=text],
 #syn_restaurant_manager .synth-form textarea {
   width: 100%;
+}
+/*Restaurant Menu*/
+.syn-restaurant-menu {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+.syn-restaurant-menu li {
+  margin: 0;
+  padding: 0;
+}
+.syn-restaurant-menu .syn-menu-title {
+  font-weight: bold;
+}
+.syn-restaurant-menu .syn-menu-content {
+  margin: 0 0 30px 0;
+  padding: 0;
+}
+.syn-restaurant-menu .syn-menu-content:before,
+.syn-restaurant-menu .syn-menu-content:after {
+  clear: both;
+  content: '\0020';
+  display: block;
+  overflow: hidden;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+.syn-restaurant-menu .syn-menu-excerpt {
+  float: left;
+  display: inline-block;
+  width: 70%;
+}
+.syn-restaurant-menu .syn-menu-price {
+  float: right;
+  display: inline-block;
+  width: 20%;
+  text-align: right;
+}
+.syn-restaurant-menu .syn-menu-properties {
+  clear: both;
+  display: block;
+}
+.syn-restaurant-menu .syn-menu-properties span {
+  padding: 0 10px;
+}
+.syn-restaurant-menu .syn-menu-properties span:first-child {
+  padding: 0 10px 0 0;
+}
+.syn-restaurant-menu .syn-spice-rating .rating-star {
+  padding: 0;
+}
+.syn-restaurant-menu .syn-spice-rating .rating-star:first-child {
+  padding: 0;
 }

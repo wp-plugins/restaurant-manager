@@ -23,7 +23,8 @@ class shortcode_extensions extends syn_shortcode_extensions {
     public function create_shortcodes() {
 
         $shortcode_classes = array(
-            'syntaxthemes\restaurant\syn_restaurant_reservation'
+            'syntaxthemes\restaurant\syn_restaurant_reservation',
+            'syntaxthemes\restaurant\syn_restaurant_menu'
         );
                 
         $shortcode_classes = apply_filters('syn_restaurant_manager_add_shortcodes', $shortcode_classes);

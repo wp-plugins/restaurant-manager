@@ -10,14 +10,117 @@ function syn_restaurant_manager_admin_menu() {
 
     if (current_user_can('manage_options')) {
 
-        add_menu_page('Restaurant', 'Restaurant', 'manage_options', 'syn_restaurant_manager', null, null, 210);
+        $parent_menu_slug = 'edit.php?post_type=syn_rest_meal';
 
-        //create submenu items
-        add_submenu_page('syn_restaurant_manager', __('Settings', 'syn_restaurant_plugin'), __('Settings', 'syn_restaurant_plugin'), 'manage_options', 'syn_restaurant_manager_settings', 'syn_restaurant_manager_settings_page');
+        //Settings for the custom admin
+        $page_title = 'Restaurant';
+        $menu_title = 'Restaurant';
+        $capability = 'manage_options';
+        $menu_slug = $parent_menu_slug;
+        $function = null; // Callback function which displays the page content.
+        $icon_url = 'dashicons-syntaxstudio';
+        $position = 210;
+
+        //Add custom admin menu
+        add_menu_page($page_title, $menu_title, $capability, $menu_slug, $function, $icon_url, $position);
+
+        $submenu_pages = array(
+            // Avoid duplicate pages. Add submenu page with same slug as parent slug.            
+//            array(
+//                'parent_slug' => $parent_menu_slug,
+//                'page_title' => 'Dashboard',
+//                'menu_title' => 'Dashboard',
+//                'capability' => 'manage_options',
+//                'menu_slug' => $parent_menu_slug,
+//                'function' => 'syn_restaurant_manager_add_ons_page', // Uses the same callback function as parent menu. 
+//            ),
+            // Post Type :: View Meals
+            array(
+                'parent_slug' => $parent_menu_slug,
+                'page_title' => 'All Meals',
+                'menu_title' => 'Meals',
+                'capability' => 'manage_options',
+                'menu_slug' => 'edit.php?post_type=syn_rest_meal',
+                'function' => null, // Uses the same callback function as parent menu. 
+            ),
+            // Post Type :: Add New Meal
+            array(
+                'parent_slug'   => $parent_menu_slug,
+                'page_title'    => 'Add New Meal',
+                'menu_title'    => 'Add Meal',
+                'capability'    => 'manage_options',
+                'menu_slug'     => 'post-new.php?post_type=syn_rest_meal',
+                'function'      => null,// Doesn't need a callback function.
+            ),
+            array(
+                'parent_slug' => $parent_menu_slug,
+                'page_title' => 'Menus',
+                'menu_title' => 'Menus',
+                'capability' => 'manage_options',
+                'menu_slug' => 'edit-tags.php?taxonomy=syn_menu_type&post_type=syn_rest_meal',
+                'function' => null, // Uses the same callback function as parent menu. 
+            ),
+            array(
+                'parent_slug' => $parent_menu_slug,
+                'page_title' => 'All Reservations',
+                'menu_title' => 'Reservations',
+                'capability' => 'manage_options',
+                'menu_slug' => 'edit.php?post_type=syn_rest_reservation',
+                'function' => null, // Uses the same callback function as parent menu. 
+            ),
+            array(
+                'parent_slug' => $parent_menu_slug,
+                'page_title' => 'Settings',
+                'menu_title' => 'Settings',
+                'capability' => 'manage_options',
+                'menu_slug' => 'syn_restaurant_manager_settings',
+                'function' => 'syn_restaurant_manager_settings_page', // Uses the same callback function as parent menu. 
+            ),
+            array(
+                'parent_slug' => $parent_menu_slug,
+                'page_title' => 'Add-ons',
+                'menu_title' => 'Add-ons',
+                'capability' => 'manage_options',
+                'menu_slug' => 'syn_restaurant_manager_add_ons',
+                'function' => 'syn_restaurant_manager_add_ons_page', // Uses the same callback function as parent menu. 
+            ),
+        );
+
+        // Add each submenu item to custom admin menu.
+        foreach ($submenu_pages as $submenu) {
+
+            add_submenu_page($submenu['parent_slug'], $submenu['page_title'], $submenu['menu_title'], $submenu['capability'], $submenu['menu_slug'], $submenu['function']);
+        }        
     }
 }
 
 add_action('admin_menu', 'syn_restaurant_manager_admin_menu');
+
+if (!function_exists('mbe_set_current_menu')) {
+
+    function mbe_set_current_menu($parent_file) {
+
+        global $submenu_file, $current_screen, $pagenow;
+
+        // Set the submenu as active/current while anywhere in your Custom Post Type (nwcm_news)
+        if ($current_screen->post_type == 'syn_rest_meal') {
+
+            if ($pagenow == 'post.php') {
+                $submenu_file = 'edit.php?post_type=' . $current_screen->post_type;
+            }
+
+            if ($pagenow == 'edit-tags.php') {
+                $submenu_file = 'edit-tags.php?taxonomy=syn_menu_type&post_type=' . $current_screen->post_type;
+            }
+
+            //$parent_file = 'syn_restaurant_manager';
+        }
+
+        return $parent_file;
+    }
+
+    add_filter('parent_file', 'mbe_set_current_menu');
+}
 
 /**
  * The settings page is created here. A tabbed navigation control has also been created 
@@ -34,6 +137,9 @@ function syn_restaurant_manager_settings_page() {
                 <a <?php echo ($tab === 'general' ? 'class="nav-tab nav-tab-active"' : 'class="nav-tab"') ?> href="admin.php?page=syn_restaurant_manager_settings&amp;tab=general"><?php _e('General', 'syn_restaurant_plugin') ?></a>
                 <a <?php echo ($tab === 'reservation_schedule' ? 'class="nav-tab nav-tab-active"' : 'class="nav-tab"') ?> href="admin.php?page=syn_restaurant_manager_settings&amp;tab=reservation_schedule"><?php _e('Reservation Schedule', 'syn_restaurant_plugin') ?></a>
                 <a <?php echo ($tab === 'notifications' ? 'class="nav-tab nav-tab-active"' : 'class="nav-tab"') ?> href="admin.php?page=syn_restaurant_manager_settings&amp;tab=notifications"><?php _e('Notifications', 'syn_restaurant_plugin') ?></a>
+                <?php
+                apply_filters('syn_restaurant_manager_add_setting_tab_navigation', $tab);
+                ?>
             </h2>  
             <?php if ($tab === 'general') { ?>
                 <div class="nav_tab_content">             
@@ -50,6 +156,26 @@ function syn_restaurant_manager_settings_page() {
                     <?php syntaxthemes_notifications_page() ?>
                 </div>
             <?php } ?>
+            <?php
+            apply_filters('syn_restaurant_manager_add_setting_tab', $tab);
+            ?>
+        </div>
+    </div>
+    <?php
+}
+
+function syn_restaurant_manager_add_ons_page() {
+    ?>
+    <div class="wrap">
+        <h2>Add-ons</h2>
+        <div id="syn_restaurant_manager_addons">
+            <div class="addon-item">
+                <img src="" />
+                <h3>Restaurant MailChimp Support Coming Soon</h3>
+                <p>
+
+                </p>
+            </div>
         </div>
     </div>
     <?php
@@ -65,11 +191,12 @@ function syntaxthemes_general_page() {
 
     do_action('syn_restaurant_manager_process_form');
 
-    $session = new syntaxthemes\restaurant\syn_session();
+    $session = new syntaxthemes\restaurant\session();
 
     $group_size = get_option($syn_restaurant_config->plugin_prefix . 'group_size', '');
     $reservation_success_message = get_option($syn_restaurant_config->plugin_prefix . 'reservation_success_message', '');
     $restaurant_telephone = get_option($syn_restaurant_config->plugin_prefix . 'restaurant_telephone', '');
+    $currency_symbol = get_option($syn_restaurant_config->plugin_prefix . 'currency_symbol', '£');
 
     if (empty($reservation_success_message)) {
         $reservation_success_message = __('Thank you, We have successfully received your booking request.  Your booking is awaiting to be confirmed with us.  We will send you updates to the email address provided.');
@@ -99,6 +226,15 @@ function syntaxthemes_general_page() {
                         <p class="description">Set your restaurant telephone contact number.</p>
                     </td>
                 </tr>
+                <tr>
+                    <th scope="row"> 
+                        <label for="currency_symbol"><?php _e('Currency Symbol', 'syn_restaurant_plugin') ?></label>
+                    </th>
+                    <td>
+                        <input id="currency_symbol" class="regular-text" name="currency_symbol" type="text" value="<?php echo $currency_symbol ?>" /> 
+                        <p class="description"><?php _e('Set the currency symbol for your menu prices.', 'syn_restaurant_plugin') ?></p>
+                    </td>
+                </tr>
             </tbody>
         </table>
         <p class="submit">
@@ -120,7 +256,7 @@ function syntaxthemes_reservation_schedule_page() {
 
     do_action('syn_restaurant_manager_process_form');
 
-    $session = new syntaxthemes\restaurant\syn_session();
+    $session = new syntaxthemes\restaurant\session();
     ?>
     <h3>Reservation Schedule Settings</h3>
     <form id="syn_restaurant_manager_schedule_form" action="<?php $session->current_page_url(true) ?>" method="POST">
@@ -178,7 +314,7 @@ function syntaxthemes_notifications_page() {
 
     do_action('syn_restaurant_manager_process_form');
 
-    $session = new syntaxthemes\restaurant\syn_session();
+    $session = new syntaxthemes\restaurant\session();
 
     $reply_to_name = get_option($syn_restaurant_config->plugin_prefix . 'reply_to_name', '');
     $reply_to_email = get_option($syn_restaurant_config->plugin_prefix . 'reply_to_email', '');

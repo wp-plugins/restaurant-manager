@@ -63,7 +63,7 @@ and open the template in the editor.
 .rman-knife-and-fork:before {
   content: "\e601";
 }
-#toplevel_page_syn_restaurant_manager .wp-menu-image:before {
+.dashicons-syntaxstudio:before {
   font: normal 22px/1 'restaurant-manager-icons';
   speak: none !important;
   font-style: normal !important;
@@ -517,4 +517,45 @@ and open the template in the editor.
 }
 #schedule_container .scheduler.closed .schedule-content {
   display: none;
+}
+/* =Restaurant Menus
+-------------------------------------------------------------- */
+#syntaxthemes_restaurant_menus:before,
+#syntaxthemes_restaurant_menus:after {
+  clear: both;
+  content: '\0020';
+  display: block;
+  overflow: hidden;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+#syntaxthemes_restaurant_menus .column {
+  float: left;
+  display: inline-block;
+  width: 50%;
+}
+#syntaxthemes_restaurant_menus .metabox-content label {
+  display: inline-block;
+  width: 18%;
+}
+#syntaxthemes_restaurant_menus .settings-content label {
+  display: inline-block;
+  width: 18%;
+}
+#syn_shortcode_restaurant_menu {
+  height: 100%;
+}
+#syn_shortcode_restaurant_menu #syn_restaurant_menu_ids {
+  max-height: 350px;
+  overflow-y: scroll;
+}
+#syn_shortcode_restaurant_menu label {
+  width: auto;
+}
+#syn_shortcode_restaurant_menu label span {
+  margin-right: 10px;
+}
+#syn_shortcode_restaurant_menu .meal-title {
+  font-weight: bold;
 }

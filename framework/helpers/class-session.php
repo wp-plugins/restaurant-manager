@@ -7,7 +7,7 @@ namespace syntaxthemes\restaurant;
  *
  * @author Ryan Haworth
  */
-class syn_session {
+class session {
 
     public function __construct() {
         

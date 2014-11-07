@@ -22,7 +22,7 @@ class config {
      */
     public function __construct() {
 
-        $this->version = '1.0.2';
+        $this->version = '1.1.0';
         $this->plugin_name = 'Restaurant Manager';
         $this->plugin_slug = 'restaurant-manager';
         $this->plugin_base_name = 'restaurant-manager/restaurant-manager.php';
@@ -30,6 +30,9 @@ class config {
         $this->plugin_path = plugin_dir_path(__FILE__);
         $this->plugin_prefix = 'syn_restaurant_';
         $this->framework_short_prefix = 'syn_';
+        
+        //this is the text domain, do not use it in the i18n translator functions
+        $this->text_domain = 'syn_restaurant_plugin';
     }
 
 }

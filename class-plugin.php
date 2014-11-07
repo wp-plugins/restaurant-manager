@@ -19,9 +19,8 @@ class plugin extends plugin_base {
         global $syn_restaurant_config;
         parent::__construct($syn_restaurant_config);
 
+        add_action('init', array($this, 'add_actions_and_filters'));
         add_action('init', array($this, 'register_script_files'));
-        add_action('admin_enqueue_scripts', array($this, 'admin_scripts'));
-        add_action('wp_enqueue_scripts', array($this, 'frontend_scripts'));
     }
 
     /**
@@ -69,7 +68,13 @@ class plugin extends plugin_base {
      */
     public function add_actions_and_filters() {
 
+        /*
+         * Translations can be added to the /languages/ directory.
+         */
+        load_plugin_textdomain('syn_restaurant_plugin', false, $this->_config->plugin_path . '/languages/');
+
         add_action('admin_enqueue_scripts', array($this, 'admin_scripts'));
+        add_action('wp_enqueue_scripts', array($this, 'frontend_scripts'));
     }
 
     /**
@@ -92,6 +97,13 @@ class plugin extends plugin_base {
         wp_register_script('jquery-pickdate-date-script', plugins_url('/assets/js/pickdate/picker.date.js', __FILE__), array('jquery'), false, true);
         wp_register_script('jquery-pickdate-time-script', plugins_url('/assets/js/pickdate/picker.time.js', __FILE__), array('jquery'), false, true);
         wp_register_script('jquery-pickdate-legacy-script', plugins_url('/assets/js/pickdate/legacy.js', __FILE__), array('jquery'), false, true);
+
+
+
+        wp_register_style('restaurant-menus-admin-style', plugins_url('/assets/css/admin-style.css', __FILE__));
+        wp_register_style('restaurant-menus-style', plugins_url('/assets/css/style.css', __FILE__));
+
+        wp_register_script('restaurant-menus-script', plugins_url('/assets/js/min/restaurant-menus-script.min.js', __FILE__), array('jquery'), false, true);
     }
 
     /**
@@ -122,6 +134,21 @@ class plugin extends plugin_base {
         // load the jquery ui theme
         $url = "http://ajax.googleapis.com/ajax/libs/jqueryui/" . $queryui->ver . "/themes/smoothness/jquery-ui.css";
         wp_enqueue_style('jquery-ui-smoothness', $url, false, null);
+
+
+
+        global $post_type;
+
+        if ($hook === 'post.php' || $hook === 'post-new.php') {
+
+            wp_enqueue_script('restaurant-menus-script');
+        }
+
+        if ($post_type === 'syn_rest_meal' || $hook === 'syn_rest_meal_page_syn_restaurant_menus_settings') {
+            wp_enqueue_style('restaurant-menus-admin-style');
+        }
+
+        wp_enqueue_style('restaurant-menus-admin-style');
     }
 
     /**
@@ -139,6 +166,9 @@ class plugin extends plugin_base {
         // load the jquery ui theme
         $url = "http://ajax.googleapis.com/ajax/libs/jqueryui/" . $queryui->ver . "/themes/smoothness/jquery-ui.css";
         wp_enqueue_style('jquery-ui-smoothness', $url, false, null);
+        
+        
+        wp_enqueue_style('restaurant-menus-style');
     }
 
 }

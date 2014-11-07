@@ -62,7 +62,7 @@ class reservation_post_type {
             'has_archive' => false,
             'menu_position' => 201,
             'show_ui' => true,
-            'show_in_menu' => 'syn_restaurant_manager',
+            'show_in_menu' => false,
                 )
         );
     }

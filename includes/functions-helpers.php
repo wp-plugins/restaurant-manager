@@ -286,4 +286,231 @@ function syntaxthemes_process_notification_email($status, $email_address, $repla
 
     return $result;
 }
+
+
+
+
+
+
+//menu functions
+
+function syn_restaurant_menu_the_content_filter($content) {
+
+    // array of custom shortcodes requiring the fix 
+    $block = join("|", array("syn_restaurant_menu"));
+
+    // opening tag
+    $rep = preg_replace("/(<p>)?\[($block)(\s[^\]]+)?\](<\/p>|<br \/>)?/", "[$2$3]", $content);
+
+    // closing tag
+    $rep = preg_replace("/(<p>)?\[\/($block)](<\/p>|<br \/>)?/", "[/$2]", $rep);
+
+    return $rep;
+}
+
+add_filter("the_content", "syn_restaurant_menu_the_content_filter");
+
+function syn_restaurant_menu_portfolio_featured_image($post_id) {
+
+    $post_thumbnail_id = get_post_thumbnail_id($post_id);
+
+    if ($post_thumbnail_id) {
+        $post_thumbnail_img = wp_get_attachment_image_src($post_thumbnail_id, 'thumbnail');
+
+        return $post_thumbnail_img[0];
+    }
+}
+
+function syn_restaurant_menus_add_shortcodes($shortcode_classes) {
+
+    $shortcodes = array(
+        //'syntaxthemes\restaurant\menus\syn_restaurant_menu'
+    );
+
+    $shortcode_classes = array_merge($shortcode_classes, $shortcodes);
+
+    return $shortcode_classes;
+}
+
+add_filter('syn_restaurant_manager_add_shortcodes', 'syn_restaurant_menus_add_shortcodes', 10, 1);
+
+if (!function_exists('syn_restaurant_menus_get_all_terms_options')) {
+
+    function syn_restaurant_menus_get_all_terms_options($taxonomies = array(), $args = array()) {
+
+        $options = array();
+
+        $defaults = array(
+            'orderby' => 'name',
+            'order' => 'ASC',
+            'hide_empty' => true,
+            'exclude' => array(),
+            'exclude_tree' => array(),
+            'include' => array(),
+            'number' => '',
+            'fields' => 'all',
+            'slug' => '',
+            'parent' => '',
+            'hierarchical' => true,
+            'child_of' => 0,
+            'get' => '',
+            'name__like' => '',
+            'description__like' => '',
+            'pad_counts' => false,
+            'offset' => '',
+            'search' => '',
+            'cache_domain' => 'core'
+        );
+
+        $merged_args = array_merge($defaults, $args);
+
+        $terms = get_terms($taxonomies, $merged_args);
+
+        $options[] = array('text' => __('All Categories', 'synth_taurus_theme'), 'value' => '');
+
+        foreach ($terms as $term) {
+            $options[] = array('text' => $term->name, 'value' => $term->term_id);
+        }
+
+        return $options;
+    }
+
+}
+
+function syn_restaurant_menus_get_spice_rating($spice_rating) {
+
+    $rating = '';
+
+    switch ($spice_rating) {
+        case 0: $rating = '';
+            break;
+        case 1:
+            $rating = '<span class="rating-star rman-flame"></span>';
+            break;
+        case 2:
+            $rating = '<span class="rating-star rman-flame"></span><span class="rating-star rman-flame"></span>';
+            break;
+        case 3:
+            $rating = '<span class="rating-star rman-flame"></span><span class="rating-star rman-flame"></span><span class="rating-star rman-flame"></span>';
+            break;
+        default:
+            $rating = '';
+            break;
+    }
+
+    return $rating;
+}
+
+if (!function_exists('syn_restaurant_menus_get_all_meal_options')) {
+
+    function syn_restaurant_menus_get_all_meal_options() {
+
+        global $syn_restaurant_config;
+
+        $options = array();
+
+        $args = array(
+            'post_type' => 'syn_rest_meal',
+            'posts_per_page' => '-1',
+            'post_status' => 'publish'
+        );
+
+        $query = new \WP_Query($args);
+
+        while ($query->have_posts()) {
+            global $post;
+            $query->the_post();
+
+            $post_id = get_the_ID();
+
+            $currency_symbol = get_option($syn_restaurant_config->plugin_prefix . 'currency_symbol', '£');
+            $full_price = get_post_meta($post_id, 'full_price', true);
+
+            $text = '<span class="meal-title">' . $post->post_title . '</span><span class="meal-price">' . $currency_symbol . $full_price . '</span>';
+
+            $options[] = array('text' => $text, 'value' => $post->ID);
+        }
+
+        wp_reset_query();
+
+        return $options;
+    }
+
+}
+
+if (!function_exists('syn_restaurant_menus_get_meal_options')) {
+
+    function syn_restaurant_menus_get_meal_options() {
+
+        global $syn_restaurant_config;
+
+        $session = new \syntaxthemes\restaurant\session();
+
+        $menu_id = $session->post_var('menu_id');
+        $course_id = $session->post_var('course_id');
+
+        $relation = (empty($menu_id) || empty($course_id)) ? 'OR' : 'AND';
+
+        if (!empty($menu_id) || !empty($course_id)) {
+            $args = array(
+                'post_type' => 'syn_rest_meal',
+                'post_status' => 'publish',
+                'posts_per_page' => -1,
+                'tax_query' => array(
+                    'relation' => $relation,
+                    array(
+                        'taxonomy' => 'syn_menu_type',
+                        'field' => 'id',
+                        'terms' => $menu_id
+                    ),
+                    array(
+                        'taxonomy' => 'syn_menu_course',
+                        'field' => 'id',
+                        'terms' => $course_id
+                    )
+                )
+            );
+        } else {
+            $args = array(
+                'post_type' => 'syn_rest_meal',
+                'post_status' => 'publish',
+                'posts_per_page' => -1,
+            );
+        }
+
+        $query = new \WP_Query($args);
+
+        $html = '';
+
+        if ($query->have_posts()) {
+            while ($query->have_posts()) {
+                $query->the_post();
+
+                global $post;
+
+                $post_id = get_the_ID();
+
+                $currency_symbol = get_option($syn_restaurant_config->plugin_prefix . 'currency_symbol', '£');
+                $full_price = get_post_meta($post_id, 'full_price', true);
+
+                $html .= "<li><input type=\"checkbox\" name=\"syn_restaurant_menu_ids\" value=\"{$post->ID}\">&nbsp;<label><span class=\"meal-title\">{$post->post_title}</span><span class=\"meal-price\">{$currency_symbol}{$full_price}</span></label></li>";
+            }
+        }
+
+        $xml_response = new WP_Ajax_Response();
+
+        $response = array(
+            'id' => 1,
+            'what' => 'syn_restaurant_menu_ids',
+            'action' => 'update_meal_items',
+            'data' => $html
+        );
+        $xml_response->add($response);
+        $xml_response->send();
+
+        die();
+    }
+
+    add_action('wp_ajax_restaurant_menus_get_meal_options', 'syn_restaurant_menus_get_meal_options');
+}
 ?>

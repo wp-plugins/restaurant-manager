@@ -6,22 +6,20 @@
 @import "mixins.less";
 @import "../fonts/restaurant-manager-icons/style.less";
 
-#toplevel_page_syn_restaurant_manager{
-    .wp-menu-image:before{
-        font: normal 22px/1 'restaurant-manager-icons';
-        speak: none !important;
-        font-style: normal !important;
-        font-weight: normal !important;
-        font-variant: normal !important;
-        text-transform: none !important;
-        line-height: 1 !important;
+.dashicons-syntaxstudio:before{
+    font: normal 22px/1 'restaurant-manager-icons';
+    speak: none !important;
+    font-style: normal !important;
+    font-weight: normal !important;
+    font-variant: normal !important;
+    text-transform: none !important;
+    line-height: 1 !important;
 
-        /* Better Font Rendering =========== */
-        -webkit-font-smoothing: antialiased !important;
-        -moz-osx-font-smoothing: grayscale !important;
-        content: '\e601' !important;
-    }
-} 
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+    content: '\e601' !important;
+}
 
 /* =SyntaxThemes TinyMCE 3.x icons
 -------------------------------------------------------------- */
@@ -471,5 +469,59 @@
                 display: none;
             }
         }
+    }
+}
+
+
+
+/* =Restaurant Menus
+-------------------------------------------------------------- */
+
+#syntaxthemes_restaurant_menus{
+
+    .clearfix();
+
+    .column{
+        float: left;
+        display: inline-block; 
+        width: 50%;
+    }
+
+    .metabox-content{
+        label{
+            display: inline-block;
+            width: 18%;
+        }
+        input[type="text"]{
+            //width: 50%;
+        }
+    }
+    .settings-content{
+        label{
+            display: inline-block;
+            width: 18%;
+        }
+        input[type="text"]{
+            //width: 50%;
+        }
+    }
+}
+
+#syn_shortcode_restaurant_menu{
+    height: 100%;
+
+    #syn_restaurant_menu_ids{
+        max-height: 350px;
+        overflow-y: scroll;
+    }
+    label{
+        width: auto;
+
+        span{
+            margin-right: 10px;
+        }
+    }
+    .meal-title{
+        font-weight: bold;
     }
 }

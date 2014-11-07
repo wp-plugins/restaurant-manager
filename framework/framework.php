@@ -23,17 +23,12 @@ require_once('helpers/class-custom-meta-box.php');
 /**
  * Initialise synth session.
  */
-require_once('helpers/class-synth-session.php');
+require_once('helpers/class-session.php');
 
 /**
  * Initialise synth controls.
  */
 require_once('controls/class-control-manager.php');
-
-/**
- * Initialise template locator.
- */
-require_once('helpers/class-template-locator.php');
 
 /**
  * Initialise the shortcode script loader.

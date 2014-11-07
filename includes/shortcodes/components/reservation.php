@@ -61,7 +61,7 @@ class syn_restaurant_reservation extends syn_shortcode_script_loader {
 
         extract($atts);
 
-        $session = new syn_session();
+        $session = new session();
         $group_size = get_option($this->_config->plugin_prefix . 'group_size', 0);
 
         ob_start();

@@ -6,13 +6,13 @@ Author URI: http://www.syntaxthemes.co.uk/restaurant
 Tags: restaurant, reservations, bookings, table bookings, table reservations, reservation notifications, reservation confirm, reservation decline, schedules, schedule reservations
 Requires at least: 3.8
 Tested up to: 4.0
-Stable tag: 1.0.2
+Stable tag: 1.1.0
 Text Domain: syn_restaurant_plugin
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Manage your restaurant table reservations online. Confirm or reject your
-reservations by email. Schedule booking times for your online booking form.
+Manage your Restaurant Meals, Menus and Table Bookings. Confirm or reject your
+reservations. Schedule booking times for your online booking form.
 
 == Description ==
 
@@ -54,8 +54,6 @@ Assign properties to your meals such as:
 - Dietary Requirements (Vegetarian, Vegan, etc)
 
 Create menu courses and assign the meal to the courses and menus.
-
-This plugin is almost ready visit [Restaurant Menus](http://www.syntaxthemes.co.uk/restaurant-menus/ "Restaurant Menus Documentation")
 
 **Restaurant Themes**
 
@@ -110,6 +108,10 @@ Go to the Reservation Schedule tab on the settings page.  Click add new schedule
 There are currently no upgrade notices.
 
 == Changelog ==
+
+**Version 1.1.0**
+
+- Major update, Meals and Menus have been added to the restaurant manager.
 
 **Version 1.0.2**
 
