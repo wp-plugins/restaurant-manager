@@ -45,12 +45,12 @@ function syn_restaurant_manager_admin_menu() {
             ),
             // Post Type :: Add New Meal
             array(
-                'parent_slug'   => $parent_menu_slug,
-                'page_title'    => 'Add New Meal',
-                'menu_title'    => 'Add Meal',
-                'capability'    => 'manage_options',
-                'menu_slug'     => 'post-new.php?post_type=syn_rest_meal',
-                'function'      => null,// Doesn't need a callback function.
+                'parent_slug' => $parent_menu_slug,
+                'page_title' => 'Add New Meal',
+                'menu_title' => 'Add Meal',
+                'capability' => 'manage_options',
+                'menu_slug' => 'post-new.php?post_type=syn_rest_meal',
+                'function' => null, // Doesn't need a callback function.
             ),
             array(
                 'parent_slug' => $parent_menu_slug,
@@ -114,15 +114,15 @@ function syn_restaurant_manager_admin_menu() {
         foreach ($submenu_pages as $submenu) {
 
             add_submenu_page($submenu['parent_slug'], $submenu['page_title'], $submenu['menu_title'], $submenu['capability'], $submenu['menu_slug'], $submenu['function']);
-        }        
+        }
     }
 }
 
 add_action('admin_menu', 'syn_restaurant_manager_admin_menu');
 
-if (!function_exists('mbe_set_current_menu')) {
+if (!function_exists('syn_restaurant_manager_set_current_menu')) {
 
-    function mbe_set_current_menu($parent_file) {
+    function syn_restaurant_manager_set_current_menu($parent_file) {
 
         global $submenu_file, $current_screen, $pagenow;
 
@@ -134,7 +134,7 @@ if (!function_exists('mbe_set_current_menu')) {
             }
 
             if ($pagenow == 'edit-tags.php') {
-                $submenu_file = 'edit-tags.php?taxonomy=syn_rest_menu&post_type=' . $current_screen->post_type;
+                $submenu_file = 'edit-tags.php?taxonomy=' . $current_screen->taxonomy . '&post_type=' . $current_screen->post_type;
             }
 
             //$parent_file = 'syn_restaurant_manager';
@@ -143,7 +143,7 @@ if (!function_exists('mbe_set_current_menu')) {
         return $parent_file;
     }
 
-    add_filter('parent_file', 'mbe_set_current_menu');
+    add_filter('parent_file', 'syn_restaurant_manager_set_current_menu');
 }
 
 /**
