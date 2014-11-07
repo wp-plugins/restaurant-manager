@@ -143,6 +143,7 @@ class syn_restaurant_reservation extends syn_shortcode_script_loader {
                             <textarea id="notes" name="notes"></textarea>
                         </div>
                     </div>
+                    <?php do_action('syn_restaurant_reservation_form_after') ?>
                     <div>
                         <?php wp_nonce_field('request_booking'); ?>
                         <input type="hidden" name="form_action" value="request_booking">

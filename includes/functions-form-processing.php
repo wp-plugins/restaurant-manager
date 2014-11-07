@@ -24,7 +24,7 @@ function syn_restaurant_manager_process_reservation_form() {
     if (!wp_verify_nonce($nonce, 'request_booking')) {
         return false;
     }
-
+        
     $first_name = $session->post_var('first_name');
     $last_name = $session->post_var('last_name');
     $telephone = $session->post_var('telephone');
@@ -89,6 +89,14 @@ function syn_restaurant_manager_process_reservation_form() {
     );
 
     $customer_sent = syntaxthemes_process_notification_email($post_status, $email_address, $replace);
+
+    $details = array(
+        $first_name,
+        $last_name,
+        $email_address,
+    );
+
+    apply_filters('syn_restaurant_reservation_form_processing_end', $details);
 
     return $customer_sent;
 }

@@ -19,7 +19,7 @@ function syn_restaurant_manager_admin_menu() {
         $menu_slug = $parent_menu_slug;
         $function = null; // Callback function which displays the page content.
         $icon_url = 'dashicons-syntaxstudio';
-        $position = 210;
+        $position = 27.15496;
 
         //Add custom admin menu
         add_menu_page($page_title, $menu_title, $capability, $menu_slug, $function, $icon_url, $position);
@@ -234,7 +234,7 @@ function syntaxthemes_general_page() {
                         <input id="currency_symbol" class="regular-text" name="currency_symbol" type="text" value="<?php echo $currency_symbol ?>" /> 
                         <p class="description"><?php _e('Set the currency symbol for your menu prices.', 'syn_restaurant_plugin') ?></p>
                     </td>
-                </tr>
+                </tr>                
             </tbody>
         </table>
         <p class="submit">
