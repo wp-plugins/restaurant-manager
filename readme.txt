@@ -6,7 +6,7 @@ Author URI: http://www.syntaxthemes.co.uk/restaurant
 Tags: restaurant, reservations, bookings, table bookings, table reservations, reservation notifications, reservation confirm, reservation decline, schedules, schedule reservations
 Requires at least: 3.8
 Tested up to: 4.0
-Stable tag: 1.1.5
+Stable tag: 1.1.6
 Text Domain: syn_restaurant_plugin
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -82,6 +82,7 @@ There is an online forum where you can ask questions and discuss with other plug
 **Feedback**
 
 If you like this plugin, then please leave us a good rating and review. Your feedback is really appreciated and will help further support this plugin.  Any new features added to the plugin will be received free. So as we grow, your business will benefit from the extras.  
+
 Consider following us on Google+ [SyntaxThemes](https://plus.google.com/u/0/b/112709703915241928545/+SyntaxthemesCoUk/posts) | Twitter [syntaxthemes](https://twitter.com/syntaxthemes)
 
 > Thank you very much for downloading
@@ -116,6 +117,13 @@ Go to the Reservation Schedule tab on the settings page.  Click add new schedule
 There are currently no upgrade notices.
 
 == Changelog ==
+
+**Version 1.1.6**
+
+- Updated the tinymce plugin for the shortcode modal.
+- Enhanced the shortcode menu modal.
+- Added the shortcode to the wordpress editor menus.
+- Updated ajax shortcode menu support.
 
 **Version 1.1.5**
 
