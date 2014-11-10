@@ -175,8 +175,6 @@ class syn_restaurant_reservation extends syn_shortcode_script_loader {
 
         if ($this->do_add_script) {
 
-            wp_enqueue_style('jquery-pickdate-style', $this->_config->plugin_url . '/assets/js/pickdate/themes/pickdate.css');
-
             wp_enqueue_script('restaurant-manager-script', $this->_config->plugin_url . '/assets/js/synth-restaurant.js', array('jquery', 'jquery-ui-core', 'jquery-ui-datepicker', 'jquery-pickdate-picker-script', 'jquery-pickdate-date-script', 'jquery-pickdate-time-script'), false, true);
             wp_enqueue_script('jquery-validation-script', $this->_config->plugin_url . '/framework/js/validation/jquery.validate.min.js', array('jquery'), '1.11.1', true);
             wp_enqueue_script('synth-validation-script', $this->_config->plugin_url . '/framework/js/synth-validation.js', array('jquery'), false, true);

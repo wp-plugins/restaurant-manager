@@ -29,7 +29,7 @@ class plugin extends plugin_base {
      * When the plugin activates install any database tables which are required.
      */
     public function install_database_tables() {
-
+        
     }
 
     /**
@@ -167,6 +167,7 @@ class plugin extends plugin_base {
         global $wp_scripts;
 
         wp_enqueue_style('restaurant-manager-style', plugins_url('/assets/css/style.css', __FILE__));
+        wp_enqueue_style('jquery-pickdate-style', $this->_config->plugin_url . '/assets/js/pickdate/themes/pickdate.css');
 
         //wp_enqueue_script('syntaxthemes-controls-script', plugins_url('/assets/js/synth-controls.js', __FILE__), array('jquery', 'jquery-ui-core', 'jquery-ui-slider', 'jquery-ui-datepicker', 'jquery-timepicker-script'), false, true);
         // get the jquery ui object
