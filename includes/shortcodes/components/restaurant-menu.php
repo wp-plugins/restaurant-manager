@@ -133,7 +133,7 @@ class syn_restaurant_menu extends syn_shortcode_script_loader {
                                 <a href="<?php the_permalink() ?>"><?php the_title() ?></a>                        
                             </h4>                            
                             <div class="syn-menu-content">
-                                <span class="syn-menu-excerpt"><?php the_excerpt() ?></span>
+                                <div class="syn-menu-excerpt"><?php the_excerpt() ?></div>
                                 <?php if ($full_price && ($full_price !== '0.00') && ($display_price === 'on')) { ?>
                                     <span class="syn-menu-price"><?php echo $currency_symbol . $full_price ?></span>
                                 <?php } ?>
