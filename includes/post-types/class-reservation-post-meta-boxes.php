@@ -9,19 +9,22 @@ namespace syntaxthemes\restaurant;
  */
 class reservation_post_meta_boxes {
 
+    private $_config;
+
     /**
      * The post meta box constructor.
      */
     public function __construct() {
 
-        add_action('add_meta_boxes', array($this, 'remove_meta_boxes'), 10);
+        global $syn_restaurant_config;
+        $this->_config = $syn_restaurant_config;
+
+        add_action('admin_menu', array($this, 'remove_meta_boxes'), 10);
         add_action('add_meta_boxes', array($this, 'rename_meta_boxes'), 20);
         add_action('add_meta_boxes', array($this, 'add_meta_boxes'), 30);
+        add_action('save_post', array($this, 'save_meta_boxes'), 30);
 
         add_action('edit_form_after_title', array($this, 'metabox_positions'));
-
-        add_action('init', array($this, 'init_meta_boxes'), 9999);
-        add_filter('syn_restaurant_manager_meta_boxes', array($this, 'reservation_customer_details_meta_box'));
     }
 
     /**
@@ -41,7 +44,8 @@ class reservation_post_meta_boxes {
      * Remove any unwanted metaboxes.
      */
     public function remove_meta_boxes() {
-        
+
+        remove_meta_box('submitdiv', 'syn_rest_reservation', 'normal');
     }
 
     /**
@@ -56,20 +60,47 @@ class reservation_post_meta_boxes {
      */
     public function add_meta_boxes() {
 
-        add_meta_box('submitdiv', __('Reservation Status', 'syn_restaurant_plugin'), array($this, 'reservation_status_meta_box'), 'syn_rest_reservation', 'side', 'default');
+        add_meta_box('restaurant_reservation_status_metabox', __('Reservation Status', 'syn_restaurant_plugin'), array($this, 'reservation_status_meta_box'), 'syn_rest_reservation', 'side', 'default');
+        add_meta_box('restaurant_customer_notes_metabox', __('Customer Details', 'syn_restaurant_plugin'), array($this, 'reservation_customer_notes_meta_box'), 'syn_rest_reservation', 'advanced', 'high');
+        //add_meta_box('restaurant_customer_emails_metabox', __('Customer Email', 'syn_restaurant_plugin'), array($this, 'reservation_customer_emails_meta_box'), 'syn_rest_reservation', 'advanced', 'high');
     }
 
-    /**
-     * Initialize the metaboxes.
-     * @param type $meta_boxes
-     */
-    function init_meta_boxes($meta_boxes) {
+    public function save_meta_boxes($post_id) {
 
-        $meta_boxes = apply_filters('syn_restaurant_manager_meta_boxes', $meta_boxes);
+        global $post_type, $wpdb;
 
-        foreach ($meta_boxes as $meta_box) {
-            new custom_meta_box($meta_box);
+        $session = new session();
+
+        if ('POST' !== strtoupper($session->server_var('REQUEST_METHOD'))) {
+            return false;
         }
+
+        if ($post_type !== 'syn_rest_reservation') {
+            return false;
+        }
+
+        $first_name = $session->post_var('first_name');
+        $last_name = $session->post_var('last_name');
+        $phone_number = $session->post_var('phone_number');
+        $email_address = $session->post_var('email_address');
+        $guests_count = $session->post_var('guests_count');
+        $reservation_date = $session->post_var('reservation_date');
+        $reservation_time = $session->post_var('reservation_time');
+
+        update_post_meta($post_id, 'first_name', $first_name);
+        update_post_meta($post_id, 'last_name', $last_name);
+        update_post_meta($post_id, 'phone_number', $phone_number);
+        update_post_meta($post_id, 'email_address', $email_address);
+        update_post_meta($post_id, 'guests_count', $guests_count);
+        update_post_meta($post_id, 'reservation_date', $reservation_date);
+        update_post_meta($post_id, 'reservation_time', $reservation_time);
+
+        $arrival_time = date('Y-m-d H:i:s', strtotime("$reservation_date, $reservation_time"));
+        update_post_meta($post_id, 'arrival_time', $arrival_time);
+
+        $title = 'Reservation: ' . $first_name . ' ' . $last_name;
+        $where = array('ID' => $post_id);
+        $wpdb->update($wpdb->posts, array('post_title' => $title), $where);
     }
 
     /**
@@ -77,110 +108,107 @@ class reservation_post_meta_boxes {
      * @global type $syn_restaurant_config
      * @return boolean
      */
-    public function reservation_customer_details_meta_box() {
+    public function reservation_customer_notes_meta_box($post) {
 
-        global $syn_restaurant_config;
+        $first_name = get_post_meta($post->ID, 'first_name', true);
+        $last_name = get_post_meta($post->ID, 'last_name', true);
+        $phone_number = get_post_meta($post->ID, 'phone_number', true);
+        $email_address = get_post_meta($post->ID, 'email_address', true);
+        $guests_count = get_post_meta($post->ID, 'guests_count', true);
+        $reservation_date = get_post_meta($post->ID, 'reservation_date', true);
+        $reservation_time = get_post_meta($post->ID, 'reservation_time', true);
+        ?>
+        <div id="customer_details_metabox" class="metabox-columns">
+            <div class="column metabox-content">
+                <p>
+                    <label for="first_name"><?php _e('First Name', 'syn_restaurant_plugin') ?></label>
+                    <input id="first_name" name="first_name" type="text" value="<?php echo $first_name ?>" data-rule-required="true" /> 
+                </p>
+                <p>
+                    <label for="last_name"><?php _e('Last Name', 'syn_restaurant_plugin') ?></label>
+                    <input id="last_name" name="last_name" type="text" value="<?php echo $last_name ?>" data-rule-required="true" /> 
+                </p>
+                <p>
+                    <label for="phone_number"><?php _e('Phone Number', 'syn_restaurant_plugin') ?></label>
+                    <input id="phone_number" name="phone_number" type="text" value="<?php echo $phone_number ?>" data-rule-required="true" /> 
+                </p>
+                <p>
+                    <label for="email_address"><?php _e('Email Address', 'syn_restaurant_plugin') ?></label>
+                    <input id="email_address" name="email_address" type="text" value="<?php echo $email_address ?>" data-rule-required="true" data-rule-email="true" data-msg-email="Your email address which you have entered is in the incorrect format" /> 
+                </p>
+                <p>
+                    <label for="guests_count"><?php _e('Number of Guests', 'syn_restaurant_plugin') ?></label>
+                    <input id="guests_count" name="guests_count" type="text" value="<?php echo $guests_count ?>" data-rule-required="true" /> 
+                </p>
+                <p>
+                    <label for="reservation_date"><?php _e('Reservation Date', 'syn_restaurant_plugin') ?></label>
+                    <input id="reservation_date" class="syn-datepicker" name="reservation_date" type="text" value="<?php echo $reservation_date ?>" data-rule-required="true" readonly/> 
+                </p>
+                <p>
+                    <label for="reservation_time"><?php _e('Reservation Time', 'syn_restaurant_plugin') ?></label>
+                    <input id="reservation_time" class="syn-timepicker" name="reservation_time" type="text" value="<?php echo $reservation_time ?>" data-rule-required="true" readonly/> 
+                </p>
 
-        $meta_boxes = array();
+            </div>
+            <div class="column metabox-content">                
+            </div>            
+        </div>
+        <div id="customer_notes_box" class="metabox-content">
+            <p id="customer_notes_field">
+                <label for="notes"><?php _e('Customer Notes', 'syn_restaurant_plugin') ?></label>
+                <textarea id="notes" name="content" type="text"><?php echo $post->post_content ?></textarea>
+            </p>
+        </div>
+        <?php
+    }
 
-        $meta_boxes[] = array(
-            'id' => 'restaurant_customer_details_metabox',
-            'title' => 'Customer Details',
-            'pages' => array('syn_rest_reservation'), // post type
-            'context' => 'advanced',
-            'priority' => 'high',
-            'show_names' => true, // Show field names on the left
-            'fields' => array(
-                array(
-                    'id' => $syn_restaurant_config->plugin_prefix . 'first_name',
-                    'name' => 'first_name',
-                    'label' => 'First Name',
-                    'desc' => __('Choose the header feature for your restaurant view.', 'syn_restaurant_plugin'),
-                    'std' => '',
-                    'data' => array(
-                        'rule-required' => 'true',
-                    ),
-                    'template' => 'simple_template',
-                    'type' => 'text'
-                ),
-                array(
-                    'id' => $syn_restaurant_config->plugin_prefix . 'last_name',
-                    'name' => 'last_name',
-                    'label' => 'Last Name',
-                    'desc' => __('Choose the header feature for your restaurant view.', 'syn_restaurant_plugin'),
-                    'std' => '',
-                    'data' => array(
-                        'rule-required' => 'true',
-                    ),
-                    'template' => 'simple_template',
-                    'type' => 'text'
-                ),
-                array(
-                    'id' => $syn_restaurant_config->plugin_prefix . 'phone_number',
-                    'name' => 'phone_number',
-                    'label' => 'Phone Number',
-                    'desc' => __('Choose the header feature for your restaurant view.', 'syn_restaurant_plugin'),
-                    'std' => '',
-                    'data' => array(
-                        'rule-required' => 'true',
-                    ),
-                    'template' => 'simple_template',
-                    'type' => 'text'
-                ),
-                array(
-                    'id' => $syn_restaurant_config->plugin_prefix . 'email_address',
-                    'name' => 'email_address',
-                    'label' => 'Email Address',
-                    'desc' => __('Choose the header feature for your restaurant view.', 'syn_restaurant_plugin'),
-                    'std' => '',
-                    'data' => array(
-                        'rule-required' => 'true',
-                        'rule-email' => 'true',
-                        'msg-email' => __('Your email address which you have entered is in the incorrect format', 'syn_restaurant_plugin')
-                    ),
-                    'template' => 'simple_template',
-                    'type' => 'text'
-                ),
-                array(
-                    'id' => $syn_restaurant_config->plugin_prefix . 'guests_count',
-                    'name' => 'guests_count',
-                    'label' => 'Number of Guests',
-                    'desc' => __('Choose the header feature for your restaurant view.', 'syn_restaurant_plugin'),
-                    'std' => '',
-                    'data' => array(
-                        'rule-required' => 'true',
-                    ),
-                    'template' => 'simple_template',
-                    'type' => 'text'
-                ),
-                array(
-                    'id' => $syn_restaurant_config->plugin_prefix . 'reservation_date',
-                    'name' => 'reservation_date',
-                    'label' => 'Reservation Date',
-                    'desc' => __('Choose the header feature for your restaurant view.', 'syn_restaurant_plugin'),
-                    'std' => '',
-                    'data' => array(
-                        'rule-required' => 'true',
-                    ),
-                    'template' => 'simple_template',
-                    'type' => 'datepicker'
-                ),
-                array(
-                    'id' => $syn_restaurant_config->plugin_prefix . 'reservation_time',
-                    'name' => 'reservation_time',
-                    'label' => 'Reservation Time',
-                    'desc' => __('Choose the header feature for your restaurant view.', 'syn_restaurant_plugin'),
-                    'std' => '',
-                    'data' => array(
-                        'rule-required' => 'true',
-                    ),
-                    'template' => 'simple_template',
-                    'type' => 'timepicker'
-                )
-            )
-        );
+    public function reservation_customer_emails_meta_box($post) {
 
-        return $meta_boxes;
+        $email_address = get_post_meta($post->ID, 'customer_email', true);
+        ?>
+        <div id="reservation_email_field" class="metabox-content">
+            <p>
+                <?php
+                $email_content_settings = array(
+                    'textarea_name' => 'admin_email',
+                    'textarea_rows' => 10,
+                    'media_buttons' => false,
+                    'teeny' => true,
+                    'tinymce' => array(
+                        'toolbar1' => 'bold, italic, underline, bullist, numlist'
+                    ),
+                    'quicktags' => false,
+                    'wpautop' => true
+                );
+
+                wp_editor('', 'email_content', $email_content_settings);
+                ?>
+            </p>
+            <p class="description">
+                <?php _e('Write the content for your customer email in the box and send.', 'syn_restaurant_plugin') ?>
+            </p>
+            <p>
+                <input id="reservation_id" type="hidden" value="<?php echo $post->ID ?>"/>
+                <a id="customer_email_send" class="button secondary" href="javascript:void(0)">Send Email</a>               
+            </p>
+            <div id="customer_emails">
+                <div id="admin-email-message"></div>
+                <?php
+                $args = array(
+                    'post_id' => $post->ID
+                );
+                $comments = get_comments($args);
+
+                //var_dump($comments);
+
+                $emails_list_table = new \emails_list_table();
+                $emails_list_table->prepare_items();
+                $emails_list_table->display();
+                ?>                
+            </div>
+        </div>   
+
+        <?php
     }
 
     /**
@@ -189,127 +217,27 @@ class reservation_post_meta_boxes {
      * @param \syntaxthemes\restaurant\type $post
      * @param type $metabox
      */
-    public function reservation_status_meta_box($post, $metabox) {
+    public function reservation_status_meta_box($post) {
 
-        global $action;
-
-        $post_type = $post->post_type;
-        $post_type_object = get_post_type_object($post_type);
-        $can_publish = current_user_can($post_type_object->cap->publish_posts);
-        
-        if($post->post_status === 'auto-draft' || $post->post_status === 'draft'){
-           $post->post_status = 'pending'; 
-        }
+        $post_status = $post->post_status;
         ?>
-        <div class="submitbox" id="submitpost">
-
-            <div id="minor-publishing">
-
-                <?php // Hidden submit button early on so that the browser chooses the right button when form is submitted with Return key   ?>
-                <div style="display:none;">
-                    <?php submit_button(__('Save'), 'button', 'save'); ?>
-                </div>
-
-                <div id="misc-publishing-actions">
-
-                    <div class="misc-pub-section misc-pub-post-status"><label for="post_status"><?php _e('Status:') ?></label>
-                        <span id="post-status-display">
-                            <?php
-                            switch ($post->post_status) {
-                                case 'pending':
-                                    _e('Pending Reservation');
-                                    break;
-                                case 'confirmed':
-                                    _e('Confirmed Reservation');
-                                    break;
-                                case 'rejected':
-                                    _e('Rejected Reservation');
-                                    break;
-                                default :
-                                    _e('Pending Reservation');
-                                    break;
-                            }
-                            ?>
-                        </span>                   
-                        <a href="#post_status" <?php if ('complete-reservation' == $post->post_status) { ?>style="display:none;" <?php } ?>class="edit-post-status hide-if-no-js"><span aria-hidden="true"><?php _e('Edit'); ?></span> <span class="screen-reader-text"><?php _e('Edit status'); ?></span></a>
-                        <div id="post-status-select" class="hide-if-js">
-                            <input type="hidden" name="hidden_post_status" id="hidden_post_status" value="<?php echo esc_attr(('pending' == $post->post_status ) ? 'pending' : $post->post_status); ?>" />
-                            <select name='post_status' id='post_status'>
-                                <option<?php selected($post->post_status, 'pending'); ?> value='pending'><?php _e('Pending Reservation') ?></option>
-                                <option<?php selected($post->post_status, 'confirmed'); ?> value='confirmed'><?php _e('Confirm Reservation') ?></option>
-                                <option<?php selected($post->post_status, 'rejected'); ?> value='rejected'><?php _e('Reject Reservation') ?></option>
-                            </select>
-                            <a href="#post_status" class="save-post-status hide-if-no-js button"><?php _e('OK'); ?></a>
-                            <a href="#post_status" class="cancel-post-status hide-if-no-js button-cancel"><?php _e('Cancel'); ?></a>
-                        </div>
-                    </div><!-- .misc-pub-section -->
-
-                    <?php
-                    /* translators: Publish box date format, see http://php.net/date */
-                    $datef = __('M j, Y @ G:i');
-
-                    if (0 != $post->ID) {
-                        if ('future' == $post->post_status) { // scheduled for publishing at a future date
-                            $stamp = __('Scheduled for: <b>%1$s</b>');
-                        } else if ('publish' == $post->post_status || 'private' == $post->post_status) { // already published
-                            $stamp = __('Published on: <b>%1$s</b>');
-                        } else if ('0000-00-00 00:00:00' == $post->post_date_gmt) { // draft, 1 or more saves, no date specified
-                            $stamp = __('Publish <b>immediately</b>');
-                        } else if (time() < strtotime($post->post_date_gmt . ' +0000')) { // draft, 1 or more saves, future date specified
-                            $stamp = __('Schedule for: <b>%1$s</b>');
-                        } else { // draft, 1 or more saves, date specified
-                            $stamp = __('Publish on: <b>%1$s</b>');
-                        }
-                        $date = date_i18n($datef, strtotime($post->post_date));
-                    } else { // draft (no saves, and thus no date specified)
-                        $stamp = __('Publish <b>immediately</b>');
-                        $date = date_i18n($datef, strtotime(current_time('mysql')));
-                    }
-
-                    if (!empty($args['args']['revisions_count'])) :
-                        $revisions_to_keep = wp_revisions_to_keep($post);
-                        ?>
-                        <div class="misc-pub-section misc-pub-revisions">
-                            <?php
-                            if ($revisions_to_keep > 0 && $revisions_to_keep <= $args['args']['revisions_count']) {
-                                echo '<span title="' . esc_attr(sprintf(__('Your site is configured to keep only the last %s revisions.'), number_format_i18n($revisions_to_keep))) . '">';
-                                printf(__('Revisions: %s'), '<b>' . number_format_i18n($args['args']['revisions_count']) . '+</b>');
-                                echo '</span>';
-                            } else {
-                                printf(__('Revisions: %s'), '<b>' . number_format_i18n($args['args']['revisions_count']) . '</b>');
-                            }
-                            ?>
-                            <a class="hide-if-no-js" href="<?php echo esc_url(get_edit_post_link($args['args']['revision_id'])); ?>"><span aria-hidden="true"><?php _ex('Browse', 'revisions'); ?></span> <span class="screen-reader-text"><?php _e('Browse revisions'); ?></span></a>
-                        </div>
+        <div class="metabox-content submitbox">
+            <div id="reservation_status_field" class="field-control">
+                <p>
+                    <label for="reservation_status"><?php _e('Status', 'syn_restaurant_plugin') ?></label>
+                    <select id="reservation_status" name="post_status">
                         <?php
-                    endif;
+                        $statuses = $this->reservation_statuses();
 
-                    if ($can_publish) : // Contributors don't get to choose the date of publish 
+                        foreach ($statuses as $key => $status) {
+                            ?>
+                            <option value="<?php echo $key ?>"<?php selected($post_status, $key, true) ?>><?php echo $status ?></option>
+                            <?php
+                        }
                         ?>
-                        <div class="misc-pub-section curtime misc-pub-curtime">
-                            <span id="timestamp">
-                                <?php printf($stamp, $date); ?>
-                            </span>                        
-                            <div id="timestampdiv" class="hide-if-js">
-                                <?php touch_time(($action == 'pending'), 1); ?>
-                            </div>
-                        </div>
-                        <?php // /misc-pub-section  ?>
-
-                    <?php endif; ?>
-
-                    <?php
-                    /**
-                     * Fires after the post time/date setting in the Publish meta box.
-                     *
-                     * @since 2.9.0
-                     */
-                    do_action('post_submitbox_misc_actions');
-                    ?>
-                </div>
-                <div class="clear"></div>
-            </div>
-
+                    </select>
+                </p>                
+            </div>  
             <div id="major-publishing-actions">
                 <?php
                 /**
@@ -334,11 +262,15 @@ class reservation_post_meta_boxes {
                 <div id="publishing-action">
                     <span class="spinner"></span>      
                     <?php
+                    $post_type = $post->post_type;
+                    $post_type_object = get_post_type_object($post_type);
+                    $can_publish = current_user_can($post_type_object->cap->publish_posts);
+
                     if (!in_array($post->post_status, array('pending', 'confirmed', 'rejected')) || 0 == $post->ID) {
                         if ($can_publish) {
                             ?>
                             <input name="original_publish" type="hidden" id="original_publish" value="<?php esc_attr_e('Publish') ?>" />
-                            <?php submit_button(__('Save Reservation'), 'primary button-large', 'pending', false, array('accesskey' => 'p')); ?>
+                            <?php submit_button(__('Save Reservation'), 'primary button-large', 'submit', false, array('accesskey' => 'p')); ?>
                             <?php
                         }
                     } else {
@@ -351,7 +283,6 @@ class reservation_post_meta_boxes {
                 <div class="clear"></div>
             </div>
         </div>
-
         <?php
     }
 

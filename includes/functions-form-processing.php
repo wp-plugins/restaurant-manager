@@ -24,7 +24,7 @@ function syn_restaurant_manager_process_reservation_form() {
     if (!wp_verify_nonce($nonce, 'request_booking')) {
         return false;
     }
-        
+
     $first_name = $session->post_var('first_name');
     $last_name = $session->post_var('last_name');
     $telephone = $session->post_var('telephone');
@@ -57,6 +57,7 @@ function syn_restaurant_manager_process_reservation_form() {
 
     $post_id = wp_insert_post($post);
 
+    //insert arrival time in MySql dateformat.
     $arrival_time = date('Y-m-d H:i:s', strtotime("$reservation_date, $reservation_time"));
 
     update_post_meta($post_id, 'first_name', $first_name);
@@ -73,7 +74,11 @@ function syn_restaurant_manager_process_reservation_form() {
 
     $site_name = get_bloginfo('name');
     $site_link = site_url();
-    $current_time = date('Y-m-d H:i:s');
+    $date_format = get_option('date_format');
+    $time_format = get_option('time_format');
+    $current_time = date("{$date_format} - {$time_format}");
+    $reservation_date = date("{$date_format}", strtotime($reservation_date));
+    $reservation_time = date("{$time_format}", strtotime($reservation_time));
 
     $replace = array(
         $site_name,
@@ -131,11 +136,15 @@ function syn_restaurant_manager_process_general_settings_form() {
     $reservation_success_message = $session->post_var('reservation_success_message');
     $restaurant_telephone = $session->post_var('restaurant_telephone');
     $currency_symbol = $session->post_var('currency_symbol');
+    //$date_format = $session->post_var('date_format');
+    //$time_format = $session->post_var('time_format');
 
     update_option($syn_restaurant_config->plugin_prefix . 'group_size', $group_size);
     update_option($syn_restaurant_config->plugin_prefix . 'reservation_success_message', $reservation_success_message);
     update_option($syn_restaurant_config->plugin_prefix . 'restaurant_telephone', $restaurant_telephone);
     update_option($syn_restaurant_config->plugin_prefix . 'currency_symbol', $currency_symbol);
+    //update_option($syn_restaurant_config->plugin_prefix . 'date_format', $date_format);
+    //update_option($syn_restaurant_config->plugin_prefix . 'time_format', $time_format);
 }
 
 add_action('syn_restaurant_manager_process_form', 'syn_restaurant_manager_process_general_settings_form');

@@ -6,7 +6,7 @@ Author URI: http://www.syntaxthemes.co.uk/restaurant
 Tags: restaurant, reservations, bookings, table bookings, table reservations, reservation notifications, reservation confirm, reservation decline, schedules, schedule reservations
 Requires at least: 3.8
 Tested up to: 4.0
-Stable tag: 1.1.6
+Stable tag: 1.1.7
 Text Domain: syn_restaurant_plugin
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -117,6 +117,11 @@ Go to the Reservation Schedule tab on the settings page.  Click add new schedule
 There are currently no upgrade notices.
 
 == Changelog ==
+
+**Version 1.1.7**
+
+- Improved the add reservation screen in the admin.
+- Added date and time formatting built in by WordPress to all date components.
 
 **Version 1.1.6**
 

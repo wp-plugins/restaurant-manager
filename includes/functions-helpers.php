@@ -196,7 +196,7 @@ function syn_restaurant_manager_get_scheduler() {
 
             $days_obj = array($monday_text, $tuesday_text, $wednesday_text, $thursday_text, $friday_text, $saturday_text, $sunday_text);
             $days_text = implode(', ', array_filter($days_obj));
-            $days_text = (!empty($days_text)) ? '<i class="rman-calendar"></i>' . $days_text : null;
+            $days_text = (!empty($days_text)) ? '' . $days_text : null;
             $time_text = date('H:i A', strtotime($starttime)) . ' - ' . date('H:i A', strtotime($endtime));
 
             $parameters = array(
@@ -229,8 +229,8 @@ function syn_restaurant_manager_schedule_template($parameters = array(), $key = 
     ?>
     <div class="scheduler<?php echo $parameters['content_open'] ?>">
         <div class="schedule-header">
-            <span class="schedule-days"><?php echo $parameters['days_text'] ?></span>
-            <span class="schedule-time"><i class="rman-clock-o"></i><?php echo $parameters['time_text'] ?></span>
+            <span class="schedule-days"><i class="days-icon rman-calendar"></i><?php echo $parameters['days_text'] ?></span>
+            <span class="schedule-time"><i class="time-icon rman-clock-o"></i><?php echo $parameters['time_text'] ?></span>
             <a class="delete-schedule-button" href="javascrip:void(0)"></a> 
             <a class="toggle-schedule-button" href="javascrip:void(0)"></a>
         </div>
@@ -299,14 +299,9 @@ function syntaxthemes_process_notification_email($status, $email_address, $repla
         default: null;
             break;
     }
-
+    
     return $result;
 }
-
-
-
-
-
 
 //menu functions
 
@@ -340,7 +335,7 @@ function syn_restaurant_menu_portfolio_featured_image($post_id) {
 function syn_restaurant_menus_add_shortcodes($shortcode_classes) {
 
     $shortcodes = array(
-        //'syntaxthemes\restaurant\menus\syn_restaurant_menu'
+            //'syntaxthemes\restaurant\menus\syn_restaurant_menu'
     );
 
     $shortcode_classes = array_merge($shortcode_classes, $shortcodes);
@@ -528,5 +523,52 @@ if (!function_exists('syn_restaurant_menus_get_meal_options')) {
     }
 
     add_action('wp_ajax_restaurant_menus_get_meal_options', 'syn_restaurant_menus_get_meal_options');
+}
+
+if (!function_exists('syn_restaurant_manager_send_customer_email')) {
+
+    function syn_restaurant_manager_send_customer_email() {
+
+        $session = new \syntaxthemes\restaurant\session();
+
+        $post_id = $session->post_var('post_id');
+        $email_content = $session->post_var('email_content');
+        $first_name = get_post_meta($post_id, 'first_name', true);
+        $last_name = get_post_meta($post_id, 'last_name', true);
+        $email_address = get_post_meta($post_id, 'email_address', true);
+        $time = current_time('mysql');
+        $user = get_user_by('email', get_option('admin_email'));
+
+        $data = array(
+            'comment_post_ID' => $post_id,
+            'comment_author' => "$first_name $last_name",
+            'comment_author_email' => $email_address,
+            'comment_author_url' => 'http://',
+            'comment_content' => $email_content,
+            'comment_type' => '',
+            'comment_parent' => 0,
+            'user_id' => $user->ID,
+            'comment_author_IP' => '127.0.0.1',
+            'comment_agent' => 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.10) Gecko/2009042316 Firefox/3.0.10 (.NET CLR 3.5.30729)',
+            'comment_date' => $time,
+            'comment_approved' => 1,
+        );
+
+        $comment_id = wp_new_comment($data);
+        //$comment = get_comment($comment_id);
+
+        if (isset($comment_id) && !empty($comment_id)) {
+            $response = array(
+                'comment' => $data,
+                'message' => _('Your email has successfully been sent to your customer.')
+            );
+
+            wp_send_json($response);
+        }
+
+        die();
+    }
+
+    add_action('wp_ajax_restaurant_manager_send_customer_email', 'syn_restaurant_manager_send_customer_email');
 }
 ?>

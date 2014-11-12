@@ -378,6 +378,9 @@ and open the template in the editor.
   margin: 0;
   padding: 0;
 }
+#restaurant_reservation_status_metabox .inside .field-control {
+  padding: 6px 10px 8px;
+}
 #restaurant_reservation_status_metabox #reservation_publishing {
   padding: 12px;
 }
@@ -471,8 +474,8 @@ and open the template in the editor.
 #schedule_container .scheduler .schedule-header .schedule-days {
   margin: 0 30px 0 0;
 }
-#schedule_container .scheduler .schedule-header .icon-calendar,
-#schedule_container .scheduler .schedule-header .icon-clock-o {
+#schedule_container .scheduler .schedule-header .days-icon,
+#schedule_container .scheduler .schedule-header .time-icon {
   margin: 0 5px 0 0;
 }
 #schedule_container .scheduler .schedule-content {
@@ -518,6 +521,63 @@ and open the template in the editor.
 #schedule_container .scheduler.closed .schedule-content {
   display: none;
 }
+#reservation_notes_field label,
+#reservation_notes_field textarea {
+  width: 100%;
+}
+#reservation_notes_field textarea {
+  width: 100%;
+  max-width: 100%;
+  min-height: 300px;
+}
+/* =Metabox Columns
+-------------------------------------------------------------- */
+.metabox-columns:before,
+.metabox-columns:after {
+  clear: both;
+  content: '\0020';
+  display: block;
+  overflow: hidden;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+.metabox-columns .column {
+  float: left;
+  display: inline-block;
+  width: 50%;
+}
+.metabox-columns .metabox-content label {
+  display: inline-block;
+  width: 18%;
+}
+#customer_details_metabox {
+  margin: 0 0 30px 0;
+}
+#customer_details_metabox input[type="text"] {
+  width: 75%;
+}
+#customer_details_metabox input[type="text"]:focus {
+  outline: 0;
+}
+#customer_details_metabox input.error {
+  border: 1px solid red;
+}
+#customer_details_metabox label.error {
+  display: block;
+  width: 75%;
+  margin-left: 19%;
+  color: red;
+}
+#customer_notes_field label,
+#customer_notes_field textarea {
+  width: 100%;
+}
+#customer_notes_field textarea {
+  width: 100%;
+  max-width: 100%;
+  min-height: 260px;
+}
 /* =Restaurant Menus
 -------------------------------------------------------------- */
 #syntaxthemes_restaurant_menus:before,
@@ -558,4 +618,85 @@ and open the template in the editor.
 }
 #syn_shortcode_restaurant_menu .meal-title {
   font-weight: bold;
+}
+/* =Restaurant Menus
+-------------------------------------------------------------- */
+#syn_restaurant_manager_addons .addons-list {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+}
+#syn_restaurant_manager_addons .addon-item {
+  display: table-cell;
+  padding: 0 20px 20px 0;
+  width: 33.33333333%;
+}
+#syn_restaurant_manager_addons .addon-block {
+  border: 1px solid #e1e1e1;
+  background-color: #ffffff;
+  margin: 0 20px 20px 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+#syn_restaurant_manager_addons .addon-title {
+  margin: 0;
+  padding: 20px;
+  border-bottom: 1px solid #e1e1e1;
+}
+#syn_restaurant_manager_addons .addon-content {
+  padding: 20px;
+  overflow: hidden;
+  border-bottom: 1px solid #e1e1e1;
+}
+#syn_restaurant_manager_addons .addon-content:before,
+#syn_restaurant_manager_addons .addon-content:after {
+  clear: both;
+  content: '\0020';
+  display: block;
+  overflow: hidden;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+#syn_restaurant_manager_addons .addon-image {
+  float: left;
+  display: block;
+  margin: 0 20px 20px 0;
+  width: 150px;
+  height: 150px;
+}
+#syn_restaurant_manager_addons .addon-footer {
+  line-height: 28px;
+  padding: 20px;
+  background-color: #fcfafa;
+}
+#syn_restaurant_manager_addons .addon-footer:before,
+#syn_restaurant_manager_addons .addon-footer:after {
+  clear: both;
+  content: '\0020';
+  display: block;
+  overflow: hidden;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+#syn_restaurant_manager_addons .addon-footer .read-more-link {
+  text-decoration: none;
+}
+#syn_restaurant_manager_addons .addon-footer .buy-now {
+  float: right;
+}
+/* =Customer Email List
+-------------------------------------------------------------- */
+.wp-list-table #comment_author,
+.wp-list-table .comment-author {
+  width: 20%;
+}
+.wp-list-table .comment-email {
+  display: block;
+}
+.wp-list-table .comment_content .comment-submitted {
+  display: block;
+  margin: 0 0 5px 0;
 }

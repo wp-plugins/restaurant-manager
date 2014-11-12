@@ -1,10 +1,12 @@
 "use strict";
 
-jQuery(document).ready(function()
+jQuery(document).ready(function ()
 {
     syn_restaurant_manager_datepicker();
     syn_restaurant_manager_schedular_timepicker();
     syn_restaurant_manager_scheduler();
+
+    syn_restaurant_manager_customer_email();
 });
 
 function syn_restaurant_manager_datepicker() {
@@ -58,7 +60,7 @@ function syn_restaurant_manager_scheduler() {
 
         var $template = jQuery(template);
 
-        $template.find('input').each(function() {
+        $template.find('input').each(function () {
 
             var name = jQuery(this).attr('name');
             name = name.replace('%index%', _index);
@@ -74,6 +76,44 @@ function syn_restaurant_manager_scheduler() {
 
         var $scheduler = jQuery(this).closest('.scheduler');
         $scheduler.remove();
+    }
+
+}
+
+function syn_restaurant_manager_customer_email() {
+
+    jQuery('#customer_email_send').click(send_the_email);
+
+    function send_the_email() {
+
+        if (window.tinyMCE) {
+            var reservation_id = jQuery('#reservation_id').val();
+            var content = tinyMCE.get('email_content').getContent();
+
+            jQuery.ajax({
+                type: 'POST',
+                url: ajaxurl,
+                dataType: 'json',
+                data: {
+                    action: 'restaurant_manager_send_customer_email',
+                    post_id: reservation_id,
+                    email_content: content
+                },
+                success: function (response) {
+
+                    if (response) {
+                        jQuery('#admin-email-message').html('<div class="updated"><p>' + response.message + '</p></div>');
+                    }
+                },
+                error: function (response, jqXHR, textStatus, errorThrown) {
+
+                    alert(textStatus, errorThrown);
+                },
+                complete: function (response) {
+                }
+            });
+        }
+
     }
 
 }

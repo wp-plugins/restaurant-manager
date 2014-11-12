@@ -239,6 +239,8 @@ function syntaxthemes_general_page() {
     $reservation_success_message = get_option($syn_restaurant_config->plugin_prefix . 'reservation_success_message', '');
     $restaurant_telephone = get_option($syn_restaurant_config->plugin_prefix . 'restaurant_telephone', '');
     $currency_symbol = get_option($syn_restaurant_config->plugin_prefix . 'currency_symbol', '£');
+    //$date_format = get_option($syn_restaurant_config->plugin_prefix . 'date_format', 'F j, Y');
+    //$time_format = get_option($syn_restaurant_config->plugin_prefix . 'time_format', 'g:i a');
 
     if (empty($reservation_success_message)) {
         $reservation_success_message = __('Thank you, We have successfully received your booking request.  Your booking is awaiting to be confirmed with us.  We will send you updates to the email address provided.');
@@ -276,7 +278,40 @@ function syntaxthemes_general_page() {
                         <input id="currency_symbol" class="regular-text" name="currency_symbol" type="text" value="<?php echo $currency_symbol ?>" /> 
                         <p class="description"><?php _e('Set the currency symbol for your menu prices.', 'syn_restaurant_plugin') ?></p>
                     </td>
-                </tr>                
+                </tr>
+<!--                <tr>
+                    <th scope="row"> 
+                        <label for="date_format"><?php _e('Date Format', 'syn_restaurant_plugin') ?></label>
+                    </th>
+                    <td>
+                        <select id="date_format" name="date_format">
+                            <option value="F j, Y"<?php selected($date_format, 'F j, Y', true) ?>><?php echo date('F j, Y') ?></option>
+                            <option value="j F, Y"<?php selected($date_format, 'j F, Y', true) ?>><?php echo date('j F, Y') ?></option>
+                            <option value="m/d/Y"<?php selected($date_format, 'm/d/Y', true) ?>><?php echo date('m/d/Y') ?></option>
+                            <option value="d/m/Y"<?php selected($date_format, 'd/m/Y', true) ?>><?php echo date('d/m/Y') ?></option>
+                        </select>
+                        <p class="description"><?php _e('Set the date format for dates displayed in your emails, bookings and reservation table.', 'syn_restaurant_plugin') ?></p>
+                    </td>
+                </tr>-->
+<!--                <tr>
+                    <th scope="row"> 
+                        <label for="time_format"><?php _e('Time Format', 'syn_restaurant_plugin') ?></label>
+                    </th>
+                    <td>
+                        <select id="time_format" name="time_format">
+                            <option value="g:i a"<?php selected($time_format, 'g:i a', true) ?>><?php echo date('g:i a') ?></option>
+                            <option value="g:i A"<?php selected($time_format, 'g:i A', true) ?>><?php echo date('g:i A') ?></option>
+                            <option value="G:i a"<?php selected($time_format, 'G:i a', true) ?>><?php echo date('G:i a') ?></option>
+                            <option value="G:i A"<?php selected($time_format, 'G:i A', true) ?>><?php echo date('G:i A') ?></option>
+                            <option value="h:i a"<?php selected($time_format, 'h:i a', true) ?>><?php echo date('h:i a') ?></option>
+                            <option value="h:i A"<?php selected($time_format, 'h:i A', true) ?>><?php echo date('h:i A') ?></option>
+                            <option value="H:i a"<?php selected($time_format, 'H:i a', true) ?>><?php echo date('H:i a') ?></option>
+                            <option value="H:i A"<?php selected($time_format, 'H:i A', true) ?>><?php echo date('H:i A') ?></option>                            
+                            <option value="H:i"<?php selected($time_format, 'H:i', true) ?>><?php echo date('H:i') ?></option>
+                        </select>
+                        <p class="description"><?php _e('Set the time format for dates displayed in your emails, bookings and reservation table.', 'syn_restaurant_plugin') ?></p>
+                    </td>
+                </tr>-->
             </tbody>
         </table>
         <p class="submit">
@@ -332,7 +367,7 @@ function syntaxthemes_reservation_schedule_page() {
         'sunday' => '',
         'start_time' => '',
         'end_time' => '',
-        'content_open' => ''
+        'content_open' => ' add-schedule'
     );
     syn_restaurant_manager_schedule_template($parameters);
     ?>

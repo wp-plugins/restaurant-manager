@@ -58,7 +58,7 @@ class reservation_post_type {
             'hierarchical' => false,
             'rewrite' => false,
             'query_var' => false,
-            'supports' => array('title', 'editor'),
+            'supports' => array('title'),
             'has_archive' => false,
             'menu_position' => 201,
             'show_ui' => true,
@@ -109,55 +109,7 @@ class reservation_post_type {
      * @return type
      */
     public function save_post($post_id) {
-
-        if ($post_id == null || empty($_POST))
-            return;
-
-        if (!isset($_POST['post_type']) || $_POST['post_type'] != 'syn_rest_reservation')
-            return;
-
-        global $syn_restaurant_config, $post, $wpdb;
-
-        $first_name = get_post_meta($post_id, 'first_name', true);
-        $last_name = get_post_meta($post_id, 'last_name', true);
-        $telephone = get_post_meta($post_id, 'phone_number', true);
-        $email_address = get_post_meta($post_id, 'email_address', true);
-        $guests_count = get_post_meta($post_id, 'guests_count', true);
-        $reservation_date = get_post_meta($post_id, 'reservation_date', true);
-        $reservation_time = get_post_meta($post_id, 'reservation_time', true);
-        $status = $_POST['post_status'];
         
-        $arrival_time = date('Y-m-d H:i:s', strtotime("$reservation_date, $reservation_time"));
-        update_post_meta($post_id, 'arrival_time', $arrival_time);
-
-        $title = 'Reservation: ' . $first_name . ' ' . $last_name;
-        $where = array('ID' => $post_id);
-        $wpdb->update($wpdb->posts, array('post_title' => $title), $where);
-
-        $site_name = get_bloginfo('name');
-        $site_link = site_url();
-        $current_time = date('Y-m-d H:i:s');
-
-        $restaurant_telephone = get_option($syn_restaurant_config->plugin_prefix . 'restaurant_telephone', '');
-
-        $reservation_date = date('l jS F - Y', strtotime($arrival_time));
-        $reservation_time = date('g:i A', strtotime($arrival_time));
-
-        $replace = array(
-            $site_name,
-            $first_name,
-            $last_name,
-            $telephone,
-            $email_address,
-            $guests_count,
-            $reservation_date,
-            $reservation_time,
-            $current_time,
-            $site_link,
-            $restaurant_telephone
-        );
-
-        $result = syntaxthemes_process_notification_email($status, $email_address, $replace);
     }
 
     /**
@@ -206,7 +158,7 @@ class reservation_post_type {
      */
     public function column_content($column, $post_id) {
 
-        global $post, $post_type;
+        global $post, $post_type, $syn_restaurant_config;
 
         if ($post_type === 'syn_rest_reservation') {
             if ($column == 'name') {
@@ -243,15 +195,19 @@ class reservation_post_type {
             }
             if ($column == 'arrival') {
 
+                $date_format = get_option('date_format');
+                $time_format = get_option('time_format');
                 $arrival_time = get_post_meta($post_id, 'arrival_time', true);
 
-                echo date('F j, Y, g:i a', strtotime($arrival_time));
+                echo date("{$date_format} - {$time_format}", strtotime($arrival_time));
             }
             if ($column == 'status') {
 
                 $status = $post->post_status;
 
                 switch ($status) {
+                    case 'draft' : $status_text = __('Draft', 'syn_restaurant_plugin');
+                        break;
                     case 'pending' : $status_text = __('Pending', 'syn_restaurant_plugin');
                         break;
                     case 'confirmed' : $status_text = __('Confirmed', 'syn_restaurant_plugin');
