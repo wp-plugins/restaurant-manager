@@ -6,7 +6,7 @@ Author URI: http://www.syntaxthemes.co.uk/restaurant
 Tags: restaurant, reservations, bookings, table bookings, table reservations, reservation notifications, reservation confirm, reservation decline, schedules, schedule reservations
 Requires at least: 3.8
 Tested up to: 4.0
-Stable tag: 1.1.7
+Stable tag: 1.1.8
 Text Domain: syn_restaurant_plugin
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -54,6 +54,10 @@ Create menu courses and assign the meal to the courses and menus.
 **MailChimp Support**
 
 - MailChimp Support has now arrived.  Allow your users to subscribe to your MailChimp email list when they book a table. [Download MailChimp Support](http://www.syntaxthemes.co.uk/shop/restaurant-mailchimp-subscribe/ "MailChimp Support").
+
+**Advanced Customer Email Support**
+
+- Advanced customer email support is now available.  Apart from the automated email notifications made when pending, confirming and rejecting a booking, you are now able to send direct email notifications from the customers reservation booking panel. So when you reject a booking or overbook your table you can email the customer directly offering them another alternative. [Download Customer Email Support](http://www.syntaxthemes.co.uk/shop/restaurant-customer-emailer/ "Advanced Customer Email Support") and improve your customer relations.
 
 **Future Developments**
 

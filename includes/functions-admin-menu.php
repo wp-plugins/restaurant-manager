@@ -188,41 +188,6 @@ function syn_restaurant_manager_settings_page() {
     <?php
 }
 
-function syn_restaurant_manager_add_ons_page() {
-    ?>
-    <div class="wrap">
-        <h2>Add-ons</h2>
-        <div id="syn_restaurant_manager_addons">
-            <ul class="addon-list">
-                <li class="addon-item">
-                    <div class="addon-block">                
-                        <h3 class="addon-title">Restaurant MailChimp Subscribe User</h3>
-                        <div class="addon-content">
-                            <img class="addon-image" src="http://www.syntaxthemes.co.uk/wp-content/uploads/2014/11/mailchimp-logo.png" />
-                            <p>
-                                This MailChimp plugin allows you to quickly and easily add a signup checkbox to your reservation form. 
-                                This allows your customers to signup to your services by allowing their email to be added to your MailChimp list. 
-                                Its is very easy to use, just install and on the settings tab enter your MailChimp account API Key and choose your email list.
-                            </p>
-                        </div> 
-                        <div class="addon-footer">
-                            <a class="read-more-link" href="http://www.syntaxthemes.co.uk/shop/restaurant-mailchimp-subscribe/" alt="Read more about this plugin" target="_blank"><?php _e('Read More', '') ?></a>
-                            <a class="buy-now button-primary" href="http://www.syntaxthemes.co.uk/shop/restaurant-mailchimp-subscribe/" alt="Buy this plugin" target="_blank"><?php _e('Buy Now $20.00', '') ?></a>
-                        </div>
-                    </div>
-                </li>
-                <li class="addon-item">
-                    <p>&nbsp;</p>                        
-                </li>
-                <li class="addon-item"> 
-                    <p>&nbsp;</p> 
-                </li>
-            </ul>
-        </div>
-    </div>
-    <?php
-}
-
 /**
  * The general settings page.
  * @global type $syn_restaurant_config
@@ -279,7 +244,7 @@ function syntaxthemes_general_page() {
                         <p class="description"><?php _e('Set the currency symbol for your menu prices.', 'syn_restaurant_plugin') ?></p>
                     </td>
                 </tr>
-<!--                <tr>
+    <!--                <tr>
                     <th scope="row"> 
                         <label for="date_format"><?php _e('Date Format', 'syn_restaurant_plugin') ?></label>
                     </th>
@@ -293,7 +258,7 @@ function syntaxthemes_general_page() {
                         <p class="description"><?php _e('Set the date format for dates displayed in your emails, bookings and reservation table.', 'syn_restaurant_plugin') ?></p>
                     </td>
                 </tr>-->
-<!--                <tr>
+    <!--                <tr>
                     <th scope="row"> 
                         <label for="time_format"><?php _e('Time Format', 'syn_restaurant_plugin') ?></label>
                     </th>
@@ -526,6 +491,58 @@ function syntaxthemes_notifications_page() {
             <input type="submit" name="submit" id="submit" class="button button-primary" value="<?php _e('Save Changes', 'syn_restaurant_plugin') ?>">
         </p>
     </form>
+    <?php
+}
+
+/**
+ * The restaurant manager addons page.
+ */
+function syn_restaurant_manager_add_ons_page() {
+    ?>
+    <div class="wrap">
+        <h2>Add-ons</h2>
+        <div id="syn_restaurant_manager_addons">
+            <ul class="addon-list">
+                <li class="addon-item">
+                    <div class="addon-block">                
+                        <h3 class="addon-title">Restaurant MailChimp Subscribe User</h3>
+                        <div class="addon-content">
+                            <img class="addon-image" src="http://www.syntaxthemes.co.uk/wp-content/uploads/2014/11/mailchimp-logo.png" />
+                            <p>
+                                This MailChimp plugin allows you to quickly and easily add a signup checkbox to your reservation form. 
+                                This allows your customers to signup to your services by allowing their email to be added to your MailChimp list. 
+                                Its is very easy to use, just install and on the settings tab enter your MailChimp account API Key and choose your email list.
+                            </p>
+                        </div> 
+                        <div class="addon-footer">
+                            <a class="read-more-link" href="http://www.syntaxthemes.co.uk/shop/restaurant-mailchimp-subscribe/" alt="Read more about this plugin" target="_blank"><?php _e('Read More', '') ?></a>
+                            <a class="buy-now button-primary" href="http://www.syntaxthemes.co.uk/shop/restaurant-mailchimp-subscribe/" alt="Buy this plugin" target="_blank"><?php _e('Buy Now $20.00', '') ?></a>
+                        </div>
+                    </div>
+                </li>
+                <li class="addon-item">
+                    <div class="addon-block">                
+                        <h3 class="addon-title">Restaurant Customer Direct Email</h3>
+                        <div class="addon-content">
+                            <img class="addon-image" src="http://www.syntaxthemes.co.uk/wp-content/uploads/2014/11/restaurant-emails-logo-450x450.jpg" />
+                            <p>
+                               Now you can email your customers directly from their saved reservation booking record.  All emails sent are
+                               recorded on the booking so you can keep track of communication sent from your restaurant.  Improve your customer
+                               relations without the need for external email clients.
+                            </p>
+                        </div> 
+                        <div class="addon-footer">
+                            <a class="read-more-link" href="http://www.syntaxthemes.co.uk/shop/restaurant-mailchimp-subscribe/" alt="Read more about this plugin" target="_blank"><?php _e('Read More', '') ?></a>
+                            <a class="buy-now button-primary" href="http://www.syntaxthemes.co.uk/shop/restaurant-mailchimp-subscribe/" alt="Buy this plugin" target="_blank"><?php _e('Buy Now $20.00', '') ?></a>
+                        </div>
+                    </div>                       
+                </li>
+                <li class="addon-item"> 
+                    <p>&nbsp;</p> 
+                </li>
+            </ul>
+        </div>
+    </div>
     <?php
 }
 ?>

@@ -16,6 +16,4 @@ require_once('functions-form-processing.php');
 require_once('class-email-notifications.php');
 require_once('shortcodes/class-shortcode-extensions.php');
 require_once('class-reservation-repository.php');
-
-require_once('class-emails-list-table.php');
 ?>

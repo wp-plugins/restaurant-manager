@@ -7,7 +7,7 @@ namespace syntaxthemes\restaurant;
  *
  * @author Ryan Haworth
  */
-class syn_email_notifications extends syn_email {
+class email_notifications extends syn_email {
 
     /**
      * This is a general email processing function.
@@ -19,9 +19,12 @@ class syn_email_notifications extends syn_email {
      * @param type $body
      * @return type
      */
-    public function process_email($reply_name, $reply_to, $to, $subject, $replace, $body) {
+    public function process_email($to, $subject, $message) {
 
-        $this->add_from($reply_name, $reply_to);
+        $reply_to_name = get_option($this->_config->plugin_prefix . 'reply_to_name');
+        $reply_to_email = get_option($this->_config->plugin_prefix . 'reply_to_email');
+
+        $this->add_from($reply_to_name, $reply_to_email);
 
         $this->_to = $to;
         $this->_subject = $subject;
@@ -30,20 +33,6 @@ class syn_email_notifications extends syn_email {
             'Content-Type: text/html'
         );
 
-        $search = array(
-            '%site_name%',
-            '%first_name%',
-            '%last_name%',
-            '%telephone%',
-            '%email_address%',
-            '%guests_count%',
-            '%reservation_date%',
-            '%reservation_time%',
-            '%current_time%',
-            '%site_link%'
-        );
-
-        $message = str_replace($search, $replace, $body);
         $this->_message = stripslashes($message);
 
         return $this->send_mail();

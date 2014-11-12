@@ -16,7 +16,7 @@ function syn_restaurant_menus_get_meal_items() {
         url: ajaxurl,
         dataType: 'xml',
         data: {
-            action: 'restaurant_menus_get_meal_options',
+            action: 'restaurant_manager_get_meal_options',
             menu_id: menu_id,
             course_id: course_id
         },

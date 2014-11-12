@@ -687,16 +687,3 @@ and open the template in the editor.
 #syn_restaurant_manager_addons .addon-footer .buy-now {
   float: right;
 }
-/* =Customer Email List
--------------------------------------------------------------- */
-.wp-list-table #comment_author,
-.wp-list-table .comment-author {
-  width: 20%;
-}
-.wp-list-table .comment-email {
-  display: block;
-}
-.wp-list-table .comment_content .comment-submitted {
-  display: block;
-  margin: 0 0 5px 0;
-}

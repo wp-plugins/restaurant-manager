@@ -70,7 +70,7 @@ function syn_restaurant_manager_process_reservation_form() {
     update_post_meta($post_id, 'arrival_time', $arrival_time);
     update_post_meta($post_id, 'notes', $notes);
 
-    $syn_email = new syntaxthemes\restaurant\syn_email_notifications();
+    $syn_email = new syntaxthemes\restaurant\email_notifications();
 
     $site_name = get_bloginfo('name');
     $site_link = site_url();

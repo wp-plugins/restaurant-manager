@@ -279,7 +279,7 @@ function syn_restaurant_manager_schedule_template($parameters = array(), $key = 
  */
 function syntaxthemes_process_notification_email($status, $email_address, $replace) {
 
-    $syn_email = new \syntaxthemes\restaurant\syn_email_notifications();
+    $syn_email = new \syntaxthemes\restaurant\email_notifications();
     $result = false;
 
     switch ($status) {
@@ -299,7 +299,7 @@ function syntaxthemes_process_notification_email($status, $email_address, $repla
         default: null;
             break;
     }
-    
+
     return $result;
 }
 
@@ -449,9 +449,9 @@ if (!function_exists('syn_restaurant_menus_get_all_meal_options')) {
 
 }
 
-if (!function_exists('syn_restaurant_menus_get_meal_options')) {
+if (!function_exists('syn_restaurant_manager_get_meal_options')) {
 
-    function syn_restaurant_menus_get_meal_options() {
+    function syn_restaurant_manager_get_meal_options() {
 
         global $syn_restaurant_config;
 
@@ -522,53 +522,6 @@ if (!function_exists('syn_restaurant_menus_get_meal_options')) {
         die();
     }
 
-    add_action('wp_ajax_restaurant_menus_get_meal_options', 'syn_restaurant_menus_get_meal_options');
-}
-
-if (!function_exists('syn_restaurant_manager_send_customer_email')) {
-
-    function syn_restaurant_manager_send_customer_email() {
-
-        $session = new \syntaxthemes\restaurant\session();
-
-        $post_id = $session->post_var('post_id');
-        $email_content = $session->post_var('email_content');
-        $first_name = get_post_meta($post_id, 'first_name', true);
-        $last_name = get_post_meta($post_id, 'last_name', true);
-        $email_address = get_post_meta($post_id, 'email_address', true);
-        $time = current_time('mysql');
-        $user = get_user_by('email', get_option('admin_email'));
-
-        $data = array(
-            'comment_post_ID' => $post_id,
-            'comment_author' => "$first_name $last_name",
-            'comment_author_email' => $email_address,
-            'comment_author_url' => 'http://',
-            'comment_content' => $email_content,
-            'comment_type' => '',
-            'comment_parent' => 0,
-            'user_id' => $user->ID,
-            'comment_author_IP' => '127.0.0.1',
-            'comment_agent' => 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.10) Gecko/2009042316 Firefox/3.0.10 (.NET CLR 3.5.30729)',
-            'comment_date' => $time,
-            'comment_approved' => 1,
-        );
-
-        $comment_id = wp_new_comment($data);
-        //$comment = get_comment($comment_id);
-
-        if (isset($comment_id) && !empty($comment_id)) {
-            $response = array(
-                'comment' => $data,
-                'message' => _('Your email has successfully been sent to your customer.')
-            );
-
-            wp_send_json($response);
-        }
-
-        die();
-    }
-
-    add_action('wp_ajax_restaurant_manager_send_customer_email', 'syn_restaurant_manager_send_customer_email');
+    add_action('wp_ajax_restaurant_manager_get_meal_options', 'syn_restaurant_manager_get_meal_options');
 }
 ?>

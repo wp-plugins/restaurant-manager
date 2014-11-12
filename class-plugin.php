@@ -106,11 +106,6 @@ class plugin extends plugin_base {
         wp_register_script('jquery-pickdate-time-script', plugins_url('/assets/js/pickdate/picker.time.js', __FILE__), array('jquery'), false, true);
         wp_register_script('jquery-pickdate-legacy-script', plugins_url('/assets/js/pickdate/legacy.js', __FILE__), array('jquery'), false, true);
 
-
-
-        wp_register_style('restaurant-menus-admin-style', plugins_url('/assets/css/admin-style.css', __FILE__));
-        wp_register_style('restaurant-menus-style', plugins_url('/assets/css/style.css', __FILE__));
-
         wp_register_script('restaurant-menus-script', plugins_url('/assets/js/min/restaurant-menus-script.min.js', __FILE__), array('jquery'), false, true);
     }
 
@@ -122,30 +117,21 @@ class plugin extends plugin_base {
      */
     public function admin_scripts($hook) {
 
-        global $wp_scripts;
+        global $post_type, $wp_scripts;
 
         wp_enqueue_script('jquery-validation');
         wp_enqueue_script('synth-validation-script', plugins_url('framework/js/synth-validation.js', __FILE__), array('jquery'), false, true);
 
-        //wp_enqueue_script('jquery-validation');
         wp_enqueue_script('synth-restaurant-manager-admin-script', plugins_url('framework/js/min/synth-admin.min.js', __FILE__), array('jquery', 'jquery-ui-core', 'jquery-ui-slider', 'jquery-ui-datepicker', 'jquery-timepicker-script'), false, true);
         wp_enqueue_script('synth-restaurant-admin-script', plugins_url('assets/js/min/synth-restaurant-admin.min.js', __FILE__), array('jquery-ui-core', 'jquery-ui-slider', 'jquery-ui-datepicker', 'jquery-timepicker-script'), false, true);
-        //wp_enqueue_script('synth-core-script', plugins_url('framework/js/synth-core.js', __FILE__), array('jquery'), false, true);
-        //wp_enqueue_script('synth-controls-script', plugins_url('framework/js/synth-controls.js', __FILE__), array('jquery'), false, true);
-        //wp_enqueue_script('synth-shortcodes-script', plugins_url('framework/js/synth-shortcodes.js', __FILE__), array('jquery'), false, true);
 
         wp_enqueue_style('restaurant-manager-admin-style');
-        //wp_enqueue_script('syntaxthemes-controls-script', plugins_url('/assets/js/synth-controls.js', __FILE__), array('jquery', 'jquery-ui-core', 'jquery-ui-slider', 'jquery-ui-datepicker', 'jquery-timepicker-script'), false, true);
-        // get the jquery ui object
+
         $queryui = $wp_scripts->query('jquery-ui-core');
 
         // load the jquery ui theme
         $url = "http://ajax.googleapis.com/ajax/libs/jqueryui/" . $queryui->ver . "/themes/smoothness/jquery-ui.css";
         wp_enqueue_style('jquery-ui-smoothness', $url, false, null);
-
-
-
-        global $post_type;
 
         if ($hook === 'post.php' || $hook === 'post-new.php') {
 
@@ -155,8 +141,6 @@ class plugin extends plugin_base {
         if ($post_type === 'syn_rest_meal' || $hook === 'syn_rest_meal_page_syn_restaurant_menus_settings') {
             wp_enqueue_style('restaurant-menus-admin-style');
         }
-
-        wp_enqueue_style('restaurant-menus-admin-style');
     }
 
     /**
@@ -166,7 +150,7 @@ class plugin extends plugin_base {
 
         global $wp_scripts;
 
-        wp_enqueue_style('restaurant-manager-style', plugins_url('/assets/css/style.css', __FILE__));
+        wp_enqueue_style('restaurant-manager-style');
         wp_enqueue_style('jquery-pickdate-style', $this->_config->plugin_url . '/assets/js/pickdate/themes/pickdate.css');
 
         //wp_enqueue_script('syntaxthemes-controls-script', plugins_url('/assets/js/synth-controls.js', __FILE__), array('jquery', 'jquery-ui-core', 'jquery-ui-slider', 'jquery-ui-datepicker', 'jquery-timepicker-script'), false, true);
@@ -175,9 +159,6 @@ class plugin extends plugin_base {
         // load the jquery ui theme
         $url = "http://ajax.googleapis.com/ajax/libs/jqueryui/" . $queryui->ver . "/themes/smoothness/jquery-ui.css";
         wp_enqueue_style('jquery-ui-smoothness', $url, false, null);
-
-
-        wp_enqueue_style('restaurant-menus-style');
     }
 
 }
