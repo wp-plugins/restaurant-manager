@@ -1,0 +1,736 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Restaurant Manager Plugin\n"
+"POT-Creation-Date: 2014-11-07 10:37-0000\n"
+"PO-Revision-Date: 2014-11-07 10:37-0000\n"
+"Last-Translator: \n"
+"Language-Team: SyntaxThemes\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.10\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext;_n;__ngettext_noop;_n_noop;_c;_nc;_x;"
+"_ex;_nx;_nx_noop\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../framework/base/class-plugin-core.php:119
+#: ../framework/base/class-plugin-core.php:130
+#: ../framework/base/class-plugin-core.php:145
+msgid "Error: Plugin: "
+msgstr ""
+
+#: ../framework/base/class-plugin-core.php:120
+msgid "Minimal version of PHP required: "
+msgstr ""
+
+#: ../framework/base/class-plugin-core.php:121
+msgid "Your server's PHP version: "
+msgstr ""
+
+#: ../framework/base/class-plugin-core.php:131
+msgid "Minimal version of Wordpress required: "
+msgstr ""
+
+#: ../framework/base/class-plugin-core.php:132
+msgid "Your server's Wordpress version: "
+msgstr ""
+
+#: ../framework/base/class-plugin-core.php:141
+msgid "The following plugin: "
+msgstr ""
+
+#: ../framework/php/shortcodes/class-shortcode-extensions.php:50
+msgid "Shortcodes Manager"
+msgstr ""
+
+#: ../framework/php/shortcodes/class-shortcode-loader.php:101
+msgid "Your settings have not been saved.  An error has occured."
+msgstr ""
+
+#: ../framework/php/shortcodes/tinymce/class-synth-tinymce-manager.php:70
+msgid "Restaurant Manager Shortcodes"
+msgstr ""
+
+#: ../includes/functions-admin-menu.php:137
+msgid "General"
+msgstr ""
+
+#: ../includes/functions-admin-menu.php:138
+msgid "Reservation Schedule"
+msgstr ""
+
+#: ../includes/functions-admin-menu.php:139
+msgid "Notifications"
+msgstr ""
+
+#: ../includes/functions-admin-menu.php:202
+msgid ""
+"Thank you, We have successfully received your booking request.  Your booking "
+"is awaiting to be confirmed with us.  We will send you updates to the email "
+"address provided."
+msgstr ""
+
+#: ../includes/functions-admin-menu.php:212
+msgid "No limit"
+msgstr ""
+
+#: ../includes/functions-admin-menu.php:231
+msgid "Currency Symbol"
+msgstr ""
+
+#: ../includes/functions-admin-menu.php:235
+msgid "Set the currency symbol for your menu prices."
+msgstr ""
+
+#: ../includes/functions-admin-menu.php:243
+#: ../includes/functions-admin-menu.php:301
+#: ../includes/functions-admin-menu.php:449
+msgid "Save Changes"
+msgstr ""
+
+#: ../includes/functions-admin-menu.php:266
+msgid "Schedule"
+msgstr ""
+
+#: ../includes/functions-admin-menu.php:351
+#: ../includes/functions-admin-menu.php:375
+msgid "You have a booking request"
+msgstr ""
+
+#: ../includes/functions-admin-menu.php:399
+msgid "Your reservation request has been confirmed"
+msgstr ""
+
+#: ../includes/functions-admin-menu.php:423
+msgid "Unfortunately we cannot make your reservation"
+msgstr ""
+
+#: ../includes/functions-helpers.php:173
+msgid "Mon"
+msgstr ""
+
+#: ../includes/functions-helpers.php:174
+msgid "Tue"
+msgstr ""
+
+#: ../includes/functions-helpers.php:175
+msgid "Wed"
+msgstr ""
+
+#: ../includes/functions-helpers.php:176
+msgid "Thu"
+msgstr ""
+
+#: ../includes/functions-helpers.php:177
+msgid "Fri"
+msgstr ""
+
+#: ../includes/functions-helpers.php:178
+msgid "Sat"
+msgstr ""
+
+#: ../includes/functions-helpers.php:179
+msgid "Sun"
+msgstr ""
+
+#: ../includes/functions-helpers.php:369
+msgid "All Categories"
+msgstr ""
+
+#: ../includes/post-types/class-meal-post-meta-boxes.php:55
+msgid "Meal Properties"
+msgstr ""
+
+#: ../includes/post-types/class-meal-post-meta-boxes.php:121
+msgid "Full Price"
+msgstr ""
+
+#: ../includes/post-types/class-meal-post-meta-boxes.php:125
+msgid "Small Plate Price"
+msgstr ""
+
+#: ../includes/post-types/class-meal-post-meta-boxes.php:129
+msgid "Display Pricing"
+msgstr ""
+
+#: ../includes/post-types/class-meal-post-meta-boxes.php:133
+msgid "Calories Count"
+msgstr ""
+
+#: ../includes/post-types/class-meal-post-meta-boxes.php:134
+#: ../includes/shortcodes/components/restaurant-menu.php:153
+#: ../templates/restaurant-manager/single-meal.php:48
+msgid "(kcal)"
+msgstr ""
+
+#: ../includes/post-types/class-meal-post-meta-boxes.php:139
+msgid "New Addition"
+msgstr ""
+
+#: ../includes/post-types/class-meal-post-meta-boxes.php:143
+#: ../includes/shortcodes/components/restaurant-menu.php:158
+#: ../templates/restaurant-manager/single-meal.php:51
+msgid "Healthy Option"
+msgstr ""
+
+#: ../includes/post-types/class-meal-post-meta-boxes.php:147
+#: ../includes/shortcodes/components/restaurant-menu.php:163
+#: ../templates/restaurant-manager/single-meal.php:54
+msgid "Gluten Free"
+msgstr ""
+
+#: ../includes/post-types/class-meal-post-meta-boxes.php:151
+msgid "Spice Rating"
+msgstr ""
+
+#: ../includes/post-types/class-meal-post-meta-boxes.php:153
+msgid "None Spicy"
+msgstr ""
+
+#: ../includes/post-types/class-meal-post-meta-boxes.php:154
+msgid "1 Star"
+msgstr ""
+
+#: ../includes/post-types/class-meal-post-meta-boxes.php:155
+msgid "2 Star"
+msgstr ""
+
+#: ../includes/post-types/class-meal-post-meta-boxes.php:156
+msgid "3 Star"
+msgstr ""
+
+#: ../includes/post-types/class-meal-post-type.php:39
+#: ../includes/post-types/class-meal-post-type.php:41
+msgid "Meals"
+msgstr ""
+
+#: ../includes/post-types/class-meal-post-type.php:40
+#: ../includes/shortcodes/components/restaurant-menu.php:72
+msgid "Meal"
+msgstr ""
+
+#: ../includes/post-types/class-meal-post-type.php:42
+#: ../includes/post-types/class-reservation-post-type.php:40
+msgid "Add New"
+msgstr ""
+
+#: ../includes/post-types/class-meal-post-type.php:43
+msgid "Add New Meal"
+msgstr ""
+
+#: ../includes/post-types/class-meal-post-type.php:44
+#: ../includes/post-types/class-reservation-post-meta-boxes.php:234
+#: ../includes/post-types/class-reservation-post-type.php:42
+#: ../templates/restaurant-manager/single-meal.php:66
+msgid "Edit"
+msgstr ""
+
+#: ../includes/post-types/class-meal-post-type.php:45
+msgid "Edit Meal"
+msgstr ""
+
+#: ../includes/post-types/class-meal-post-type.php:46
+msgid "New Meal"
+msgstr ""
+
+#: ../includes/post-types/class-meal-post-type.php:47
+msgid "View Meal"
+msgstr ""
+
+#: ../includes/post-types/class-meal-post-type.php:48
+msgid "View Meals"
+msgstr ""
+
+#: ../includes/post-types/class-meal-post-type.php:49
+msgid "Search Meals"
+msgstr ""
+
+#: ../includes/post-types/class-meal-post-type.php:50
+#: ../includes/post-types/class-reservation-post-type.php:48
+msgid "No booking found"
+msgstr ""
+
+#: ../includes/post-types/class-meal-post-type.php:51
+#: ../includes/post-types/class-reservation-post-type.php:49
+msgid "No booking found in trash"
+msgstr ""
+
+#: ../includes/post-types/class-meal-post-type.php:52
+msgid "Parent Meal"
+msgstr ""
+
+#: ../includes/post-types/class-meal-post-type.php:55
+#: ../includes/post-types/class-reservation-post-type.php:53
+msgid "This is where reservation items are stored"
+msgstr ""
+
+#: ../includes/post-types/class-meal-post-type.php:79
+#: ../includes/post-types/class-meal-post-type.php:89
+msgid "Menus"
+msgstr ""
+
+#: ../includes/post-types/class-meal-post-type.php:80
+msgid "Menu"
+msgstr ""
+
+#: ../includes/post-types/class-meal-post-type.php:81
+msgid "Search Menus"
+msgstr ""
+
+#: ../includes/post-types/class-meal-post-type.php:82
+#: ../includes/shortcodes/components/restaurant-menu.php:45
+msgid "All Menus"
+msgstr ""
+
+#: ../includes/post-types/class-meal-post-type.php:85
+msgid "Edit Menu"
+msgstr ""
+
+#: ../includes/post-types/class-meal-post-type.php:86
+msgid "Update Menu"
+msgstr ""
+
+#: ../includes/post-types/class-meal-post-type.php:87
+msgid "Add New Menu"
+msgstr ""
+
+#: ../includes/post-types/class-meal-post-type.php:88
+msgid "New Menu Name"
+msgstr ""
+
+#: ../includes/post-types/class-meal-post-type.php:107
+#: ../includes/post-types/class-meal-post-type.php:117
+msgid "Courses"
+msgstr ""
+
+#: ../includes/post-types/class-meal-post-type.php:108
+msgid "Course"
+msgstr ""
+
+#: ../includes/post-types/class-meal-post-type.php:109
+msgid "Search Courses"
+msgstr ""
+
+#: ../includes/post-types/class-meal-post-type.php:110
+#: ../includes/shortcodes/components/restaurant-menu.php:58
+msgid "All Courses"
+msgstr ""
+
+#: ../includes/post-types/class-meal-post-type.php:113
+msgid "Edit Course"
+msgstr ""
+
+#: ../includes/post-types/class-meal-post-type.php:114
+msgid "Update Course"
+msgstr ""
+
+#: ../includes/post-types/class-meal-post-type.php:115
+msgid "Add New Course"
+msgstr ""
+
+#: ../includes/post-types/class-meal-post-type.php:116
+msgid "New Course Name"
+msgstr ""
+
+#: ../includes/post-types/class-meal-post-type.php:135
+#: ../includes/post-types/class-meal-post-type.php:136
+msgid "Dietary"
+msgstr ""
+
+#: ../includes/post-types/class-meal-post-type.php:137
+msgid "Search Diets"
+msgstr ""
+
+#: ../includes/post-types/class-meal-post-type.php:138
+msgid "All Diets"
+msgstr ""
+
+#: ../includes/post-types/class-meal-post-type.php:141
+msgid "Edit Dietary"
+msgstr ""
+
+#: ../includes/post-types/class-meal-post-type.php:142
+msgid "Update Dietary"
+msgstr ""
+
+#: ../includes/post-types/class-meal-post-type.php:143
+msgid "Add New Dietary"
+msgstr ""
+
+#: ../includes/post-types/class-meal-post-type.php:144
+msgid "New Dietary Name"
+msgstr ""
+
+#: ../includes/post-types/class-meal-post-type.php:145
+msgid "Diets"
+msgstr ""
+
+#: ../includes/post-types/class-meal-post-type.php:181
+#: ../includes/post-types/class-meal-post-type.php:191
+msgid "Cuisines"
+msgstr ""
+
+#: ../includes/post-types/class-meal-post-type.php:182
+msgid "Cuisine"
+msgstr ""
+
+#: ../includes/post-types/class-meal-post-type.php:183
+msgid "Search Cuisines"
+msgstr ""
+
+#: ../includes/post-types/class-meal-post-type.php:184
+msgid "All Cuisines"
+msgstr ""
+
+#: ../includes/post-types/class-meal-post-type.php:187
+msgid "Edit Cuisine"
+msgstr ""
+
+#: ../includes/post-types/class-meal-post-type.php:188
+msgid "Update Cuisine"
+msgstr ""
+
+#: ../includes/post-types/class-meal-post-type.php:189
+msgid "Add New Cuisine"
+msgstr ""
+
+#: ../includes/post-types/class-meal-post-type.php:190
+msgid "New Cuisine Name"
+msgstr ""
+
+#: ../includes/post-types/class-meal-post-type.php:257
+msgid "Price"
+msgstr ""
+
+#: ../includes/post-types/class-reservation-post-meta-boxes.php:59
+msgid "Reservation Status"
+msgstr ""
+
+#: ../includes/post-types/class-reservation-post-meta-boxes.php:98
+#: ../includes/post-types/class-reservation-post-meta-boxes.php:110
+#: ../includes/post-types/class-reservation-post-meta-boxes.php:122
+#: ../includes/post-types/class-reservation-post-meta-boxes.php:134
+#: ../includes/post-types/class-reservation-post-meta-boxes.php:148
+#: ../includes/post-types/class-reservation-post-meta-boxes.php:160
+#: ../includes/post-types/class-reservation-post-meta-boxes.php:172
+msgid "Choose the header feature for your restaurant view."
+msgstr ""
+
+#: ../includes/post-types/class-reservation-post-meta-boxes.php:139
+#: ../includes/shortcodes/components/reservation.php:108
+msgid "Your email address which you have entered is in the incorrect format"
+msgstr ""
+
+#: ../includes/post-types/class-reservation-post-meta-boxes.php:210
+msgid "Save"
+msgstr ""
+
+#: ../includes/post-types/class-reservation-post-meta-boxes.php:215
+msgid "Status:"
+msgstr ""
+
+#: ../includes/post-types/class-reservation-post-meta-boxes.php:220
+#: ../includes/post-types/class-reservation-post-meta-boxes.php:229
+#: ../includes/post-types/class-reservation-post-meta-boxes.php:238
+#: ../includes/post-types/class-reservation-post-meta-boxes.php:366
+msgid "Pending Reservation"
+msgstr ""
+
+#: ../includes/post-types/class-reservation-post-meta-boxes.php:223
+msgid "Confirmed Reservation"
+msgstr ""
+
+#: ../includes/post-types/class-reservation-post-meta-boxes.php:226
+msgid "Rejected Reservation"
+msgstr ""
+
+#: ../includes/post-types/class-reservation-post-meta-boxes.php:234
+msgid "Edit status"
+msgstr ""
+
+#: ../includes/post-types/class-reservation-post-meta-boxes.php:239
+#: ../includes/post-types/class-reservation-post-meta-boxes.php:367
+msgid "Confirm Reservation"
+msgstr ""
+
+#: ../includes/post-types/class-reservation-post-meta-boxes.php:240
+#: ../includes/post-types/class-reservation-post-meta-boxes.php:368
+msgid "Reject Reservation"
+msgstr ""
+
+#: ../includes/post-types/class-reservation-post-meta-boxes.php:242
+msgid "OK"
+msgstr ""
+
+#: ../includes/post-types/class-reservation-post-meta-boxes.php:243
+msgid "Cancel"
+msgstr ""
+
+#. translators: Publish box date format, see http://php.net/date
+#: ../includes/post-types/class-reservation-post-meta-boxes.php:249
+msgid "M j, Y @ G:i"
+msgstr ""
+
+#: ../includes/post-types/class-reservation-post-meta-boxes.php:253
+#, php-format
+msgid "Scheduled for: <b>%1$s</b>"
+msgstr ""
+
+#: ../includes/post-types/class-reservation-post-meta-boxes.php:255
+#, php-format
+msgid "Published on: <b>%1$s</b>"
+msgstr ""
+
+#: ../includes/post-types/class-reservation-post-meta-boxes.php:257
+#: ../includes/post-types/class-reservation-post-meta-boxes.php:265
+msgid "Publish <b>immediately</b>"
+msgstr ""
+
+#: ../includes/post-types/class-reservation-post-meta-boxes.php:259
+#, php-format
+msgid "Schedule for: <b>%1$s</b>"
+msgstr ""
+
+#: ../includes/post-types/class-reservation-post-meta-boxes.php:261
+#, php-format
+msgid "Publish on: <b>%1$s</b>"
+msgstr ""
+
+#: ../includes/post-types/class-reservation-post-meta-boxes.php:275
+#, php-format
+msgid "Your site is configured to keep only the last %s revisions."
+msgstr ""
+
+#: ../includes/post-types/class-reservation-post-meta-boxes.php:276
+#: ../includes/post-types/class-reservation-post-meta-boxes.php:279
+#, php-format
+msgid "Revisions: %s"
+msgstr ""
+
+#: ../includes/post-types/class-reservation-post-meta-boxes.php:282
+msgid "Browse"
+msgstr ""
+
+#: ../includes/post-types/class-reservation-post-meta-boxes.php:282
+msgid "Browse revisions"
+msgstr ""
+
+#: ../includes/post-types/class-reservation-post-meta-boxes.php:326
+msgid "Delete Permanently"
+msgstr ""
+
+#: ../includes/post-types/class-reservation-post-meta-boxes.php:328
+msgid "Move to Trash"
+msgstr ""
+
+#: ../includes/post-types/class-reservation-post-meta-boxes.php:341
+msgid "Save Reservation"
+msgstr ""
+
+#: ../includes/post-types/class-reservation-post-meta-boxes.php:365
+msgid "Draft Reservation"
+msgstr ""
+
+#: ../includes/post-types/class-reservation-post-type.php:37
+#: ../includes/post-types/class-reservation-post-type.php:39
+msgid "Reservations"
+msgstr ""
+
+#: ../includes/post-types/class-reservation-post-type.php:38
+msgid "Reservation"
+msgstr ""
+
+#: ../includes/post-types/class-reservation-post-type.php:41
+msgid "Add New Reservation"
+msgstr ""
+
+#: ../includes/post-types/class-reservation-post-type.php:43
+msgid "Edit Reservation"
+msgstr ""
+
+#: ../includes/post-types/class-reservation-post-type.php:44
+msgid "New Reservation"
+msgstr ""
+
+#: ../includes/post-types/class-reservation-post-type.php:45
+msgid "View Reservation"
+msgstr ""
+
+#: ../includes/post-types/class-reservation-post-type.php:46
+msgid "View Reservations"
+msgstr ""
+
+#: ../includes/post-types/class-reservation-post-type.php:47
+msgid "Search Reservations"
+msgstr ""
+
+#: ../includes/post-types/class-reservation-post-type.php:50
+msgid "Parent Reservation"
+msgstr ""
+
+#: ../includes/post-types/class-reservation-post-type.php:76
+#: ../includes/post-types/class-reservation-post-type.php:255
+msgid "Pending"
+msgstr ""
+
+#: ../includes/post-types/class-reservation-post-type.php:77
+#, php-format
+msgid "Pending <span class=\"count\">(%s)</span>"
+msgstr ""
+
+#: ../includes/post-types/class-reservation-post-type.php:85
+msgid "Confirm"
+msgstr ""
+
+#: ../includes/post-types/class-reservation-post-type.php:86
+#, php-format
+msgid "Confirmed <span class=\"count\">(%s)</span>"
+msgstr ""
+
+#: ../includes/post-types/class-reservation-post-type.php:94
+msgid "Reject"
+msgstr ""
+
+#: ../includes/post-types/class-reservation-post-type.php:95
+#, php-format
+msgid "Rejected <span class=\"count\">(%s)</span>"
+msgstr ""
+
+#: ../includes/post-types/class-reservation-post-type.php:180
+msgid "Name"
+msgstr ""
+
+#: ../includes/post-types/class-reservation-post-type.php:181
+#: ../includes/post-types/class-reservation-post-type.php:227
+msgid "Guests"
+msgstr ""
+
+#: ../includes/post-types/class-reservation-post-type.php:182
+msgid "Phone"
+msgstr ""
+
+#: ../includes/post-types/class-reservation-post-type.php:183
+msgid "Email"
+msgstr ""
+
+#: ../includes/post-types/class-reservation-post-type.php:184
+msgid "Arrival"
+msgstr ""
+
+#: ../includes/post-types/class-reservation-post-type.php:185
+msgid "Status"
+msgstr ""
+
+#: ../includes/post-types/class-reservation-post-type.php:186
+msgid "Actions"
+msgstr ""
+
+#: ../includes/post-types/class-reservation-post-type.php:225
+msgid "1 Guest"
+msgstr ""
+
+#: ../includes/post-types/class-reservation-post-type.php:257
+msgid "Confirmed"
+msgstr ""
+
+#: ../includes/post-types/class-reservation-post-type.php:259
+msgid "Rejected"
+msgstr ""
+
+#: ../includes/post-types/class-reservation-post-type.php:261
+msgid "Completed"
+msgstr ""
+
+#: ../includes/post-types/class-reservation-post-type.php:263
+msgid "Unknown"
+msgstr ""
+
+#: ../includes/shortcodes/components/reservation.php:28
+msgid "Restaurant Reservation"
+msgstr ""
+
+#: ../includes/shortcodes/components/reservation.php:81
+msgid "Please enter your first name."
+msgstr ""
+
+#: ../includes/shortcodes/components/reservation.php:90
+msgid "Please enter your last name."
+msgstr ""
+
+#: ../includes/shortcodes/components/reservation.php:99
+msgid "Please enter your contact telephone number."
+msgstr ""
+
+#: ../includes/shortcodes/components/reservation.php:99
+msgid "Your phone number must be digits only without spaces."
+msgstr ""
+
+#: ../includes/shortcodes/components/reservation.php:108
+msgid "Please enter your email address."
+msgstr ""
+
+#: ../includes/shortcodes/components/reservation.php:117
+msgid "Please tell us how many people will be in your party."
+msgstr ""
+
+#: ../includes/shortcodes/components/reservation.php:117
+#, php-format
+msgid "Your party exceeds the maximum group size of %d."
+msgstr ""
+
+#: ../includes/shortcodes/components/reservation.php:126
+msgid "Please choose your reservation date."
+msgstr ""
+
+#: ../includes/shortcodes/components/reservation.php:135
+msgid "Please choose your reservation time."
+msgstr ""
+
+#: ../includes/shortcodes/components/reservation.php:149
+msgid "Request Booking"
+msgstr ""
+
+#: ../includes/shortcodes/components/restaurant-menu.php:28
+msgid "Restaurant Menu"
+msgstr ""
+
+#: ../includes/shortcodes/components/restaurant-menu.php:46
+#: ../includes/shortcodes/components/restaurant-menu.php:59
+msgid "Text"
+msgstr ""
+
+#: ../includes/shortcodes/components/restaurant-menu.php:47
+msgid "Choose your restaurant menu."
+msgstr ""
+
+#: ../includes/shortcodes/components/restaurant-menu.php:60
+msgid "Choose your restaurant course."
+msgstr ""
+
+#: ../includes/shortcodes/components/restaurant-menu.php:71
+msgid "Menu Item"
+msgstr ""
+
+#: ../includes/shortcodes/components/restaurant-menu.php:73
+msgid "Choose your next meal to display in the menu."
+msgstr ""
+
+#: ../includes/shortcodes/components/restaurant-menu.php:74
+msgid "All Meals"
+msgstr ""
+
+#: ../includes/shortcodes/components/restaurant-menu.php:143
+msgid "New"
+msgstr ""
+
+#: ../includes/shortcodes/components/restaurant-menu.php:148
+#: ../templates/restaurant-manager/single-meal.php:45
+msgid "Small Plate"
+msgstr ""
+
+#: ../templates/restaurant-manager/single-meal.php:63
+msgid "Pages:"
+msgstr ""

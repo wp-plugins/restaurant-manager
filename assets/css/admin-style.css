@@ -1,0 +1,689 @@
+/* 
+    Created on : 16-Mar-2014, 15:47:43
+    Author     : Ryan
+*/
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 16-Oct-2014, 19:45:31
+    Author     : Ryan
+*/
+/* 
+    Created on : 16-Oct-2014, 19:54:37
+    Author     : Ryan
+*/
+/* 
+    Created on : 30-Oct-2014, 16:01:22
+    Author     : Ryan
+*/
+@font-face {
+  font-family: 'restaurant-manager-icons';
+  src: url('../fonts/restaurant-manager-icons/fonts/restaurant-manager-icons.eot?eb23kt');
+  src: url('../fonts/restaurant-manager-icons/fonts/restaurant-manager-icons.eot?#iefixeb23kt') format('embedded-opentype'), url('../fonts/restaurant-manager-icons/fonts/restaurant-manager-icons.woff?eb23kt') format('woff'), url('../fonts/restaurant-manager-icons/fonts/restaurant-manager-icons.ttf?eb23kt') format('truetype'), url('../fonts/restaurant-manager-icons/fonts/restaurant-manager-icons.svg?eb23kt#restaurant-manager-icons') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+[class^="rman-"],
+[class*=" rman-"] {
+  font-family: 'restaurant-manager-icons';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.rman-flame:before {
+  content: "\f0df";
+}
+.rman-clock-o:before {
+  content: "\f017";
+}
+.rman-times-circle:before {
+  content: "\f057";
+}
+.rman-calendar:before {
+  content: "\f073";
+}
+.rman-chevron-circle-up:before {
+  content: "\f139";
+}
+.rman-chevron-circle-down:before {
+  content: "\f13a";
+}
+.rman-syntaxstudio:before {
+  content: "\e600";
+}
+.rman-knife-and-fork:before {
+  content: "\e601";
+}
+.dashicons-syntaxstudio:before {
+  font: normal 22px/1 'restaurant-manager-icons';
+  speak: none !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  line-height: 1 !important;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+  content: '\e601' !important;
+}
+/* =SyntaxThemes TinyMCE 3.x icons
+-------------------------------------------------------------- */
+.mce_restaurant_shortcodes .mceIcon {
+  height: 24px !important;
+}
+.mce_restaurant_shortcodes .mceIcon.mce_restaurant_shortcodes:before {
+  font: normal 22px/1 'restaurant-manager-icons' !important;
+  speak: none !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  line-height: 1 !important;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+  vertical-align: top;
+  color: #f73305;
+  content: '\e601' !important;
+}
+.mce_restaurant_shortcodes .mceIcon.mce_restaurant_shortcodes:hover:before {
+  color: #444444;
+}
+.mce_restaurant_shortcodes.mceButtonSelected .mceIcon.mce_restaurant_shortcodes:before {
+  color: #339caf;
+}
+#menu_content_content_restaurant_shortcodes_menu .mceMenuTitle {
+  background-color: #d7d7d7;
+}
+#menu_content_content_restaurant_shortcodes_menu .mceMenuTitle .mceText {
+  color: #000000;
+  font-weight: bold;
+}
+/* =SyntaxThemes TinyMCE 4.x icons
+-------------------------------------------------------------- */
+.mce-i-restaurant_shortcodes:before {
+  font: normal 22px/1 'restaurant-manager-icons' !important;
+  speak: none !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  line-height: 1 !important;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+  vertical-align: top;
+  color: #f73305;
+  content: '\e601' !important;
+}
+.mce-i-restaurant_shortcodes:hover {
+  color: #444444;
+}
+.mce-active .mce-i-restaurant_shortcodes:before {
+  color: #339caf;
+}
+/* =Titan Controls Template Styling
+-------------------------------------------------------------- */
+.control h3 {
+  margin-top: 0;
+}
+.control h4 {
+  margin: 10px 0;
+}
+.control .control-field {
+  border: 1px solid #e4e4e4;
+  padding: 0 15px;
+  margin: 0 0 10px 0;
+}
+.control label {
+  width: 18%;
+  display: inline-block;
+}
+.control label .wide {
+  width: 80%;
+}
+.control input[type='text'] {
+  width: 50%;
+}
+.control select {
+  width: 40%;
+}
+.control textarea {
+  width: 100%;
+}
+.control .upload-image-view {
+  display: block;
+  max-width: 500px;
+  max-height: 200px;
+  margin: 15px 0;
+}
+.synth-ace-editor .ace-editor {
+  margin: 0;
+  min-height: 280px;
+}
+.synth-padding label,
+.synth-border label,
+.synth-padding input,
+.synth-border input {
+  float: left;
+  display: inline-block;
+  width: 60px !important;
+}
+.synth-padding label,
+.synth-border label {
+  text-align: right;
+}
+.synth-padding:after,
+.synth-border:after {
+  clear: both;
+  content: ".";
+  display: block;
+  height: 0;
+  visibility: hidden;
+}
+.post-type-syn_rest_reservation #post-body-content #titlediv {
+  display: none;
+  padding: 0;
+}
+/* css for timepicker */
+.ui-timepicker-div .ui-widget-header {
+  margin-bottom: 8px;
+}
+.ui-timepicker-div dl {
+  text-align: left;
+}
+.ui-timepicker-div dl dt {
+  float: left;
+  clear: left;
+  padding: 0 0 0 5px;
+}
+.ui-timepicker-div dl dd {
+  margin: 0 10px 10px 40%;
+}
+.ui-timepicker-div td {
+  font-size: 90%;
+}
+.ui-tpicker-grid-label {
+  background: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+.ui-timepicker-rtl {
+  direction: rtl;
+}
+.ui-timepicker-rtl dl {
+  text-align: right;
+  padding: 0 5px 0 0;
+}
+.ui-timepicker-rtl dl dt {
+  float: right;
+  clear: right;
+}
+.ui-timepicker-rtl dl dd {
+  margin: 0 40% 10px 10px;
+}
+/* =SyntaxThemes modal
+-------------------------------------------------------------- */
+.synth-modal-background {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #000000;
+  opacity: 0.6;
+  z-index: 10000;
+}
+.synth-modal {
+  position: fixed;
+  top: 50px;
+  right: 20%;
+  bottom: 50px;
+  left: 20%;
+  min-height: 660px;
+  min-width: 760px;
+  background-color: #ffffff;
+  z-index: 10001;
+}
+.synth-modal.fullscreen {
+  position: fixed;
+  top: 50px;
+  right: 8%;
+  bottom: 50px;
+  left: 8%;
+  min-height: 660px;
+  min-width: 60%;
+  width: 85%;
+  background-color: #ffffff;
+  z-index: 10001;
+}
+.synth-modal .synth-modal-content {
+  background-color: #ffffff;
+}
+.synth-modal .synth-modal-content .synth-modal-content-header {
+  position: relative;
+  border-bottom: 1px solid #e4e4e4;
+  height: 56px;
+  line-height: 56px;
+}
+.synth-modal .synth-modal-content .synth-modal-content-header h4 {
+  display: inline-block;
+  margin: 0;
+  font-weight: normal;
+  font-size: 180%;
+  color: #555555;
+  vertical-align: middle;
+}
+.synth-modal .synth-modal-content .synth-modal-content-header .synth-modal-icon {
+  font-size: 32px;
+  width: 32px;
+  height: 32px;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 15px;
+}
+.synth-modal .synth-modal-content .synth-modal-content-header .close-button {
+  position: absolute;
+  background: transparent url(../images/modal-close.png) top left no-repeat;
+  height: 26px;
+  width: 26px;
+  top: 16px;
+  right: 15px;
+}
+.synth-modal .synth-modal-content .synth-modal-content-header .close-button:hover {
+  background: transparent url(../images/modal-close-hover.png) top left no-repeat;
+}
+.synth-modal .synth-modal-content .synth-modal-inner-content {
+  position: absolute;
+  top: 57px;
+  right: 0;
+  left: 0;
+  bottom: 80px;
+  padding: 20px 10px;
+  overflow-y: auto;
+}
+.synth-modal .synth-modal-content .synth-modal-inner-footer {
+  position: absolute;
+  height: 80px;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  border-top: 1px solid #dfdfdf;
+  background-color: #f5f5f5;
+}
+.synth-modal .synth-modal-content .synth-modal-inner-footer .modal-button {
+  position: absolute;
+  bottom: 28px;
+  right: 15px;
+}
+/* =SyntaxThemes Modal Content
+-------------------------------------------------------------- */
+.synth-modal-content .control-field {
+  border: 1px solid #e4e4e4;
+  padding: 0 15px;
+  margin: 0 0 10px 0;
+}
+.synth-modal-content .control-field h3 {
+  margin-top: 0;
+}
+.synth-modal-content .control-field h4 {
+  margin: 10px 0;
+}
+.synth-modal-content .control-field label {
+  width: 18%;
+  display: inline-block;
+}
+.synth-modal-content .control-field input[type='text'] {
+  width: 70%;
+  margin-bottom: 6px;
+}
+.synth-modal-content .control-field select {
+  width: 40%;
+}
+.synth-modal-content .control-field textarea {
+  width: 100%;
+}
+.synth-modal-content .control-field .upload-image-view {
+  display: block;
+  max-width: 500px;
+  max-height: 200px;
+}
+.type-syn_rest_reservation .column-status span {
+  font-weight: bold;
+}
+.type-syn_rest_reservation .status-pending {
+  color: orange;
+}
+.type-syn_rest_reservation .status-confirmed {
+  color: green;
+}
+.type-syn_rest_reservation .status-rejected {
+  color: red;
+}
+.type-syn_rest_reservation .status-complete {
+  color: #555;
+}
+#restaurant_reservation_status_metabox .inside {
+  margin: 0;
+  padding: 0;
+}
+#restaurant_reservation_status_metabox .inside .field-control {
+  padding: 6px 10px 8px;
+}
+#restaurant_reservation_status_metabox #reservation_publishing {
+  padding: 12px;
+}
+#ui-datepicker-div,
+#ui-timepicker-div {
+  z-index: 1000 !important;
+}
+#restaurant_customer_details_metabox label.error {
+  font-size: 90%;
+  color: red;
+  width: 70%;
+}
+#restaurant_customer_details_metabox label.error:before {
+  display: inline;
+  width: auto;
+  height: auto;
+  line-height: normal;
+  vertical-align: baseline;
+  background-image: none;
+  background-position: 0% 0%;
+  background-repeat: repeat;
+  margin-top: 0;
+  font-family: FontAwesome;
+  font-weight: normal;
+  font-style: normal;
+  text-decoration: inherit;
+  -webkit-font-smoothing: antialiased;
+  content: "\f057";
+  margin-right: 4px;
+}
+#restaurant_customer_details_metabox .error {
+  border-color: red;
+}
+/* =Restaurant Scheduler
+-------------------------------------------------------------- */
+#schedule_container .scheduler {
+  margin: 0 0 20px 0;
+  width: 60%;
+  background-color: #ffffff;
+}
+#schedule_container .scheduler .schedule-header {
+  border: 1px solid #e1e1e1;
+  padding: 10px;
+  line-height: 24px;
+}
+#schedule_container .scheduler .schedule-header:before,
+#schedule_container .scheduler .schedule-header:after {
+  clear: both;
+  content: '\0020';
+  display: block;
+  overflow: hidden;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+#schedule_container .scheduler .schedule-header .toggle-schedule-button,
+#schedule_container .scheduler .schedule-header .delete-schedule-button {
+  float: right;
+  text-decoration: none;
+  font-size: 18px;
+  margin: 3px 0 0 0;
+}
+#schedule_container .scheduler .schedule-header .toggle-schedule-button {
+  margin: 3px 5px 0 0;
+  font-family: 'restaurant-manager-icons';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+}
+#schedule_container .scheduler .schedule-header .toggle-schedule-button:before {
+  content: '\f139';
+}
+#schedule_container .scheduler .schedule-header .delete-schedule-button {
+  color: red;
+  font-family: 'restaurant-manager-icons';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+}
+#schedule_container .scheduler .schedule-header .delete-schedule-button:before {
+  content: '\f057';
+}
+#schedule_container .scheduler .schedule-header .schedule-days {
+  margin: 0 30px 0 0;
+}
+#schedule_container .scheduler .schedule-header .days-icon,
+#schedule_container .scheduler .schedule-header .time-icon {
+  margin: 0 5px 0 0;
+}
+#schedule_container .scheduler .schedule-content {
+  border: 1px solid #e1e1e1;
+  border-top: 0;
+  padding: 10px;
+}
+#schedule_container .scheduler .schedule-content.closed {
+  display: none;
+}
+#schedule_container .scheduler .weekdays ul {
+  margin: 20px 0;
+  padding: 0;
+}
+#schedule_container .scheduler .weekdays ul:before,
+#schedule_container .scheduler .weekdays ul:after {
+  clear: both;
+  content: '\0020';
+  display: block;
+  overflow: hidden;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+#schedule_container .scheduler .weekdays ul li {
+  width: 14.2%;
+  display: inline-block;
+  float: left;
+}
+#schedule_container .scheduler.closed .schedule-header .toggle-schedule-button {
+  font-family: 'restaurant-manager-icons';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+}
+#schedule_container .scheduler.closed .schedule-header .toggle-schedule-button:before {
+  content: '\f13a';
+}
+#schedule_container .scheduler.closed .schedule-content {
+  display: none;
+}
+#reservation_notes_field label,
+#reservation_notes_field textarea {
+  width: 100%;
+}
+#reservation_notes_field textarea {
+  width: 100%;
+  max-width: 100%;
+  min-height: 300px;
+}
+/* =Metabox Columns
+-------------------------------------------------------------- */
+.metabox-columns:before,
+.metabox-columns:after {
+  clear: both;
+  content: '\0020';
+  display: block;
+  overflow: hidden;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+.metabox-columns .column {
+  float: left;
+  display: inline-block;
+  width: 50%;
+}
+.metabox-columns .metabox-content label {
+  display: inline-block;
+  width: 18%;
+}
+#customer_details_metabox {
+  margin: 0 0 30px 0;
+}
+#customer_details_metabox input[type="text"] {
+  width: 75%;
+}
+#customer_details_metabox input[type="text"]:focus {
+  outline: 0;
+}
+#customer_details_metabox input.error {
+  border: 1px solid red;
+}
+#customer_details_metabox label.error {
+  display: block;
+  width: 75%;
+  margin-left: 19%;
+  color: red;
+}
+#customer_notes_field label,
+#customer_notes_field textarea {
+  width: 100%;
+}
+#customer_notes_field textarea {
+  width: 100%;
+  max-width: 100%;
+  min-height: 260px;
+}
+/* =Restaurant Menus
+-------------------------------------------------------------- */
+#syntaxthemes_restaurant_menus:before,
+#syntaxthemes_restaurant_menus:after {
+  clear: both;
+  content: '\0020';
+  display: block;
+  overflow: hidden;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+#syntaxthemes_restaurant_menus .column {
+  float: left;
+  display: inline-block;
+  width: 50%;
+}
+#syntaxthemes_restaurant_menus .metabox-content label {
+  display: inline-block;
+  width: 18%;
+}
+#syntaxthemes_restaurant_menus .settings-content label {
+  display: inline-block;
+  width: 18%;
+}
+#syn_shortcode_restaurant_menu {
+  height: 100%;
+}
+#syn_shortcode_restaurant_menu #syn_restaurant_menu_ids {
+  max-height: 350px;
+  overflow-y: scroll;
+}
+#syn_shortcode_restaurant_menu label {
+  width: auto;
+}
+#syn_shortcode_restaurant_menu label span {
+  margin-right: 10px;
+}
+#syn_shortcode_restaurant_menu .meal-title {
+  font-weight: bold;
+}
+/* =Restaurant Menus
+-------------------------------------------------------------- */
+#syn_restaurant_manager_addons .addons-list {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+}
+#syn_restaurant_manager_addons .addon-item {
+  display: table-cell;
+  padding: 0 20px 20px 0;
+  width: 33.33333333%;
+}
+#syn_restaurant_manager_addons .addon-block {
+  border: 1px solid #e1e1e1;
+  background-color: #ffffff;
+  margin: 0 20px 20px 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+#syn_restaurant_manager_addons .addon-title {
+  margin: 0;
+  padding: 20px;
+  border-bottom: 1px solid #e1e1e1;
+}
+#syn_restaurant_manager_addons .addon-content {
+  padding: 20px;
+  overflow: hidden;
+  border-bottom: 1px solid #e1e1e1;
+}
+#syn_restaurant_manager_addons .addon-content:before,
+#syn_restaurant_manager_addons .addon-content:after {
+  clear: both;
+  content: '\0020';
+  display: block;
+  overflow: hidden;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+#syn_restaurant_manager_addons .addon-image {
+  float: left;
+  display: block;
+  margin: 0 20px 20px 0;
+  width: 150px;
+  height: 150px;
+}
+#syn_restaurant_manager_addons .addon-footer {
+  line-height: 28px;
+  padding: 20px;
+  background-color: #fcfafa;
+}
+#syn_restaurant_manager_addons .addon-footer:before,
+#syn_restaurant_manager_addons .addon-footer:after {
+  clear: both;
+  content: '\0020';
+  display: block;
+  overflow: hidden;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+#syn_restaurant_manager_addons .addon-footer .read-more-link {
+  text-decoration: none;
+}
+#syn_restaurant_manager_addons .addon-footer .buy-now {
+  float: right;
+}
