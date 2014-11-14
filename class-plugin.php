@@ -64,10 +64,8 @@ class plugin extends plugin_base {
     public function upgrade() {
 
         global $wpdb;
-        
-        $this->mark_plugin_activated();
 
-        if (version_compare($this->plugin_installed_version(), '1.1.3') <= 0) {
+        if (version_compare($this->plugin_installed_version(), '1.1.3') < 0) {
 
             $result = $wpdb->update($wpdb->term_taxonomy, array('taxonomy' => 'syn_rest_menu'), array('taxonomy' => 'syn_rest_menu'));
             $result = $wpdb->update($wpdb->term_taxonomy, array('taxonomy' => 'syn_rest_course'), array('taxonomy' => 'syn_menu_course'));
@@ -75,7 +73,7 @@ class plugin extends plugin_base {
             $result = $wpdb->update($wpdb->term_taxonomy, array('taxonomy' => 'syn_rest_cuisine'), array('taxonomy' => 'syn_cuisine_type'));
         }
 
-        if (version_compare($this->plugin_installed_version(), '1.2.0') <= 0) {
+        if (version_compare($this->plugin_installed_version(), '1.2.0') < 0) {
 
             $events_data = new events_data();
             $events_data->create_table();

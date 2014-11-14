@@ -41,7 +41,7 @@ class initialize {
         if ($this->_plugin->plugin_requirements_check()) {
 
             // Perform any version-upgrade events prior to activation (e.g. database changes)
-            //$this->_plugin->upgrade();
+            $this->_plugin->upgrade();
 
             if (!$this->_plugin->is_installed()) {
                 $this->_plugin->activate();
@@ -81,8 +81,6 @@ class initialize {
 
             //check if the plugin is installed before running
             if ($this->_plugin->is_installed()) {
-                
-                $this->_plugin->upgrade();
 
                 $taurus_shortcode_extensions = new shortcode_extensions();
                 $taurus_shortcode_extensions->create_shortcodes_button();
