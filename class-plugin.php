@@ -64,6 +64,8 @@ class plugin extends plugin_base {
     public function upgrade() {
 
         global $wpdb;
+        
+        $this->mark_plugin_activated();
 
         if (version_compare($this->plugin_installed_version(), '1.1.3') <= 0) {
 
