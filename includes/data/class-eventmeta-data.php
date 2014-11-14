@@ -53,7 +53,7 @@ class eventmeta_data {
             require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
             $result = dbDelta($sql);
 
-            add_option($this->_config->plugin_prefix . 'events_datatable_version', $this->_table_version);
+            add_option($this->_config->plugin_prefix . 'eventmeta_datatable_version', $this->_table_version);
         } else {
             $sql = "CREATE TABLE {$this->_table_name} (
                     id bigint(20) unsigned NOT NULL auto_increment,
