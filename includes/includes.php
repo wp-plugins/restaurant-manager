@@ -16,9 +16,4 @@ require_once('functions-form-processing.php');
 require_once('class-email-notifications.php');
 require_once('shortcodes/class-shortcode-extensions.php');
 require_once('class-reservation-repository.php');
-
-require_once('data/class-events-data.php');
-require_once('data/class-eventmeta-data.php');
-require_once('class-event-log.php');
-require_once('class-events-list-table.php');
 ?>
