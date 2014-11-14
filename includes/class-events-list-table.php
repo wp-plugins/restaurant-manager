@@ -42,10 +42,10 @@ class events_list_table extends \WP_List_Table {
     function get_columns() {
 
         return $columns = array(
-            'author' => _('Author', 'syn_restaurant_plugin'),
-            'content' => _('Content', 'syn_restaurant_plugin'),
-            'event_type' => _('Event', 'syn_restaurant_plugin'),
-            'created_date' => _('Created Date', 'syn_restaurant_plugin')
+            'author' => __('Author', 'syn_restaurant_plugin'),
+            'content' => __('Content', 'syn_restaurant_plugin'),
+            'event_type' => __('Event', 'syn_restaurant_plugin'),
+            'created_date' => __('Created Date', 'syn_restaurant_plugin')
         );
     }
 
@@ -189,7 +189,7 @@ class events_list_table extends \WP_List_Table {
                                 $new_status = $eventmeta_data->get($rec->id, 'new_status');
                                 $email_sent = $eventmeta_data->get($rec->id, 'email_sent');
 
-                                $meta_data = '<span class="status-light status-' . $old_status . '"></span> ' . $old_status . ' &RightArrow; ' . '<span class="status-light status-' . $new_status . '"></span> ' . $new_status . '   |   ' . _('Email Notification: ') . (($email_sent) ? _('Sent') : _('Not Sent'));
+                                $meta_data = '<span class="status-light status-' . $old_status . '"></span> ' . $old_status . ' &RightArrow; ' . '<span class="status-light status-' . $new_status . '"></span> ' . $new_status . '   |   ' . __('Email Notification: ') . (($email_sent) ? __('Sent') : __('Not Sent'));
                                 $event_type = '<span class="status-light status-' . $new_status . '"></span>';
                             }
                             break;

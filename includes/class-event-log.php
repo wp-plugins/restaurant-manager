@@ -95,7 +95,7 @@ class event_log {
         $author_id = $user->ID;
         $author = ((!empty($user->first_name) && !empty($user->last_name)) ? "$user->first_name $user->last_name" : $user->user_nicename);
         $created_date = current_time('mysql');
-        $content = _('The reservation status has been changed', 'syn_restaurant_plugin');
+        $content = __('The reservation status has been changed', 'syn_restaurant_plugin');
 
         $data = array(
             'post_id' => $post_id,
