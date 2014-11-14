@@ -39,10 +39,6 @@ class reservation_status {
             return false;
         }
 
-        $event_log = new event_log();
-
-        $old_post_status = $session->post_var('original_post_status');
-
         $post = get_post($post_id);
         $post_status = $post->post_status;
 
@@ -64,6 +60,8 @@ class reservation_status {
         $reservation_date = date("{$date_format}", strtotime($reservation_date_meta));
         $reservation_time = date("{$time_format}", strtotime($reservation_time_meta));
 
+        $notes = $session->post_var('notes');
+
         $replace = array(
             $site_name,
             $first_name,
@@ -78,14 +76,7 @@ class reservation_status {
             $restaurant_telephone
         );
 
-        //check if the post status has changed
-        if ($post_status !== $old_post_status) {
-            $result = syntaxthemes_process_notification_email($post_status, $email_address, $replace);
-            $event_log->status_event($post_id, $old_post_status, $post_status, $result);
-            
-            //echo "<div class=\"updated\"><p>The status has been changed</p></div>";
-        }       
-        
+        $result = syntaxthemes_process_notification_email($post_status, $email_address, $replace);
     }
 
 }

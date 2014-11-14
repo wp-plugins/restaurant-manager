@@ -72,15 +72,6 @@ class plugin extends plugin_base {
             $result = $wpdb->update($wpdb->term_taxonomy, array('taxonomy' => 'syn_rest_diet'), array('taxonomy' => 'syn_dietary_type'));
             $result = $wpdb->update($wpdb->term_taxonomy, array('taxonomy' => 'syn_rest_cuisine'), array('taxonomy' => 'syn_cuisine_type'));
         }
-
-        if (version_compare($this->plugin_installed_version(), '1.2.0') < 0) {
-
-            $events_data = new events_data();
-            $events_data->create_table();
-
-            $eventmeta_data = new eventmeta_data();
-            $eventmeta_data->create_table();
-        }
     }
 
     /**
@@ -106,11 +97,10 @@ class plugin extends plugin_base {
      */
     public function register_script_files() {
 
-        wp_register_style('restaurant-manager-admin-style', plugins_url('/assets/css/admin-style.css', __FILE__));
-        wp_register_style('restaurant-manager-style', plugins_url('/assets/css/style.css', __FILE__));
-
         wp_register_script('jquery-validation', plugins_url('framework/js/validation/jquery.validate.min.js', __FILE__), array('jquery'), null, true);
+        wp_register_style('restaurant-manager-admin-style', plugins_url('/assets/css/admin-style.css', __FILE__));
         wp_register_script('jquery-timepicker-script', plugins_url('/assets/js/jquery-ui-timepicker.js', __FILE__), array('jquery'), false, true);
+
         wp_register_script('jquery-pickdate-picker-script', plugins_url('/assets/js/pickdate/picker.js', __FILE__), array('jquery'), false, true);
         wp_register_script('jquery-pickdate-date-script', plugins_url('/assets/js/pickdate/picker.date.js', __FILE__), array('jquery'), false, true);
         wp_register_script('jquery-pickdate-time-script', plugins_url('/assets/js/pickdate/picker.time.js', __FILE__), array('jquery'), false, true);
