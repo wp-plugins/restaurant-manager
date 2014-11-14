@@ -136,13 +136,15 @@ function syn_restaurant_manager_process_general_settings_form() {
     $reservation_success_message = $session->post_var('reservation_success_message');
     $restaurant_telephone = $session->post_var('restaurant_telephone');
     $currency_symbol = $session->post_var('currency_symbol');
-    $country_code = $session->post_var('country_code');
+    //$date_format = $session->post_var('date_format');
+    //$time_format = $session->post_var('time_format');
 
     update_option($syn_restaurant_config->plugin_prefix . 'group_size', $group_size);
     update_option($syn_restaurant_config->plugin_prefix . 'reservation_success_message', $reservation_success_message);
     update_option($syn_restaurant_config->plugin_prefix . 'restaurant_telephone', $restaurant_telephone);
     update_option($syn_restaurant_config->plugin_prefix . 'currency_symbol', $currency_symbol);
-    update_option($syn_restaurant_config->plugin_prefix . 'country_code', $country_code);
+    //update_option($syn_restaurant_config->plugin_prefix . 'date_format', $date_format);
+    //update_option($syn_restaurant_config->plugin_prefix . 'time_format', $time_format);
 }
 
 add_action('syn_restaurant_manager_process_form', 'syn_restaurant_manager_process_general_settings_form');
