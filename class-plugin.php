@@ -72,6 +72,15 @@ class plugin extends plugin_base {
             $result = $wpdb->update($wpdb->term_taxonomy, array('taxonomy' => 'syn_rest_diet'), array('taxonomy' => 'syn_dietary_type'));
             $result = $wpdb->update($wpdb->term_taxonomy, array('taxonomy' => 'syn_rest_cuisine'), array('taxonomy' => 'syn_cuisine_type'));
         }
+        
+        if (version_compare($this->plugin_installed_version(), '1.2.0') <= 0) {
+
+            $events_data = new events_data();
+            $events_data->create_table();
+
+            $eventmeta_data = new eventmeta_data();
+            $eventmeta_data->create_table();
+        }
     }
 
     /**
