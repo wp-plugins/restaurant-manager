@@ -166,7 +166,7 @@ function syn_restaurant_manager_settings_page() {
                 ?>
             </h2>  
             <?php if ($tab === 'general') { ?>
-                <div class="nav_tab_content">             
+                <div class="nav_tab_content">       
                     <?php syntaxthemes_general_page() ?>
                 </div> 
             <?php } ?>
@@ -204,8 +204,7 @@ function syntaxthemes_general_page() {
     $reservation_success_message = get_option($syn_restaurant_config->plugin_prefix . 'reservation_success_message', '');
     $restaurant_telephone = get_option($syn_restaurant_config->plugin_prefix . 'restaurant_telephone', '');
     $currency_symbol = get_option($syn_restaurant_config->plugin_prefix . 'currency_symbol', '£');
-    //$date_format = get_option($syn_restaurant_config->plugin_prefix . 'date_format', 'F j, Y');
-    //$time_format = get_option($syn_restaurant_config->plugin_prefix . 'time_format', 'g:i a');
+    $country_code = get_option($syn_restaurant_config->plugin_prefix . 'country_code', null);
 
     if (empty($reservation_success_message)) {
         $reservation_success_message = __('Thank you, We have successfully received your booking request.  Your booking is awaiting to be confirmed with us.  We will send you updates to the email address provided.');
@@ -233,6 +232,22 @@ function syntaxthemes_general_page() {
                     <td>
                         <input class="regular-text" id="restaurant_telephone" name="restaurant_telephone" type="text" value="<?php echo $restaurant_telephone ?>" />
                         <p class="description">Set your restaurant telephone contact number.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">
+                        <label for="country_code"><?php _e('Country Code', 'syn_restaurant_sms_plugin') ?></label>
+                    </th>
+                    <td>
+                        <?php
+                        $country_codes = syn_restaurant_manager_country_codes();
+                        ?>
+                        <select id="country_code" name="country_code">
+                            <?php foreach ($country_codes as $code => $country) { ?>
+                                <option value="<?php echo $code ?>" <?php selected($country_code, $code, true) ?>><?php echo $country ?></option>
+                            <?php } ?>
+                        </select>
+                          <p class="description">Set your country code for your restaurant location.</p>
                     </td>
                 </tr>
                 <tr>
@@ -526,9 +541,9 @@ function syn_restaurant_manager_add_ons_page() {
                         <div class="addon-content">
                             <img class="addon-image" src="http://www.syntaxthemes.co.uk/wp-content/uploads/2014/11/restaurant-emails-logo-450x450.jpg" />
                             <p>
-                               Now you can email your customers directly from their saved reservation booking record.  All emails sent are
-                               recorded on the booking so you can keep track of communication sent from your restaurant.  Improve your customer
-                               relations without the need for external email clients.
+                                Now you can email your customers directly from their saved reservation booking record.  All emails sent are
+                                recorded on the booking so you can keep track of communication sent from your restaurant. Improve your customer
+                                relations without the need for external email clients.
                             </p>
                         </div> 
                         <div class="addon-footer">
@@ -537,8 +552,22 @@ function syn_restaurant_manager_add_ons_page() {
                         </div>
                     </div>                       
                 </li>
-                <li class="addon-item"> 
-                    <p>&nbsp;</p> 
+                <li class="addon-item">
+                    <div class="addon-block">                
+                        <h3 class="addon-title">Send SMS</h3>
+                        <div class="addon-content">
+                            <img class="addon-image" src="http://www.syntaxthemes.co.uk/wp-content/uploads/2014/11/restaurant-emails-logo-450x450.jpg" />
+                            <p>
+                                Now you can send SMS directly to your customer from your reservation screen. All SMS messages are recorded in your reservation screen
+                                so that you can see what has been sent to your customers. You will need a Nexmo SMS account this is free to set up and you will
+                                receive some free credit to try.  Check out <a href="https://www.nexmo.com/" title="Nexmo SMS" target="_blank">Nexmo SMS</a>
+                            </p>
+                        </div> 
+                        <div class="addon-footer">
+                            <a class="read-more-link" href="http://www.syntaxthemes.co.uk/shop/restaurant-mailchimp-subscribe/" alt="Read more about this plugin" target="_blank"><?php _e('Read More', '') ?></a>
+                            <a class="buy-now button-primary" href="http://www.syntaxthemes.co.uk/shop/restaurant-mailchimp-subscribe/" alt="Buy this plugin" target="_blank"><?php _e('Buy Now $20.00', '') ?></a>
+                        </div>
+                    </div>                       
                 </li>
             </ul>
         </div>

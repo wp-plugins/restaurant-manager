@@ -510,12 +510,38 @@
     }
 }
 
+#restaurant_reservation_status_metabox{
+
+}
+.status-light{
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    background-color: #666666;
+    vertical-align: middle;
+    margin: 0 0 0 5px;
+    .border-radius(11px);
+
+    &.status-draft{
+        background-color: #555555; 
+    }
+    &.status-pending{
+        background-color: orange;
+    }
+    &.status-confirmed{
+        background-color: green;
+    }
+    &.status-rejected{
+        background-color: red;
+    }
+}
+
 #customer_details_metabox{
     margin: 0 0 30px 0;
-    
+
     input[type="text"]{
         width: 75%;
-        
+
         &:focus{
             outline: 0;
         }
@@ -532,7 +558,7 @@
 }
 
 #customer_notes_field{   
-    
+
     label,
     textarea{
         width: 100%;
@@ -646,5 +672,107 @@
         .buy-now{
             float: right;
         }
+    }
+}
+
+/* =Event Log
+-------------------------------------------------------------- */
+.wp-list-table{
+
+    &.events{
+        th.column-event_type a{ 
+            text-align: center;
+        }
+        .column-author{
+            width: 16%;
+        }
+        .column-created_date{
+            width: 20%;
+        }
+        .column-event_type{
+            width: 6%;      
+            text-align: center;
+        }
+        .column-content{
+            > span{
+                margin: 0;
+            }
+            span{
+                margin: 0 5px 0 0;
+            }
+            .content{
+                margin: 5px 0 0 0;
+            }
+        }
+        .new-row{
+            background-color: #b6e592;
+        }        
+    }
+
+    .event-icon {
+        font-size: 20px;
+    }
+    .rman-mobile-phone{
+        font-size: 32px;
+    }
+
+    .sms{
+        .mobile-number{
+            font-weight: bold;
+            color: #2590EA;
+        }
+        .recipient{
+            font-weight: bold;
+        }
+    }
+    .email{
+        .email-subject{
+            display: block;
+            font-weight: bold;
+            margin: 7px 0 0 0 !important;
+        }
+        .email-address{
+            font-weight: bold;
+            color: #2590EA;
+        }
+        .recipient{
+            font-weight: bold;
+        }
+    }
+    .reservation_status{
+        .column-content{
+            .status-light{
+                height: 14px;
+                width: 14px;
+            }
+        }
+    }
+}
+
+
+/************************************************************* 
+    =Plugin Extensions
+************************************************************** */
+
+
+/* =Restaurant Email Plugin
+-------------------------------------------------------------- */
+
+/* =Customer Emails Metabox
+-------------------------------------------------------------- */
+#restaurant_customer_emails_metabox{
+    #email_subject{
+        width: 100%;
+    }
+}
+
+/* =Restaurant SMS Plugin
+-------------------------------------------------------------- */
+#restaurant_sms_emails_metabox{
+
+    #sms_content{
+        width: 100%;
+        max-width: 100%;
+        min-height: 150px;
     }
 }

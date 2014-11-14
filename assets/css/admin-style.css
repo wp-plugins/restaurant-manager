@@ -51,6 +51,12 @@ and open the template in the editor.
 .rman-calendar:before {
   content: "\f073";
 }
+.rman-envelope:before {
+  content: "\f0e0";
+}
+.rman-mobile-phone:before {
+  content: "\f10b";
+}
 .rman-chevron-circle-up:before {
   content: "\f139";
 }
@@ -551,6 +557,29 @@ and open the template in the editor.
   display: inline-block;
   width: 18%;
 }
+.status-light {
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  background-color: #666666;
+  vertical-align: middle;
+  margin: 0 0 0 5px;
+  -webkit-border-radius: 11px;
+  -moz-border-radius: 11px;
+  border-radius: 11px;
+}
+.status-light.status-draft {
+  background-color: #555555;
+}
+.status-light.status-pending {
+  background-color: orange;
+}
+.status-light.status-confirmed {
+  background-color: green;
+}
+.status-light.status-rejected {
+  background-color: red;
+}
 #customer_details_metabox {
   margin: 0 0 30px 0;
 }
@@ -686,4 +715,77 @@ and open the template in the editor.
 }
 #syn_restaurant_manager_addons .addon-footer .buy-now {
   float: right;
+}
+/* =Event Log
+-------------------------------------------------------------- */
+.wp-list-table.events th.column-event_type a {
+  text-align: center;
+}
+.wp-list-table.events .column-author {
+  width: 16%;
+}
+.wp-list-table.events .column-created_date {
+  width: 20%;
+}
+.wp-list-table.events .column-event_type {
+  width: 6%;
+  text-align: center;
+}
+.wp-list-table.events .column-content > span {
+  margin: 0;
+}
+.wp-list-table.events .column-content span {
+  margin: 0 5px 0 0;
+}
+.wp-list-table.events .column-content .content {
+  margin: 5px 0 0 0;
+}
+.wp-list-table.events .new-row {
+  background-color: #b6e592;
+}
+.wp-list-table .event-icon {
+  font-size: 20px;
+}
+.wp-list-table .rman-mobile-phone {
+  font-size: 32px;
+}
+.wp-list-table .sms .mobile-number {
+  font-weight: bold;
+  color: #2590EA;
+}
+.wp-list-table .sms .recipient {
+  font-weight: bold;
+}
+.wp-list-table .email .email-subject {
+  display: block;
+  font-weight: bold;
+  margin: 7px 0 0 0 !important;
+}
+.wp-list-table .email .email-address {
+  font-weight: bold;
+  color: #2590EA;
+}
+.wp-list-table .email .recipient {
+  font-weight: bold;
+}
+.wp-list-table .reservation_status .column-content .status-light {
+  height: 14px;
+  width: 14px;
+}
+/************************************************************* 
+    =Plugin Extensions
+************************************************************** */
+/* =Restaurant Email Plugin
+-------------------------------------------------------------- */
+/* =Customer Emails Metabox
+-------------------------------------------------------------- */
+#restaurant_customer_emails_metabox #email_subject {
+  width: 100%;
+}
+/* =Restaurant SMS Plugin
+-------------------------------------------------------------- */
+#restaurant_sms_emails_metabox #sms_content {
+  width: 100%;
+  max-width: 100%;
+  min-height: 150px;
 }
