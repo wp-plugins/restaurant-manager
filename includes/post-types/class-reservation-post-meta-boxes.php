@@ -60,9 +60,9 @@ class reservation_post_meta_boxes {
      */
     public function add_meta_boxes() {
 
+        add_meta_box('restaurant_customer_notes_metabox', __('Customer Details', 'syn_restaurant_plugin'), array($this, 'customer_notes_meta_box'), 'syn_rest_reservation', 'advanced', 'high');
         add_meta_box('restaurant_reservation_status_metabox', __('Reservation Status', 'syn_restaurant_plugin'), array($this, 'reservation_status_meta_box'), 'syn_rest_reservation', 'side', 'default');
-        add_meta_box('restaurant_customer_notes_metabox', __('Customer Details', 'syn_restaurant_plugin'), array($this, 'reservation_customer_notes_meta_box'), 'syn_rest_reservation', 'advanced', 'high');
-        //add_meta_box('restaurant_customer_emails_metabox', __('Customer Email', 'syn_restaurant_plugin'), array($this, 'reservation_customer_emails_meta_box'), 'syn_rest_reservation', 'advanced', 'high');
+        add_meta_box('restaurant_events_metabox', __('Event Log', 'syn_restaurant_plugin'), array($this, 'events_meta_box'), 'syn_rest_reservation', 'advanced', 'low');
     }
 
     public function save_meta_boxes($post_id) {
@@ -108,7 +108,7 @@ class reservation_post_meta_boxes {
      * @global type $syn_restaurant_config
      * @return boolean
      */
-    public function reservation_customer_notes_meta_box($post) {
+    public function customer_notes_meta_box($post) {
 
         $first_name = get_post_meta($post->ID, 'first_name', true);
         $last_name = get_post_meta($post->ID, 'last_name', true);
@@ -162,52 +162,15 @@ class reservation_post_meta_boxes {
         <?php
     }
 
-    public function reservation_customer_emails_meta_box($post) {
-
-        $email_address = get_post_meta($post->ID, 'customer_email', true);
+    public function events_meta_box($post) {
         ?>
-        <div id="reservation_email_field" class="metabox-content">
-            <p>
-                <?php
-                $email_content_settings = array(
-                    'textarea_name' => 'admin_email',
-                    'textarea_rows' => 10,
-                    'media_buttons' => false,
-                    'teeny' => true,
-                    'tinymce' => array(
-                        'toolbar1' => 'bold, italic, underline, bullist, numlist'
-                    ),
-                    'quicktags' => false,
-                    'wpautop' => true
-                );
-
-                wp_editor('', 'email_content', $email_content_settings);
-                ?>
-            </p>
-            <p class="description">
-                <?php _e('Write the content for your customer email in the box and send.', 'syn_restaurant_plugin') ?>
-            </p>
-            <p>
-                <input id="reservation_id" type="hidden" value="<?php echo $post->ID ?>"/>
-                <a id="customer_email_send" class="button secondary" href="javascript:void(0)">Send Email</a>               
-            </p>
-            <div id="customer_emails">
-                <div id="admin-email-message"></div>
-                <?php
-                $args = array(
-                    'post_id' => $post->ID
-                );
-                $comments = get_comments($args);
-
-                //var_dump($comments);
-
-                $emails_list_table = new \emails_list_table();
-                $emails_list_table->prepare_items();
-                $emails_list_table->display();
-                ?>                
-            </div>
-        </div>   
-
+        <div id="restaurant_manager_events">                
+            <?php
+            $events_list_table = new events_list_table();
+            $events_list_table->prepare_items($post->ID);
+            $events_list_table->display();
+            ?>                
+        </div>
         <?php
     }
 
@@ -236,6 +199,7 @@ class reservation_post_meta_boxes {
                         }
                         ?>
                     </select>
+                    <span class="status-light status-<?php echo $post_status ?>"></span>                    
                 </p>                
             </div>  
             <div id="major-publishing-actions">

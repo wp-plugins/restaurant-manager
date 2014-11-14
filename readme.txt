@@ -21,6 +21,10 @@ reservations. Schedule booking times for your online booking form.
 Create or Accept restaurant bookings online with our easy to use restaurant manager plugin.  You can create your restaurant bookings through your WordPress Admin, or your customers can create their
 own bookings through your website.  When a booking comes in confirm or reject the booking and the customer will receive notifications to their email.
 
+**Major Update**
+
+When any of your administrators change the status of your reservation this is now logged.  You can see who made the change and when.  Also the log system will record any sms or emails sent from the reservation screen.
+
 Restaurant Manager Plugin will integrate seamlessly into your current theme.  It is very easy to use and will have you up and running in no time.  Create a page with your reservation booking form and receive table bookings instantly.
 
 - Create a reservation booking form easily with our built in shortcode.
@@ -32,6 +36,7 @@ Restaurant Manager Plugin will integrate seamlessly into your current theme.  It
 - Create booking schedules for your restaurant opening times.
 - Fast and easy to use.
 - Easily modify the CSS to better fit your theme.
+- Log all of your events when a user changes the reservation status.
 - Excellent documentation and online support.
 
 **Managing Restaurant Meals and Menus**
@@ -51,6 +56,11 @@ Assign properties to your meals such as:
 
 Create menu courses and assign the meal to the courses and menus.
 
+
+**New Extensions Available Download Now**
+
+View the add-ons screen in your Restaurant Manager plugin menu for new extensions
+
 **MailChimp Support**
 
 - MailChimp Support has now arrived.  Allow your users to subscribe to your MailChimp email list when they book a table. [Download MailChimp Support](http://www.syntaxthemes.co.uk/shop/restaurant-mailchimp-subscribe/ "MailChimp Support").
@@ -58,6 +68,10 @@ Create menu courses and assign the meal to the courses and menus.
 **Advanced Customer Email Support**
 
 - Advanced customer email support is now available.  Apart from the automated email notifications made when pending, confirming and rejecting a booking, you are now able to send direct email notifications from the customers reservation booking panel. So when you reject a booking or overbook your table you can email the customer directly offering them another alternative. [Download Customer Email Support](http://www.syntaxthemes.co.uk/shop/restaurant-customer-emailer/ "Advanced Customer Email Support") and improve your customer relations.
+
+**SMS Support**
+
+- Send SMS directly to your customers from their reservation screen.  The SMS messaged are logged in the system if they are sent or failed.  Restaurant Manager keeps a record of your SMS's for audit purposes and to keep a record of the content being sent.
 
 **Future Developments**
 
@@ -121,6 +135,19 @@ Go to the Reservation Schedule tab on the settings page.  Click add new schedule
 There are currently no upgrade notices.
 
 == Changelog ==
+
+**Version 1.1.9**
+
+- Created an events list to record all of restaurant staff actions.
+- New Events Log management.
+- New reservation status color highlights.
+- Extensions for SMS notification.
+- Extensions for Email notifications.
+
+**Version 1.1.8**
+
+- Added plugin support for the Advanced Customer Email Support Plugin
+- Improved admin settings pages and compressed files.
 
 **Version 1.1.7**
 
