@@ -38,28 +38,8 @@ class events_data {
          * If we don't do this, some characters could end up being converted 
          * to just ?'s when saved in our table.
          */
-
         if ($this->_wpdb->get_var("SHOW TABLES LIKE '{$this->_table_name}'") != $this->_table_name) {
 
-            $sql = "CREATE TABLE {$this->_table_name} (
-                    id bigint(20) unsigned NOT NULL auto_increment,
-                    post_id bigint(20) NOT NULL default '0',
-                    author_id bigint(20) NOT NULL default '0',
-                    author tinytext NOT NULL,
-                    content text NOT NULL,
-                    event_type varchar(20) NOT NULL default '',
-                    created_date datetime NOT NULL default '0000-00-00 00:00:00',
-                    updated_date datetime NOT NULL default '0000-00-00 00:00:00',
-                    PRIMARY KEY  (id),
-                    KEY post_id (post_id),
-                    KEY author_id (author_id)
-                    ) {$this->_charset_collate};";
-
-            require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
-            $result = dbDelta($sql);
-
-            add_option($this->_config->plugin_prefix . 'events_datatable_version', $this->_table_version);
-        } else {
             $sql = "CREATE TABLE {$this->_table_name} (
                     id bigint(20) unsigned NOT NULL auto_increment,
                     post_id bigint(20) NOT NULL default '0',
@@ -85,9 +65,26 @@ class events_data {
 
         $installed_version = get_option($this->_config->plugin_prefix . 'events_datatable_version');
 
-        if (version_compare($installed_version, $this->_table_version) < 0) {
+        if (version_compare($installed_version, $this->_table_version) <= 0) {
 
             //Update the table here.
+            $sql = "CREATE TABLE {$this->_table_name} (
+                    id bigint(20) unsigned NOT NULL auto_increment,
+                    post_id bigint(20) NOT NULL default '0',
+                    author_id bigint(20) NOT NULL default '0',
+                    author tinytext NOT NULL,
+                    content text NOT NULL,
+                    event_type varchar(20) NOT NULL default '',
+                    created_date datetime NOT NULL default '0000-00-00 00:00:00',
+                    updated_date datetime NOT NULL default '0000-00-00 00:00:00',
+                    PRIMARY KEY  (id),
+                    KEY post_id (post_id),
+                    KEY author_id (author_id)
+                    ) {$this->_charset_collate};";
+
+            require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
+            $result = dbDelta($sql);
+
             update_option($this->_config->plugin_prefix . 'events_datatable_version', $this->_table_version);
         }
     }

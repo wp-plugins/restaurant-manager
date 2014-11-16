@@ -38,23 +38,8 @@ class eventmeta_data {
          * If we don't do this, some characters could end up being converted 
          * to just ?'s when saved in our table.
          */
-
         if ($this->_wpdb->get_var("SHOW TABLES LIKE '{$this->_table_name}'") != $this->_table_name) {
 
-            $sql = "CREATE TABLE {$this->_table_name} (
-                    id bigint(20) unsigned NOT NULL auto_increment,
-                    event_id bigint(20) NOT NULL default '0',
-                    meta_key varchar(255) NOT NULL default '0',
-                    meta_value longtext NOT NULL,                   
-                    PRIMARY KEY  (id),
-                    KEY event_id (event_id)
-                    ) {$this->_charset_collate};";
-
-            require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
-            $result = dbDelta($sql);
-
-            add_option($this->_config->plugin_prefix . 'eventmeta_datatable_version', $this->_table_version);
-        } else {
             $sql = "CREATE TABLE {$this->_table_name} (
                     id bigint(20) unsigned NOT NULL auto_increment,
                     event_id bigint(20) NOT NULL default '0',
@@ -75,13 +60,25 @@ class eventmeta_data {
 
         $installed_version = get_option($this->_config->plugin_prefix . 'eventmeta_datatable_version');
 
-        if (version_compare($installed_version, $this->_table_version) < 0) {
+        if (version_compare($installed_version, $this->_table_version) <= 0) {
 
             //Update the table here.
+            $sql = "CREATE TABLE {$this->_table_name} (
+                    id bigint(20) unsigned NOT NULL auto_increment,
+                    event_id bigint(20) NOT NULL default '0',
+                    meta_key varchar(255) NOT NULL default '0',
+                    meta_value longtext NOT NULL,                   
+                    PRIMARY KEY  (id),
+                    KEY event_id (event_id)
+                    ) {$this->_charset_collate};";
+
+            require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
+            $result = dbDelta($sql);
+
             update_option($this->_config->plugin_prefix . 'eventmeta_datatable_version', $this->_table_version);
         }
     }
-    
+
     public function get($id, $key) {
 
         $sql = "SELECT meta_value 
