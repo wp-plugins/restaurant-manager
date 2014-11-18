@@ -247,7 +247,7 @@ function syntaxthemes_general_page() {
                                 <option value="<?php echo $code ?>" <?php selected($country_code, $code, true) ?>><?php echo $country ?></option>
                             <?php } ?>
                         </select>
-                          <p class="description">Set your country code for your restaurant location.</p>
+                        <p class="description">Set your country code for your restaurant location.</p>
                     </td>
                 </tr>
                 <tr>
@@ -520,6 +520,30 @@ function syn_restaurant_manager_add_ons_page() {
             <ul class="addon-list">
                 <li class="addon-item">
                     <div class="addon-block">                
+                        <h3 class="addon-title">Taurus Restaurant Theme</h3>
+                        <div class="addon-content">
+                            <img class="addon-image" src="http://www.syntaxthemes.co.uk/wp-content/uploads/2014/11/taurus-theme-thumbnail.jpg" />
+                            <p>
+                                Taurus Theme has been designed to work beautifully with our Restaurant Manager plugin.  It has styled the reservation form nicely with the
+                                theme layout.  Check out the <a href="http://www.syntaxthemes.co.uk/exhibitions?theme=taurus-theme" target="_blank">demo</a>. 
+                            </p>
+                        </div> 
+                        <div class="addon-footer">
+                            <a class="read-more-link" href="https://creativemarket.com/syntaxthemes/109450-Taurus-Restaurant-Responsive-Theme" alt="Read more about this plugin" target="_blank"><?php _e('Read More', '') ?></a>
+                            <a class="buy-now button-primary" href="https://creativemarket.com/syntaxthemes/109450-Taurus-Restaurant-Responsive-Theme" alt="Buy this plugin" target="_blank"><?php _e('Buy Now $59', '') ?></a>
+                        </div>
+                    </div>
+                </li>
+                <li class="addon-item">                                          
+                </li>
+                <li class="addon-item">                                         
+                </li>
+            </ul>
+        </div>
+        <div id="syn_restaurant_manager_addons">
+            <ul class="addon-list">
+                <li class="addon-item">
+                    <div class="addon-block">                
                         <h3 class="addon-title">Restaurant MailChimp Subscribe User</h3>
                         <div class="addon-content">
                             <img class="addon-image" src="http://www.syntaxthemes.co.uk/wp-content/uploads/2014/11/mailchimp-logo.png" />
@@ -530,14 +554,14 @@ function syn_restaurant_manager_add_ons_page() {
                             </p>
                         </div> 
                         <div class="addon-footer">
-                            <a class="read-more-link" href="http://www.syntaxthemes.co.uk/shop/restaurant-mailchimp-subscribe/" alt="Read more about this plugin" target="_blank"><?php _e('Read More', '') ?></a>
-                            <a class="buy-now button-primary" href="http://www.syntaxthemes.co.uk/shop/restaurant-mailchimp-subscribe/" alt="Buy this plugin" target="_blank"><?php _e('Buy Now $20.00', '') ?></a>
+                            <a class="read-more-link" href="http://www.syntaxthemes.co.uk/shop/plugins/restaurant-mailchimp-subscribe/" alt="Read more about this plugin" target="_blank"><?php _e('Read More', '') ?></a>
+                            <a class="buy-now button-primary" href="http://www.syntaxthemes.co.uk/shop/plugins/restaurant-mailchimp-subscribe/" alt="Buy this plugin" target="_blank"><?php _e('Buy Now $19.99', '') ?></a>
                         </div>
                     </div>
                 </li>
                 <li class="addon-item">
                     <div class="addon-block">                
-                        <h3 class="addon-title">Restaurant Customer Direct Email</h3>
+                        <h3 class="addon-title">Customer Email Support</h3>
                         <div class="addon-content">
                             <img class="addon-image" src="http://www.syntaxthemes.co.uk/wp-content/uploads/2014/11/restaurant-emails-logo-450x450.jpg" />
                             <p>
@@ -547,16 +571,16 @@ function syn_restaurant_manager_add_ons_page() {
                             </p>
                         </div> 
                         <div class="addon-footer">
-                            <a class="read-more-link" href="http://www.syntaxthemes.co.uk/shop/restaurant-mailchimp-subscribe/" alt="Read more about this plugin" target="_blank"><?php _e('Read More', '') ?></a>
-                            <a class="buy-now button-primary" href="http://www.syntaxthemes.co.uk/shop/restaurant-mailchimp-subscribe/" alt="Buy this plugin" target="_blank"><?php _e('Buy Now $20.00', '') ?></a>
+                            <a class="read-more-link" href="http://www.syntaxthemes.co.uk/shop/plugins/restaurant-customer-emailer/" alt="Read more about this plugin" target="_blank"><?php _e('Read More', '') ?></a>
+                            <a class="buy-now button-primary" href="http://www.syntaxthemes.co.uk/shop/plugins/restaurant-customer-emailer/" alt="Buy this plugin" target="_blank"><?php _e('Buy Now $19.99', '') ?></a>
                         </div>
                     </div>                       
                 </li>
                 <li class="addon-item">
                     <div class="addon-block">                
-                        <h3 class="addon-title">Send SMS</h3>
+                        <h3 class="addon-title">Customer SMS Support</h3>
                         <div class="addon-content">
-                            <img class="addon-image" src="http://www.syntaxthemes.co.uk/wp-content/uploads/2014/11/restaurant-emails-logo-450x450.jpg" />
+                            <img class="addon-image" src="http://www.syntaxthemes.co.uk/wp-content/uploads/2014/11/restaurant-sms-logo-450x450.jpg" />
                             <p>
                                 Now you can send SMS directly to your customer from your reservation screen. All SMS messages are recorded in your reservation screen
                                 so that you can see what has been sent to your customers. You will need a Nexmo SMS account this is free to set up and you will
@@ -564,8 +588,8 @@ function syn_restaurant_manager_add_ons_page() {
                             </p>
                         </div> 
                         <div class="addon-footer">
-                            <a class="read-more-link" href="http://www.syntaxthemes.co.uk/shop/restaurant-mailchimp-subscribe/" alt="Read more about this plugin" target="_blank"><?php _e('Read More', '') ?></a>
-                            <a class="buy-now button-primary" href="http://www.syntaxthemes.co.uk/shop/restaurant-mailchimp-subscribe/" alt="Buy this plugin" target="_blank"><?php _e('Buy Now $20.00', '') ?></a>
+                            <a class="read-more-link" href="http://www.syntaxthemes.co.uk/shop/plugins/customer-sms-support/" alt="Read more about this plugin" target="_blank"><?php _e('Read More', '') ?></a>
+                            <a class="buy-now button-primary" href="http://www.syntaxthemes.co.uk/shop/plugins/customer-sms-support/" alt="Buy this plugin" target="_blank"><?php _e('Buy Now $19.99', '') ?></a>
                         </div>
                     </div>                       
                 </li>

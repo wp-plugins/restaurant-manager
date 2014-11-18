@@ -6,7 +6,7 @@ Author URI: http://www.syntaxthemes.co.uk/restaurant
 Tags: restaurant, reservations, bookings, table bookings, table reservations, reservation notifications, reservation confirm, reservation decline, schedules, schedule reservations
 Requires at least: 3.8
 Tested up to: 4.0
-Stable tag: 1.2.2
+Stable tag: 1.2.3
 Text Domain: syn_restaurant_plugin
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -87,7 +87,10 @@ This plugin can be used with any theme!!
 
 SyntaxThemes are currently building restaurant themes for this plugin, so if you are looking for a restaurant theme more tailored to anything you can find on the market check us out.  The themes will have beautiful menus and food reviews so watch this space.  Keep upto date with progress at [Restaurant Manager](http://www.syntaxthemes.co.uk/themes "Restaurant Themes")
 
-07/11/2014 - Almost there our first restaurant theme is only 8 days away from launch, and we are giving away our Restaurant Menus Builder plugin free with our themes!
+**Taurus Theme** has now been released!!  This theme works beautifully with Restaurant Manager plugin.  Check this theme out and download.
+
+[Taurus Theme Download](https://creativemarket.com/syntaxthemes/109450-Taurus-Restaurant-Responsive-Theme "Taurus Theme Download")
+
 
 **Feature Requests**
 
@@ -135,6 +138,10 @@ Go to the Reservation Schedule tab on the settings page.  Click add new schedule
 There are currently no upgrade notices.
 
 == Changelog ==
+
+**Version 1.2.3**
+
+- Added new products to the AddOns page.
 
 **Version 1.2.2**
 
