@@ -46,7 +46,7 @@ class initialize {
             if (!$this->_plugin->is_installed()) {
                 $this->_plugin->activate();
             }
-            
+
             //Temp for marking the plugin version.
             $this->_plugin->mark_plugin_activated();
         }
@@ -86,6 +86,9 @@ class initialize {
             if ($this->_plugin->is_installed()) {
 
                 $this->_plugin->upgrade();
+
+                //Temp for marking the plugin version.
+                $this->_plugin->mark_plugin_activated();
 
                 $taurus_shortcode_extensions = new shortcode_extensions();
                 $taurus_shortcode_extensions->create_shortcodes_button();
