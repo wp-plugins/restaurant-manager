@@ -129,13 +129,13 @@ class reservation_post_type {
                     $defaults['title'], $defaults['date']
             );
             $column_array = array(
-                'name' => __('Name', 'syn_restaurant_plugin'),
-                'guests' => __('Guests', 'syn_restaurant_plugin'),
-                'phone' => __('Phone', 'syn_restaurant_plugin'),
-                'email' => __('Email', 'syn_restaurant_plugin'),
-                'arrival' => __('Arrival', 'syn_restaurant_plugin'),
-                'status' => __('Status', 'syn_restaurant_plugin'),
-                'actions' => __('Actions', 'syn_restaurant_plugin'),
+                'reservation-name' => __('Name', 'syn_restaurant_plugin'),
+                'reservation-guests' => __('Guests', 'syn_restaurant_plugin'),
+                'reservation-phone' => __('Phone', 'syn_restaurant_plugin'),
+                'reservation-email' => __('Email', 'syn_restaurant_plugin'),
+                'reservation-arrival' => __('Arrival', 'syn_restaurant_plugin'),
+                'reservation-status' => __('Status', 'syn_restaurant_plugin'),
+                'reservation-actions' => __('Actions', 'syn_restaurant_plugin'),
             );
 
             $offset = 2;
@@ -161,14 +161,14 @@ class reservation_post_type {
         global $post, $post_type, $syn_restaurant_config;
 
         if ($post_type === 'syn_rest_reservation') {
-            if ($column == 'name') {
+            if ($column == 'reservation-name') {
 
                 $first_name = get_post_meta($post_id, 'first_name', true);
                 $last_name = get_post_meta($post_id, 'last_name', true);
 
                 echo "{$first_name} {$last_name}";
             }
-            if ($column == 'guests') {
+            if ($column == 'reservation-guests') {
 
                 $guests = 0;
                 $guests_count = get_post_meta($post_id, 'guests_count', true);
@@ -181,19 +181,21 @@ class reservation_post_type {
 
                 echo "{$guests}";
             }
-            if ($column == 'phone') {
+            if ($column == 'reservation-phone') {
 
                 $phone_number = get_post_meta($post_id, 'phone_number', true);
 
                 echo "{$phone_number}";
             }
-            if ($column == 'email') {
+            if ($column == 'reservation-email') {
 
+                $readmore = '&nbsp;&nbsp;<a href="' . get_edit_post_link($post_id) . '">' . __('...read more', 'syn_restaurant_plugin') . '</a>';
                 $email_address = get_post_meta($post_id, 'email_address', true);
+                $content = wp_trim_words(wpautop($post->post_content), 20, $readmore);
 
-                echo "{$email_address}";
+                echo "<span class=\"email-address\"><i class=\"email-icon rman-envelope\"></i>{$email_address}</span><p class=\"reservation-notes\">{$content}</p>";
             }
-            if ($column == 'arrival') {
+            if ($column == 'reservation-arrival') {
 
                 $date_format = get_option('date_format');
                 $time_format = get_option('time_format');
@@ -201,7 +203,7 @@ class reservation_post_type {
 
                 echo date("{$date_format} - {$time_format}", strtotime($arrival_time));
             }
-            if ($column == 'status') {
+            if ($column == 'reservation-status') {
 
                 $status = $post->post_status;
 
@@ -222,9 +224,9 @@ class reservation_post_type {
 
                 echo "<span class=\"status-{$status}\">{$status_text}</span>";
             }
-            if ($column == 'actions') {
+            if ($column == 'reservation-actions') {
 
-                echo '<a href="' . get_edit_post_link($post_id) . '">' . __('Edit', 'syn_restaurant_plugin') . '</a> | <a href="' . get_delete_post_link($post_id) . '">' . __('Delete', 'syn_restaurant_plugin') . '</a>';
+                echo '<a class="edit-reservation-button button secondary-button" title="' . __('Edit Reservation', 'syn_restaurant_plugin') . '" href="' . get_edit_post_link($post_id) . '"><span class="rman-pencil"></span></a> <a class="delete-reservation-button button button-secondary" title="' . __('Delete Reservation', 'syn_restaurant_plugin') . '" href="' . get_delete_post_link($post_id) . '" onclick="return confirm(\'' . __('Are you sure you would like to delete this reservation?', 'syn_restaurant_plugin') . '\')"><span class="rman-trash-o"></span></a>';
             }
         }
     }
@@ -242,8 +244,8 @@ class reservation_post_type {
         global $post, $post_type;
 
         if ($post_type === 'syn_rest_reservation') {
-            $columns['arrival'] = 'arrival';
-            $columns['status'] = 'status';
+            $columns['reservation-guests'] = 'guests';
+            $columns['reservation-arrival'] = 'arrival';
         }
 
         return $columns;
@@ -257,6 +259,13 @@ class reservation_post_type {
      */
     public function column_orderby($vars) {
 
+        if (isset($vars['orderby']) && 'guests' == $vars['orderby']) {
+
+            $vars = array_merge($vars, array(
+                'meta_key' => 'guests_count',
+                'orderby' => 'meta_value'
+            ));
+        }
         if (isset($vars['orderby']) && 'arrival' == $vars['orderby']) {
 
             $vars = array_merge($vars, array(

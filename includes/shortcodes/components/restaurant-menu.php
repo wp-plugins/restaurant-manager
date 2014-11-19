@@ -74,7 +74,30 @@ class syn_restaurant_menu extends syn_shortcode_script_loader {
                     'std' => __('All Meals', 'synth_astrono_theme'),
                     'options' => syn_restaurant_menus_get_all_meal_options(),
                     'type' => 'checkbox-list'
-                )
+                ),
+                array(
+                    'id' => $this->_config->framework_short_prefix . 'restaurant_menu_show_image',
+                    'name' => $this->_config->framework_short_prefix . 'restaurant_menu_show_image',
+                    'header' => __('Show Image', 'syn_taurus_core_plugin'),
+                    'label' => __('Show Image', 'syn_taurus_core_plugin'),
+                    'desc' => __('Display the image set for the meal items.', 'syn_taurus_core_plugin'),
+                    'std' => 'false',
+                    'options' => array(
+                        array('text' => __('No', 'syn_taurus_core_plugin'), 'value' => 'false'),
+                        array('text' => __('Yes', 'syn_taurus_core_plugin'), 'value' => 'true')
+                    ),
+                    'type' => 'select'
+                ),
+                array(
+                    'id' => $this->_config->framework_short_prefix . 'restaurant_menu_image_size',
+                    'name' => $this->_config->framework_short_prefix . 'restaurant_menu_image_size',
+                    'header' => __('Post Image Size', 'synth_astrono_theme'),
+                    'label' => __('Image Size', 'synth_astrono_theme'),
+                    'desc' => __('Choose the scale of the post image.', 'synth_astrono_theme'),
+                    'std' => 'medium',
+                    'options' => synth_taurus_image_size_options(),
+                    'type' => 'select'
+                ),
             )
         );
     }
@@ -91,6 +114,8 @@ class syn_restaurant_menu extends syn_shortcode_script_loader {
 
         $atts = shortcode_atts(array(
             'ids' => '',
+            'show_image' => 'false',
+            'image_size' => 'medium'
                 ), $atts);
 
         extract($atts);
@@ -117,6 +142,11 @@ class syn_restaurant_menu extends syn_shortcode_script_loader {
                         $query->the_post();
 
                         $post_id = get_the_ID();
+                        
+                        $image = '';
+                        if ($show_image === 'true') {
+                            $image = get_the_post_thumbnail(get_the_ID(), $image_size);
+                        }
 
                         $currency_symbol = get_option($syn_restaurant_config->plugin_prefix . 'currency_symbol', '£');
                         $full_price = get_post_meta($post_id, 'full_price', true);
@@ -129,6 +159,7 @@ class syn_restaurant_menu extends syn_shortcode_script_loader {
                         $spice_rating = get_post_meta($post_id, 'spice_rating', true);
                         ?>
                         <li class="restaurant-menu-item">
+                            <?php echo $image ?>
                             <h4 class="syn-menu-title">
                                 <a href="<?php the_permalink() ?>"><?php the_title() ?></a>                        
                             </h4>                            

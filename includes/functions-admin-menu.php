@@ -152,7 +152,11 @@ if (!function_exists('syn_restaurant_manager_set_current_menu')) {
  */
 function syn_restaurant_manager_settings_page() {
 
+    global $syn_restaurant_config;
+
     $tab = (isset($_REQUEST['tab']) && $_REQUEST['tab'] !== null) ? $_REQUEST['tab'] : 'general';
+
+    $version = get_option($syn_restaurant_config->plugin_prefix . 'version');
     ?>
 
     <div class="wrap">
@@ -164,7 +168,8 @@ function syn_restaurant_manager_settings_page() {
                 <?php
                 apply_filters('syn_restaurant_manager_add_setting_tab_navigation', $tab);
                 ?>
-            </h2>  
+                <span class="plugin-version"><?php echo $version ?></span>
+            </h2>             
             <?php if ($tab === 'general') { ?>
                 <div class="nav_tab_content">       
                     <?php syntaxthemes_general_page() ?>

@@ -195,6 +195,10 @@
 .ui-timepicker-rtl dl dt{ float: right; clear: right; }
 .ui-timepicker-rtl dl dd { margin: 0 40% 10px 10px; }
 
+.plugin-version{
+    float: right;
+}
+
 /* =SyntaxThemes modal
 -------------------------------------------------------------- */
 .synth-modal-background{
@@ -295,6 +299,7 @@
         }
     }
 }
+
 /* =SyntaxThemes Modal Content
 -------------------------------------------------------------- */
 .synth-modal-content{
@@ -329,28 +334,88 @@
             max-height: 200px;
         }       
     }
-}  
+} 
 
-.type-syn_rest_reservation{
-    .column-status{
-        span{
-            font-weight: bold;
+/* =Restaurant Reservation List
+-------------------------------------------------------------- */
+.wp-list-table{  
+    #reservation-name{
+        width: 12%;
+    }
+    #reservation-guests{
+        width: 10%;
+    }
+    #reservation-phone{
+        width: 10%;
+    }
+    #reservation-arrival{
+        width: 15%;
+    }
+    #reservation-status{
+        width: 8%;
+    }
+    #reservation-actions{
+        width: 7%;
+    }
+    
+    .reservation-email{
+        .reservation-notes{
+            margin: 5px 0 0 0;
+            font-size: 95%;
         }
-    }
-    .status-pending{
-        color: orange;
-    }
-    .status-confirmed{
-        color: green;
-    }
-    .status-rejected{
-        color: red;
-    }
-    .status-complete{
-        color: #555;
+        .email-icon{
+            font-size: 95%;
+            color: #b6b6b6;
+            margin: 0 5px 0 0;
+        }
     }
 }
 
+.edit-reservation-button,
+.delete-reservation-button{
+    width: 32px !important;
+    height: 32px !important;
+    line-height: 32px !important;
+    text-align: center;
+}
+
+.type-syn_rest_reservation{
+    .column-reservation-status{
+        span{
+            display: inline-block;
+            font-weight: bold;
+            padding: 5px 0;
+            width: 100%;
+            text-align: center;
+        }
+    }
+    .status-draft,
+    .status-trash{
+        color: #555555;
+        background-color: #cacaca;
+        border: 1px solid #808080;
+    }
+    .status-pending{
+        color: #f99406;
+        background-color: #ffd9a3;
+        border: 1px solid #f99406;
+    }
+    .status-confirmed{
+        color: #409003;
+        background-color: #c5efa4;
+        border: 1px solid #5cb31a;
+    }
+    .status-rejected{
+        color: #d80a19;
+        background-color: #ffa48f;
+        border: 1px solid #d32b04;
+    }
+    .status-complete{
+        color: #555555;
+        background-color: #555555;
+        border: 1px solid #555555;
+    }
+}
 #restaurant_reservation_status_metabox .inside {
     margin: 0;
     padding: 0;
@@ -359,7 +424,6 @@
         padding: 6px 10px 8px;
     }
 }
-
 #restaurant_reservation_status_metabox #reservation_publishing{
     padding: 12px;
 }
@@ -652,7 +716,7 @@
         overflow: hidden;
         border-bottom: 1px solid @admin_border_color;
         .clearfix();
-        
+
         p:first-of-type{
             margin-top: 0;
         }

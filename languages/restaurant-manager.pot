@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Restaurant Manager Plugin\n"
-"POT-Creation-Date: 2014-11-19 10:56-0000\n"
-"PO-Revision-Date: 2014-11-19 10:56-0000\n"
+"POT-Creation-Date: 2014-11-19 18:45-0000\n"
+"PO-Revision-Date: 2014-11-19 18:45-0000\n"
 "Last-Translator: \n"
 "Language-Team: SyntaxThemes\n"
 "Language: en_US\n"
@@ -158,235 +158,235 @@ msgstr ""
 msgid "Add-ons"
 msgstr ""
 
-#: ../includes/functions-admin-menu.php:161
+#: ../includes/functions-admin-menu.php:165
 msgid "General"
 msgstr ""
 
-#: ../includes/functions-admin-menu.php:162
+#: ../includes/functions-admin-menu.php:166
 msgid "Reservation Schedule"
 msgstr ""
 
-#: ../includes/functions-admin-menu.php:163
+#: ../includes/functions-admin-menu.php:167
 msgid "Notifications"
 msgstr ""
 
-#: ../includes/functions-admin-menu.php:210
+#: ../includes/functions-admin-menu.php:215
 msgid ""
 "Thank you, We have successfully received your booking request.  Your booking "
 "is awaiting to be confirmed with us.  We will send you updates to the email "
 "address provided."
 msgstr ""
 
-#: ../includes/functions-admin-menu.php:213
+#: ../includes/functions-admin-menu.php:218
 msgid "General Settings"
 msgstr ""
 
-#: ../includes/functions-admin-menu.php:218
+#: ../includes/functions-admin-menu.php:223
 msgid "Maximum Group Size"
 msgstr ""
 
-#: ../includes/functions-admin-menu.php:220
+#: ../includes/functions-admin-menu.php:225
 msgid "No limit"
 msgstr ""
 
-#: ../includes/functions-admin-menu.php:221
+#: ../includes/functions-admin-menu.php:226
 msgid "Set your maximum allowed size for your group bookings."
 msgstr ""
 
-#: ../includes/functions-admin-menu.php:225
+#: ../includes/functions-admin-menu.php:230
 msgid "Reservation Success Message"
 msgstr ""
 
-#: ../includes/functions-admin-menu.php:227
+#: ../includes/functions-admin-menu.php:232
 msgid "Enter the message which is displayed when a reservation is made."
 msgstr ""
 
-#: ../includes/functions-admin-menu.php:231
+#: ../includes/functions-admin-menu.php:236
 msgid "Restaurant Telephone Number"
 msgstr ""
 
-#: ../includes/functions-admin-menu.php:234
+#: ../includes/functions-admin-menu.php:239
 msgid "Set your restaurant telephone contact number."
 msgstr ""
 
-#: ../includes/functions-admin-menu.php:239
+#: ../includes/functions-admin-menu.php:244
 msgid "Country Code"
 msgstr ""
 
-#: ../includes/functions-admin-menu.php:250
+#: ../includes/functions-admin-menu.php:255
 msgid "Set your country code for your restaurant location."
 msgstr ""
 
-#: ../includes/functions-admin-menu.php:255
+#: ../includes/functions-admin-menu.php:260
 msgid "Currency Symbol"
 msgstr ""
 
-#: ../includes/functions-admin-menu.php:259
+#: ../includes/functions-admin-menu.php:264
 msgid "Set the currency symbol for your menu prices."
 msgstr ""
 
-#: ../includes/functions-admin-menu.php:264
+#: ../includes/functions-admin-menu.php:269
 msgid "Date Format"
 msgstr ""
 
-#: ../includes/functions-admin-menu.php:273
+#: ../includes/functions-admin-menu.php:278
 msgid ""
 "Set the date format for dates displayed in your emails, bookings and "
 "reservation table."
 msgstr ""
 
-#: ../includes/functions-admin-menu.php:278
+#: ../includes/functions-admin-menu.php:283
 msgid "Time Format"
 msgstr ""
 
-#: ../includes/functions-admin-menu.php:292
+#: ../includes/functions-admin-menu.php:297
 msgid ""
 "Set the time format for dates displayed in your emails, bookings and "
 "reservation table."
 msgstr ""
 
-#: ../includes/functions-admin-menu.php:300
-#: ../includes/functions-admin-menu.php:358
-#: ../includes/functions-admin-menu.php:506
+#: ../includes/functions-admin-menu.php:305
+#: ../includes/functions-admin-menu.php:363
+#: ../includes/functions-admin-menu.php:511
 msgid "Save Changes"
 msgstr ""
 
-#: ../includes/functions-admin-menu.php:318
+#: ../includes/functions-admin-menu.php:323
 msgid "Reservation Schedule Settings"
 msgstr ""
 
-#: ../includes/functions-admin-menu.php:323
+#: ../includes/functions-admin-menu.php:328
 msgid "Schedule"
 msgstr ""
 
-#: ../includes/functions-admin-menu.php:330
+#: ../includes/functions-admin-menu.php:335
 msgid "Add New Schedule"
 msgstr ""
 
-#: ../includes/functions-admin-menu.php:331
+#: ../includes/functions-admin-menu.php:336
 msgid ""
 "Set your days and times for your schedule.  You can have multiple schedules."
 msgstr ""
 
-#: ../includes/functions-admin-menu.php:340
+#: ../includes/functions-admin-menu.php:345
 msgid "Schedule your days and times"
 msgstr ""
 
-#: ../includes/functions-admin-menu.php:387
+#: ../includes/functions-admin-menu.php:392
 msgid "Notification Settings"
 msgstr ""
 
-#: ../includes/functions-admin-menu.php:392
+#: ../includes/functions-admin-menu.php:397
 msgid "Reply To Name"
 msgstr ""
 
-#: ../includes/functions-admin-menu.php:395
+#: ../includes/functions-admin-menu.php:400
 msgid "Set the reply to email name."
 msgstr ""
 
-#: ../includes/functions-admin-menu.php:399
+#: ../includes/functions-admin-menu.php:404
 msgid "Reply To Email"
 msgstr ""
 
-#: ../includes/functions-admin-menu.php:402
+#: ../includes/functions-admin-menu.php:407
 msgid "Set the reply to email address."
 msgstr ""
 
-#: ../includes/functions-admin-menu.php:406
+#: ../includes/functions-admin-menu.php:411
 msgid "Administrator Email Subject"
 msgstr ""
 
-#: ../includes/functions-admin-menu.php:408
-#: ../includes/functions-admin-menu.php:432
+#: ../includes/functions-admin-menu.php:413
+#: ../includes/functions-admin-menu.php:437
 msgid "You have a booking request"
 msgstr ""
 
-#: ../includes/functions-admin-menu.php:409
+#: ../includes/functions-admin-menu.php:414
 msgid "Set the administrator email subject."
 msgstr ""
 
-#: ../includes/functions-admin-menu.php:413
+#: ../includes/functions-admin-menu.php:418
 msgid "Administrator Email"
 msgstr ""
 
-#: ../includes/functions-admin-menu.php:426
+#: ../includes/functions-admin-menu.php:431
 msgid "Create the email which your administrator will receive."
 msgstr ""
 
-#: ../includes/functions-admin-menu.php:430
+#: ../includes/functions-admin-menu.php:435
 msgid "New Reservation Email Subject"
 msgstr ""
 
-#: ../includes/functions-admin-menu.php:433
-#: ../includes/functions-admin-menu.php:457
+#: ../includes/functions-admin-menu.php:438
+#: ../includes/functions-admin-menu.php:462
 msgid "Set the new reservation email subject."
 msgstr ""
 
-#: ../includes/functions-admin-menu.php:437
+#: ../includes/functions-admin-menu.php:442
 msgid "New Reservation Email"
 msgstr ""
 
-#: ../includes/functions-admin-menu.php:450
-#: ../includes/functions-admin-menu.php:474
-#: ../includes/functions-admin-menu.php:498
+#: ../includes/functions-admin-menu.php:455
+#: ../includes/functions-admin-menu.php:479
+#: ../includes/functions-admin-menu.php:503
 msgid "Create the email which your customer will receive."
 msgstr ""
 
-#: ../includes/functions-admin-menu.php:454
+#: ../includes/functions-admin-menu.php:459
 msgid "Reservation Confirmed Email Subject"
 msgstr ""
 
-#: ../includes/functions-admin-menu.php:456
+#: ../includes/functions-admin-menu.php:461
 msgid "Your reservation request has been confirmed"
 msgstr ""
 
-#: ../includes/functions-admin-menu.php:461
+#: ../includes/functions-admin-menu.php:466
 msgid "Reservation Confirmed Email"
 msgstr ""
 
-#: ../includes/functions-admin-menu.php:478
+#: ../includes/functions-admin-menu.php:483
 msgid "Reservation Rejected Email Subject"
 msgstr ""
 
-#: ../includes/functions-admin-menu.php:480
+#: ../includes/functions-admin-menu.php:485
 msgid "Unfortunately we cannot make your reservation"
 msgstr ""
 
-#: ../includes/functions-admin-menu.php:481
+#: ../includes/functions-admin-menu.php:486
 msgid "Set the email subject for reservation rejections."
 msgstr ""
 
-#: ../includes/functions-admin-menu.php:485
+#: ../includes/functions-admin-menu.php:490
 msgid "Reservation Rejected Email"
 msgstr ""
 
-#: ../includes/functions-admin-menu.php:523
+#: ../includes/functions-admin-menu.php:528
 msgid "Taurus Restaurant Theme"
 msgstr ""
 
-#: ../includes/functions-admin-menu.php:527
+#: ../includes/functions-admin-menu.php:532
 msgid ""
 "Taurus Theme has been designed to work beautifully with our Restaurant "
 "Manager plugin.  It has styled the reservation form nicely with the\n"
 "                                theme layout.  Check out the"
 msgstr ""
 
-#: ../includes/functions-admin-menu.php:532
-#: ../includes/functions-admin-menu.php:557
-#: ../includes/functions-admin-menu.php:574
-#: ../includes/functions-admin-menu.php:591
+#: ../includes/functions-admin-menu.php:537
+#: ../includes/functions-admin-menu.php:562
+#: ../includes/functions-admin-menu.php:579
+#: ../includes/functions-admin-menu.php:596
 msgid "Read More"
 msgstr ""
 
-#: ../includes/functions-admin-menu.php:533
+#: ../includes/functions-admin-menu.php:538
 msgid "Buy Now $59"
 msgstr ""
 
-#: ../includes/functions-admin-menu.php:547
+#: ../includes/functions-admin-menu.php:552
 msgid "Restaurant MailChimp Subscribe User"
 msgstr ""
 
-#: ../includes/functions-admin-menu.php:551
+#: ../includes/functions-admin-menu.php:556
 msgid ""
 "This MailChimp plugin allows you to quickly and easily add a signup checkbox "
 "to your reservation form. \n"
@@ -397,17 +397,17 @@ msgid ""
 "list."
 msgstr ""
 
-#: ../includes/functions-admin-menu.php:558
-#: ../includes/functions-admin-menu.php:575
-#: ../includes/functions-admin-menu.php:592
+#: ../includes/functions-admin-menu.php:563
+#: ../includes/functions-admin-menu.php:580
+#: ../includes/functions-admin-menu.php:597
 msgid "Buy Now $19.99"
 msgstr ""
 
-#: ../includes/functions-admin-menu.php:564
+#: ../includes/functions-admin-menu.php:569
 msgid "Customer Email Support"
 msgstr ""
 
-#: ../includes/functions-admin-menu.php:568
+#: ../includes/functions-admin-menu.php:573
 msgid ""
 "Now you can email your customers directly from their saved reservation "
 "booking record.  All emails sent are\n"
@@ -417,11 +417,11 @@ msgid ""
 "email clients."
 msgstr ""
 
-#: ../includes/functions-admin-menu.php:581
+#: ../includes/functions-admin-menu.php:586
 msgid "Customer SMS Support"
 msgstr ""
 
-#: ../includes/functions-admin-menu.php:585
+#: ../includes/functions-admin-menu.php:590
 msgid ""
 "Now you can send SMS directly to your customer from your reservation screen. "
 "All SMS messages are recorded in your reservation screen\n"
@@ -520,7 +520,7 @@ msgid "Calories Count"
 msgstr ""
 
 #: ../includes/post-types/class-meal-post-meta-boxes.php:134
-#: ../includes/shortcodes/components/restaurant-menu.php:153
+#: ../includes/shortcodes/components/restaurant-menu.php:184
 #: ../templates/restaurant-manager/single-meal.php:48
 msgid "(kcal)"
 msgstr ""
@@ -530,13 +530,13 @@ msgid "New Addition"
 msgstr ""
 
 #: ../includes/post-types/class-meal-post-meta-boxes.php:143
-#: ../includes/shortcodes/components/restaurant-menu.php:158
+#: ../includes/shortcodes/components/restaurant-menu.php:189
 #: ../templates/restaurant-manager/single-meal.php:51
 msgid "Healthy Option"
 msgstr ""
 
 #: ../includes/post-types/class-meal-post-meta-boxes.php:147
-#: ../includes/shortcodes/components/restaurant-menu.php:163
+#: ../includes/shortcodes/components/restaurant-menu.php:194
 #: ../templates/restaurant-manager/single-meal.php:54
 msgid "Gluten Free"
 msgstr ""
@@ -573,7 +573,6 @@ msgstr ""
 
 #: ../includes/post-types/class-meal-post-type.php:44
 #: ../includes/post-types/class-reservation-post-type.php:42
-#: ../includes/post-types/class-reservation-post-type.php:227
 #: ../templates/restaurant-manager/single-meal.php:66
 msgid "Edit"
 msgstr ""
@@ -822,6 +821,7 @@ msgid "Add New Reservation"
 msgstr ""
 
 #: ../includes/post-types/class-reservation-post-type.php:43
+#: ../includes/post-types/class-reservation-post-type.php:229
 msgid "Edit Reservation"
 msgstr ""
 
@@ -846,7 +846,7 @@ msgid "Parent Reservation"
 msgstr ""
 
 #: ../includes/post-types/class-reservation-post-type.php:76
-#: ../includes/post-types/class-reservation-post-type.php:211
+#: ../includes/post-types/class-reservation-post-type.php:213
 msgid "Pending"
 msgstr ""
 
@@ -902,28 +902,36 @@ msgstr ""
 msgid "1 Guest"
 msgstr ""
 
-#: ../includes/post-types/class-reservation-post-type.php:209
+#: ../includes/post-types/class-reservation-post-type.php:192
+msgid "...read more"
+msgstr ""
+
+#: ../includes/post-types/class-reservation-post-type.php:211
 msgid "Draft"
 msgstr ""
 
-#: ../includes/post-types/class-reservation-post-type.php:213
+#: ../includes/post-types/class-reservation-post-type.php:215
 msgid "Confirmed"
 msgstr ""
 
-#: ../includes/post-types/class-reservation-post-type.php:215
+#: ../includes/post-types/class-reservation-post-type.php:217
 msgid "Rejected"
 msgstr ""
 
-#: ../includes/post-types/class-reservation-post-type.php:217
+#: ../includes/post-types/class-reservation-post-type.php:219
 msgid "Completed"
 msgstr ""
 
-#: ../includes/post-types/class-reservation-post-type.php:219
+#: ../includes/post-types/class-reservation-post-type.php:221
 msgid "Unknown"
 msgstr ""
 
-#: ../includes/post-types/class-reservation-post-type.php:227
-msgid "Delete"
+#: ../includes/post-types/class-reservation-post-type.php:229
+msgid "Delete Reservation"
+msgstr ""
+
+#: ../includes/post-types/class-reservation-post-type.php:229
+msgid "Are you sure you would like to delete this reservation?"
 msgstr ""
 
 #: ../includes/shortcodes/components/reservation.php:28
@@ -1000,11 +1008,40 @@ msgstr ""
 msgid "Choose your next meal to display in the menu."
 msgstr ""
 
-#: ../includes/shortcodes/components/restaurant-menu.php:143
+#: ../includes/shortcodes/components/restaurant-menu.php:81
+#: ../includes/shortcodes/components/restaurant-menu.php:82
+msgid "Show Image"
+msgstr ""
+
+#: ../includes/shortcodes/components/restaurant-menu.php:83
+msgid "Display the image set for the meal items."
+msgstr ""
+
+#: ../includes/shortcodes/components/restaurant-menu.php:86
+msgid "No"
+msgstr ""
+
+#: ../includes/shortcodes/components/restaurant-menu.php:87
+msgid "Yes"
+msgstr ""
+
+#: ../includes/shortcodes/components/restaurant-menu.php:94
+msgid "Post Image Size"
+msgstr ""
+
+#: ../includes/shortcodes/components/restaurant-menu.php:95
+msgid "Image Size"
+msgstr ""
+
+#: ../includes/shortcodes/components/restaurant-menu.php:96
+msgid "Choose the scale of the post image."
+msgstr ""
+
+#: ../includes/shortcodes/components/restaurant-menu.php:174
 msgid "New"
 msgstr ""
 
-#: ../includes/shortcodes/components/restaurant-menu.php:148
+#: ../includes/shortcodes/components/restaurant-menu.php:179
 #: ../templates/restaurant-manager/single-meal.php:45
 msgid "Small Plate"
 msgstr ""

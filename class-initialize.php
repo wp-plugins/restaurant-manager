@@ -46,6 +46,9 @@ class initialize {
             if (!$this->_plugin->is_installed()) {
                 $this->_plugin->activate();
             }
+            
+            //Temp for marking the plugin version.
+            $this->_plugin->mark_plugin_activated();
         }
     }
 
