@@ -13,8 +13,8 @@ function syn_restaurant_manager_admin_menu() {
         $parent_menu_slug = 'edit.php?post_type=syn_rest_meal';
 
         //Settings for the custom admin
-        $page_title = 'Restaurant';
-        $menu_title = 'Restaurant';
+        $page_title = __('Restaurant', 'syn_restaurant_plugin');
+        $menu_title = __('Restaurant', 'syn_restaurant_plugin');
         $capability = 'manage_options';
         $menu_slug = $parent_menu_slug;
         $function = null; // Callback function which displays the page content.
@@ -37,8 +37,8 @@ function syn_restaurant_manager_admin_menu() {
             // Post Type :: View Meals
             array(
                 'parent_slug' => $parent_menu_slug,
-                'page_title' => 'All Meals',
-                'menu_title' => 'Meals',
+                'page_title' => __('All Meals', 'syn_restaurant_plugin'),
+                'menu_title' => __('Meals', 'syn_restaurant_plugin'),
                 'capability' => 'manage_options',
                 'menu_slug' => 'edit.php?post_type=syn_rest_meal',
                 'function' => null, // Uses the same callback function as parent menu. 
@@ -46,64 +46,64 @@ function syn_restaurant_manager_admin_menu() {
             // Post Type :: Add New Meal
             array(
                 'parent_slug' => $parent_menu_slug,
-                'page_title' => 'Add New Meal',
-                'menu_title' => 'Add Meal',
+                'page_title' => __('Add New Meal', 'syn_restaurant_plugin'),
+                'menu_title' => __('Add Meal', 'syn_restaurant_plugin'),
                 'capability' => 'manage_options',
                 'menu_slug' => 'post-new.php?post_type=syn_rest_meal',
                 'function' => null, // Doesn't need a callback function.
             ),
             array(
                 'parent_slug' => $parent_menu_slug,
-                'page_title' => 'Menus',
-                'menu_title' => 'Menus',
+                'page_title' => __('Menus', 'syn_restaurant_plugin'),
+                'menu_title' => __('Menus', 'syn_restaurant_plugin'),
                 'capability' => 'manage_options',
                 'menu_slug' => 'edit-tags.php?taxonomy=syn_rest_menu&post_type=syn_rest_meal',
                 'function' => null, // Uses the same callback function as parent menu. 
             ),
             array(
                 'parent_slug' => $parent_menu_slug,
-                'page_title' => 'Courses',
-                'menu_title' => 'Courses',
+                'page_title' => __('Courses', 'syn_restaurant_plugin'),
+                'menu_title' => __('Courses', 'syn_restaurant_plugin'),
                 'capability' => 'manage_options',
                 'menu_slug' => 'edit-tags.php?taxonomy=syn_rest_course&post_type=syn_rest_meal',
                 'function' => null, // Uses the same callback function as parent menu. 
             ),
             array(
                 'parent_slug' => $parent_menu_slug,
-                'page_title' => 'Diets',
-                'menu_title' => 'Diets',
+                'page_title' => __('Diets', 'syn_restaurant_plugin'),
+                'menu_title' => __('Diets', 'syn_restaurant_plugin'),
                 'capability' => 'manage_options',
                 'menu_slug' => 'edit-tags.php?taxonomy=syn_rest_diet&post_type=syn_rest_meal',
                 'function' => null, // Uses the same callback function as parent menu. 
             ),
             array(
                 'parent_slug' => $parent_menu_slug,
-                'page_title' => 'Cuisines',
-                'menu_title' => 'Cuisines',
+                'page_title' => __('Cuisines', 'syn_restaurant_plugin'),
+                'menu_title' => __('Cuisines', 'syn_restaurant_plugin'),
                 'capability' => 'manage_options',
                 'menu_slug' => 'edit-tags.php?taxonomy=syn_rest_cuisine&post_type=syn_rest_meal',
                 'function' => null, // Uses the same callback function as parent menu. 
             ),
             array(
                 'parent_slug' => $parent_menu_slug,
-                'page_title' => 'All Reservations',
-                'menu_title' => 'Reservations',
+                'page_title' => __('All Reservations', 'syn_restaurant_plugin'),
+                'menu_title' => __('Reservations', 'syn_restaurant_plugin'),
                 'capability' => 'manage_options',
                 'menu_slug' => 'edit.php?post_type=syn_rest_reservation',
                 'function' => null, // Uses the same callback function as parent menu. 
             ),
             array(
                 'parent_slug' => $parent_menu_slug,
-                'page_title' => 'Settings',
-                'menu_title' => 'Settings',
+                'page_title' => __('Settings', 'syn_restaurant_plugin'),
+                'menu_title' => __('Settings', 'syn_restaurant_plugin'),
                 'capability' => 'manage_options',
                 'menu_slug' => 'syn_restaurant_manager_settings',
                 'function' => 'syn_restaurant_manager_settings_page', // Uses the same callback function as parent menu. 
             ),
             array(
                 'parent_slug' => $parent_menu_slug,
-                'page_title' => 'Add-ons',
-                'menu_title' => 'Add-ons',
+                'page_title' => __('Add-ons', 'syn_restaurant_plugin'),
+                'menu_title' => __('Add-ons', 'syn_restaurant_plugin'),
                 'capability' => 'manage_options',
                 'menu_slug' => 'syn_restaurant_manager_add_ons',
                 'function' => 'syn_restaurant_manager_add_ons_page', // Uses the same callback function as parent menu. 
@@ -207,31 +207,31 @@ function syntaxthemes_general_page() {
     $country_code = get_option($syn_restaurant_config->plugin_prefix . 'country_code', null);
 
     if (empty($reservation_success_message)) {
-        $reservation_success_message = __('Thank you, We have successfully received your booking request.  Your booking is awaiting to be confirmed with us.  We will send you updates to the email address provided.');
+        $reservation_success_message = __('Thank you, We have successfully received your booking request.  Your booking is awaiting to be confirmed with us.  We will send you updates to the email address provided.', 'syn_restaurant_plugin');
     }
     ?>
-    <h3>General Settings</h3>
+    <h3><?php _e('General Settings', 'syn_restaurant_plugin') ?></h3>
     <form id="syn_restaurant_manager_general_form" action="<?php $session->current_page_url(true) ?>" method="POST">
         <table class="form-table">
             <tbody>
                 <tr>
-                    <th scope="row">Maximum Group Size</th>
+                    <th scope="row"><?php _e('Maximum Group Size', 'syn_restaurant_plugin') ?></th>
                     <td>
                         <input class="regular-text" id="group_size" name="group_size" type="text" value="<?php echo $group_size ?>" placeholder="<?php _e('No limit', 'syn_restaurant_plugin') ?>">
-                        <p class="description">Set your maximum allowed size for your group bookings.</p>
+                        <p class="description"><?php _e('Set your maximum allowed size for your group bookings.', 'syn_restaurant_plugin') ?></p>
                     </td>
                 </tr>
                 <tr>
-                    <th scope="row">Reservation Success Message</th><td>
+                    <th scope="row"><?php _e('Reservation Success Message', 'syn_restaurant_plugin') ?></th><td>
                         <textarea class="large-text" id="reservation_success_message" name="reservation_success_message" rows="6"><?php echo $reservation_success_message ?></textarea>
-                        <p class="description">Enter the message which is displayed when a reservation is made.</p>
+                        <p class="description"><?php _e('Enter the message which is displayed when a reservation is made.', 'syn_restaurant_plugin') ?></p>
                     </td>
                 </tr>
                 <tr>
-                    <th scope="row">Restaurant Telephone Number</th>
+                    <th scope="row"><?php _e('Restaurant Telephone Number', 'syn_restaurant_plugin') ?></th>
                     <td>
                         <input class="regular-text" id="restaurant_telephone" name="restaurant_telephone" type="text" value="<?php echo $restaurant_telephone ?>" />
-                        <p class="description">Set your restaurant telephone contact number.</p>
+                        <p class="description"><?php _e('Set your restaurant telephone contact number.', 'syn_restaurant_plugin') ?></p>
                     </td>
                 </tr>
                 <tr>
@@ -247,7 +247,7 @@ function syntaxthemes_general_page() {
                                 <option value="<?php echo $code ?>" <?php selected($country_code, $code, true) ?>><?php echo $country ?></option>
                             <?php } ?>
                         </select>
-                        <p class="description">Set your country code for your restaurant location.</p>
+                        <p class="description"><?php _e('Set your country code for your restaurant location.', 'syn_restaurant_plugin') ?></p>
                     </td>
                 </tr>
                 <tr>
@@ -315,7 +315,7 @@ function syntaxthemes_reservation_schedule_page() {
 
     $session = new syntaxthemes\restaurant\session();
     ?>
-    <h3>Reservation Schedule Settings</h3>
+    <h3><?php _e('Reservation Schedule Settings', 'syn_restaurant_plugin') ?></h3>
     <form id="syn_restaurant_manager_schedule_form" action="<?php $session->current_page_url(true) ?>" method="POST">
         <table class="form-table">
             <tbody>
@@ -327,8 +327,8 @@ function syntaxthemes_reservation_schedule_page() {
                             syn_restaurant_manager_get_scheduler();
                             ?>
                         </div>
-                        <a id="add_schedule_button" class="button" href="javascript:void(0)">Add New Schedule</a>
-                        <p class="description">Set your days and times for your schedule.  You can have multiple schedules.</p>
+                        <a id="add_schedule_button" class="button" href="javascript:void(0)"><?php _e('Add New Schedule', 'syn_restaurant_plugin') ?></a>
+                        <p class="description"><?php _e('Set your days and times for your schedule.  You can have multiple schedules.', 'syn_restaurant_plugin') ?></p>
                     </td>
                 </tr>
             </tbody>
@@ -337,7 +337,7 @@ function syntaxthemes_reservation_schedule_page() {
     <?php
     $parameters = array(
         'days_text' => '',
-        'time_text' => 'Schedule your days and times',
+        'time_text' => __('Schedule your days and times', 'syn_restaurant_plugin'),
         'monday' => '',
         'tuesday' => '',
         'wednesday' => '',
@@ -384,33 +384,33 @@ function syntaxthemes_notifications_page() {
     $reservation_rejected_email_subject = get_option($syn_restaurant_config->plugin_prefix . 'reservation_rejected_email_subject', '');
     $reservation_rejected_email = get_option($syn_restaurant_config->plugin_prefix . 'reservation_rejected_email', '');
     ?>
-    <h3>Notification Settings</h3>
+    <h3><?php _e('Notification Settings', 'syn_restaurant_plugin') ?></h3>
     <form id="syn_restaurant_manager_notifications_form" action="<?php $session->current_page_url(true) ?>" method="POST">
         <table class="form-table">
             <tbody>
                 <tr>
-                    <th scope="row">Reply To Name</th>
+                    <th scope="row"><?php _e('Reply To Name', 'syn_restaurant_plugin') ?></th>
                     <td>
                         <input id="reply_to_name" class="regular-text" name="reply_to_name" type="text" placeholder="<?php bloginfo('name') ?>" value="<?php echo $reply_to_name ?>" />
-                        <p class="description">Set the reply to email name.</p>
+                        <p class="description"><?php _e('Set the reply to email name.', 'syn_restaurant_plugin') ?></p>
                     </td>
                 </tr>
                 <tr>
-                    <th scope="row">Reply To Email</th>
+                    <th scope="row"><?php _e('Reply To Email', 'syn_restaurant_plugin') ?></th>
                     <td>
                         <input id="reply_to_email" class="regular-text" name="reply_to_email" type="text" placeholder="<?php bloginfo('admin_email') ?>" value="<?php echo $reply_to_email ?>" />
-                        <p class="description">Set the reply to email address.</p>
+                        <p class="description"><?php _e('Set the reply to email address.', 'syn_restaurant_plugin') ?></p>
                     </td>
                 </tr>
                 <tr>
-                    <th scope="row">Administrator Email Subject</th>
+                    <th scope="row"><?php _e('Administrator Email Subject', 'syn_restaurant_plugin') ?></th>
                     <td>
                         <input id="admin_email_subject" class="regular-text" name="admin_email_subject" type="text" placeholder="<?php _e('You have a booking request', 'syn_restaurant_plugin') ?>" value="<?php echo $admin_email_subject ?>" />
-                        <p class="description">Set the administrator email subject.</p>
+                        <p class="description"><?php _e('Set the administrator email subject.', 'syn_restaurant_plugin') ?></p>
                     </td>
                 </tr>
                 <tr>
-                    <th scope="row">Administrator Email</th>
+                    <th scope="row"><?php _e('Administrator Email', 'syn_restaurant_plugin') ?></th>
                     <td>
                         <?php
                         $admin_email_settings = array(
@@ -423,18 +423,18 @@ function syntaxthemes_notifications_page() {
 
                         wp_editor($admin_email, 'admin_email', $admin_email_settings);
                         ?>
-                        <p class="description">Create the email which your administrator will receive.</p>
+                        <p class="description"><?php _e('Create the email which your administrator will receive.', 'syn_restaurant_plugin') ?></p>
                     </td>
                 </tr>
                 <tr>
-                    <th scope="row">New Reservation Email Subject</th>
+                    <th scope="row"><?php _e('New Reservation Email Subject', 'syn_restaurant_plugin') ?></th>
                     <td>
                         <input id="new_reservation_email_subject" class="regular-text" name="reservation_email_subject" type="text" placeholder="<?php _e('You have a booking request', 'syn_restaurant_plugin') ?>" value="<?php echo $reservation_email_subject ?>" />
-                        <p class="description">Set the new reservation email subject.</p>
+                        <p class="description"><?php _e('Set the new reservation email subject.', 'syn_restaurant_plugin') ?></p>
                     </td>
                 </tr>
                 <tr>
-                    <th scope="row">New Reservation Email</th>
+                    <th scope="row"><?php _e('New Reservation Email', 'syn_restaurant_plugin') ?></th>
                     <td>
                         <?php
                         $reservation_email_settings = array(
@@ -447,18 +447,18 @@ function syntaxthemes_notifications_page() {
 
                         wp_editor($reservation_email, 'new_reservation_email', $reservation_email_settings);
                         ?>
-                        <p class="description">Create the email which your customer will receive.</p>
+                        <p class="description"><?php _e('Create the email which your customer will receive.', 'syn_restaurant_plugin') ?></p>
                     </td>
                 </tr>
                 <tr>
-                    <th scope="row">Reservation Confirmed Email Subject</th>
+                    <th scope="row"><?php _e('Reservation Confirmed Email Subject', 'syn_restaurant_plugin') ?></th>
                     <td>
                         <input id="reservation_confirmed_email_subject" class="regular-text" name="reservation_confirmed_email_subject" type="text" placeholder="<?php _e('Your reservation request has been confirmed', 'syn_restaurant_plugin') ?>" value="<?php echo $reservation_confirmed_email_subject ?>" />
-                        <p class="description">Set the new reservation email subject.</p>
+                        <p class="description"><?php _e('Set the new reservation email subject.', 'syn_restaurant_plugin') ?></p>
                     </td>
                 </tr>
                 <tr>
-                    <th scope="row">Reservation Confirmed Email</th>
+                    <th scope="row"><?php _e('Reservation Confirmed Email', 'syn_restaurant_plugin') ?></th>
                     <td>
                         <?php
                         $reservation_confirmed_email_settings = array(
@@ -471,18 +471,18 @@ function syntaxthemes_notifications_page() {
 
                         wp_editor($reservation_confirmed_email, 'reservation_confirmed_email', $reservation_confirmed_email_settings);
                         ?>
-                        <p class="description">Create the email which your customer will receive.</p>
+                        <p class="description"><?php _e('Create the email which your customer will receive.', 'syn_restaurant_plugin') ?></p>
                     </td>
                 </tr>
                 <tr>
-                    <th scope="row">Reservation Rejected Email Subject</th>
+                    <th scope="row"><?php _e('Reservation Rejected Email Subject', 'syn_restaurant_plugin') ?></th>
                     <td>
                         <input id="reservation_rejected_email_subject" class="regular-text" name="reservation_rejected_email_subject" type="text" placeholder="<?php _e('Unfortunately we cannot make your reservation', 'syn_restaurant_plugin') ?>" value="<?php echo $reservation_rejected_email_subject ?>" />
-                        <p class="description">Set the email subject for reservation rejections.</p>
+                        <p class="description"><?php _e('Set the email subject for reservation rejections.', 'syn_restaurant_plugin') ?></p>
                     </td>
                 </tr>
                 <tr>
-                    <th scope="row">Reservation Rejected Email</th>
+                    <th scope="row"><?php _e('Reservation Rejected Email', 'syn_restaurant_plugin') ?></th>
                     <td>
                         <?php
                         $reservation_rejected_email_settings = array(
@@ -495,7 +495,7 @@ function syntaxthemes_notifications_page() {
 
                         wp_editor($reservation_rejected_email, 'reservation_rejected_email', $reservation_rejected_email_settings);
                         ?>
-                        <p class="description">Create the email which your customer will receive.</p>
+                        <p class="description"><?php _e('Create the email which your customer will receive.', 'syn_restaurant_plugin') ?></p>
                     </td>
                 </tr>
             </tbody>
@@ -520,12 +520,12 @@ function syn_restaurant_manager_add_ons_page() {
             <ul class="addon-list">
                 <li class="addon-item">
                     <div class="addon-block">                
-                        <h3 class="addon-title">Taurus Restaurant Theme</h3>
+                        <h3 class="addon-title"><?php _e('Taurus Restaurant Theme', 'syn_restaurant_plugin') ?></h3>
                         <div class="addon-content">
                             <img class="addon-image" src="http://www.syntaxthemes.co.uk/wp-content/uploads/2014/11/taurus-theme-thumbnail.jpg" />
                             <p>
-                                Taurus Theme has been designed to work beautifully with our Restaurant Manager plugin.  It has styled the reservation form nicely with the
-                                theme layout.  Check out the <a href="http://www.syntaxthemes.co.uk/exhibitions?theme=taurus-theme" target="_blank">demo</a>. 
+                                <?php _e('Taurus Theme has been designed to work beautifully with our Restaurant Manager plugin.  It has styled the reservation form nicely with the
+                                theme layout.  Check out the', 'syn_restaurant_plugin') ?> <a href="http://www.syntaxthemes.co.uk/exhibitions?theme=taurus-theme" target="_blank">demo</a>. 
                             </p>
                         </div> 
                         <div class="addon-footer">
@@ -544,13 +544,13 @@ function syn_restaurant_manager_add_ons_page() {
             <ul class="addon-list">
                 <li class="addon-item">
                     <div class="addon-block">                
-                        <h3 class="addon-title">Restaurant MailChimp Subscribe User</h3>
+                        <h3 class="addon-title"><?php _e('Restaurant MailChimp Subscribe User', 'syn_restaurant_plugin') ?></h3>
                         <div class="addon-content">
                             <img class="addon-image" src="http://www.syntaxthemes.co.uk/wp-content/uploads/2014/11/mailchimp-logo.png" />
                             <p>
-                                This MailChimp plugin allows you to quickly and easily add a signup checkbox to your reservation form. 
+                                <?php _e('This MailChimp plugin allows you to quickly and easily add a signup checkbox to your reservation form. 
                                 This allows your customers to signup to your services by allowing their email to be added to your MailChimp list. 
-                                Its is very easy to use, just install and on the settings tab enter your MailChimp account API Key and choose your email list.
+                                Its is very easy to use, just install and on the settings tab enter your MailChimp account API Key and choose your email list.', 'syn_restaurant_plugin') ?>                                
                             </p>
                         </div> 
                         <div class="addon-footer">
@@ -561,13 +561,13 @@ function syn_restaurant_manager_add_ons_page() {
                 </li>
                 <li class="addon-item">
                     <div class="addon-block">                
-                        <h3 class="addon-title">Customer Email Support</h3>
+                        <h3 class="addon-title"><?php _e('Customer Email Support', 'syn_restaurant_plugin') ?></h3>
                         <div class="addon-content">
                             <img class="addon-image" src="http://www.syntaxthemes.co.uk/wp-content/uploads/2014/11/restaurant-emails-logo-450x450.jpg" />
                             <p>
-                                Now you can email your customers directly from their saved reservation booking record.  All emails sent are
+                                <?php _e('Now you can email your customers directly from their saved reservation booking record.  All emails sent are
                                 recorded on the booking so you can keep track of communication sent from your restaurant. Improve your customer
-                                relations without the need for external email clients.
+                                relations without the need for external email clients.', 'syn_restaurant_plugin') ?>                                  
                             </p>
                         </div> 
                         <div class="addon-footer">
@@ -578,13 +578,13 @@ function syn_restaurant_manager_add_ons_page() {
                 </li>
                 <li class="addon-item">
                     <div class="addon-block">                
-                        <h3 class="addon-title">Customer SMS Support</h3>
+                        <h3 class="addon-title"><?php _e('Customer SMS Support', 'syn_restaurant_plugin') ?></h3>
                         <div class="addon-content">
                             <img class="addon-image" src="http://www.syntaxthemes.co.uk/wp-content/uploads/2014/11/restaurant-sms-logo-450x450.jpg" />
                             <p>
-                                Now you can send SMS directly to your customer from your reservation screen. All SMS messages are recorded in your reservation screen
+                                <?php _e('Now you can send SMS directly to your customer from your reservation screen. All SMS messages are recorded in your reservation screen
                                 so that you can see what has been sent to your customers. You will need a Nexmo SMS account this is free to set up and you will
-                                receive some free credit to try.  Check out <a href="https://www.nexmo.com/" title="Nexmo SMS" target="_blank">Nexmo SMS</a>
+                                receive some free credit to try.  Check out', 'syn_restaurant_plugin') ?> <a href="https://www.nexmo.com/" title="Nexmo SMS" target="_blank">Nexmo SMS</a>
                             </p>
                         </div> 
                         <div class="addon-footer">

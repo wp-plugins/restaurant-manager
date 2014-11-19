@@ -186,13 +186,13 @@ function syn_restaurant_manager_get_scheduler() {
             $starttime = (isset($schedule['timeslot']['starttime'])) ? $schedule['timeslot']['starttime'] : false;
             $endtime = (isset($schedule['timeslot']['endtime'])) ? $schedule['timeslot']['endtime'] : false;
 
-            $monday_text = (isset($schedule['weekday']['monday'])) ? __('Mon') : null;
-            $tuesday_text = (isset($schedule['weekday']['tuesday'])) ? __('Tue') : null;
-            $wednesday_text = (isset($schedule['weekday']['wednesday'])) ? __('Wed') : null;
-            $thursday_text = (isset($schedule['weekday']['thursday'])) ? __('Thu') : null;
-            $friday_text = (isset($schedule['weekday']['friday'])) ? __('Fri') : null;
-            $saturday_text = (isset($schedule['weekday']['saturday'])) ? __('Sat') : null;
-            $sunday_text = (isset($schedule['weekday']['sunday'])) ? __('Sun') : null;
+            $monday_text = (isset($schedule['weekday']['monday'])) ? __('Mon', 'syn_restaurant_plugin') : null;
+            $tuesday_text = (isset($schedule['weekday']['tuesday'])) ? __('Tue', 'syn_restaurant_plugin') : null;
+            $wednesday_text = (isset($schedule['weekday']['wednesday'])) ? __('Wed', 'syn_restaurant_plugin') : null;
+            $thursday_text = (isset($schedule['weekday']['thursday'])) ? __('Thu', 'syn_restaurant_plugin') : null;
+            $friday_text = (isset($schedule['weekday']['friday'])) ? __('Fri', 'syn_restaurant_plugin') : null;
+            $saturday_text = (isset($schedule['weekday']['saturday'])) ? __('Sat', 'syn_restaurant_plugin') : null;
+            $sunday_text = (isset($schedule['weekday']['sunday'])) ? __('Sun', 'syn_restaurant_plugin') : null;
 
             $days_obj = array($monday_text, $tuesday_text, $wednesday_text, $thursday_text, $friday_text, $saturday_text, $sunday_text);
             $days_text = implode(', ', array_filter($days_obj));
@@ -236,33 +236,33 @@ function syn_restaurant_manager_schedule_template($parameters = array(), $key = 
         </div>
         <div class="schedule-content">
             <div class="weekdays">
-                <label>Days of the week</label>
+                <label><?php _e('Days of the week', 'syn_restaurant_plugin') ?></label>
                 <ul>
                     <li>
-                        <input type="checkbox" name="scheduler[<?php echo $key ?>][weekday][monday]" value="true" <?php checked($parameters['monday'], 'true', true) ?> /><label>Monday</label>
+                        <input type="checkbox" name="scheduler[<?php echo $key ?>][weekday][monday]" value="true" <?php checked($parameters['monday'], 'true', true) ?> /><label><?php _e('Monday', 'syn_restaurant_plugin') ?></label>
                     </li>
                     <li>
-                        <input type="checkbox" name="scheduler[<?php echo $key ?>][weekday][tuesday]" value="true" <?php checked($parameters['tuesday'], 'true', true) ?> /><label>Tuesday</label>
+                        <input type="checkbox" name="scheduler[<?php echo $key ?>][weekday][tuesday]" value="true" <?php checked($parameters['tuesday'], 'true', true) ?> /><label><?php _e('Tuesday', 'syn_restaurant_plugin') ?></label>
                     </li>
                     <li>
-                        <input type="checkbox" name="scheduler[<?php echo $key ?>][weekday][wednesday]" value="true" <?php checked($parameters['wednesday'], 'true', true) ?> /><label>Wednesday</label>
+                        <input type="checkbox" name="scheduler[<?php echo $key ?>][weekday][wednesday]" value="true" <?php checked($parameters['wednesday'], 'true', true) ?> /><label><?php _e('Wednesday', 'syn_restaurant_plugin') ?></label>
                     </li>
                     <li>
-                        <input type="checkbox" name="scheduler[<?php echo $key ?>][weekday][thursday]" value="true" <?php checked($parameters['thursday'], 'true', true) ?> /><label>Thursday</label>
+                        <input type="checkbox" name="scheduler[<?php echo $key ?>][weekday][thursday]" value="true" <?php checked($parameters['thursday'], 'true', true) ?> /><label><?php _e('Thursday', 'syn_restaurant_plugin') ?></label>
                     </li>
                     <li>
-                        <input type="checkbox" name="scheduler[<?php echo $key ?>][weekday][friday]" value="true" <?php checked($parameters['friday'], 'true', true) ?> /><label>Friday</label>
+                        <input type="checkbox" name="scheduler[<?php echo $key ?>][weekday][friday]" value="true" <?php checked($parameters['friday'], 'true', true) ?> /><label><?php _e('Friday', 'syn_restaurant_plugin') ?></label>
                     </li>
                     <li>
-                        <input type="checkbox" name="scheduler[<?php echo $key ?>][weekday][saturday]" value="true" <?php checked($parameters['saturday'], 'true', true) ?> /><label>Saturday</label>
+                        <input type="checkbox" name="scheduler[<?php echo $key ?>][weekday][saturday]" value="true" <?php checked($parameters['saturday'], 'true', true) ?> /><label><?php _e('Saturday', 'syn_restaurant_plugin') ?></label>
                     </li>
                     <li>
-                        <input type="checkbox" name="scheduler[<?php echo $key ?>][weekday][sunday]" value="true" <?php checked($parameters['sunday'], 'true', true) ?> /><label>Sunday</label>
+                        <input type="checkbox" name="scheduler[<?php echo $key ?>][weekday][sunday]" value="true" <?php checked($parameters['sunday'], 'true', true) ?> /><label><?php _e('Sunday', 'syn_restaurant_plugin') ?></label>
                     </li>
                 </ul>
             </div>
             <div class="timeslot">
-                <label>Open Times</label>
+                <label><?php _e('Open Times', 'syn_restaurant_plugin') ?></label>
                 <div>
                     <input class="syn-scheduler-timepicker" type="text" name="scheduler[<?php echo $key ?>][timeslot][starttime]" value="<?php echo $parameters['start_time'] ?>" readonly/>
                     <input class="syn-scheduler-timepicker" type="text" name="scheduler[<?php echo $key ?>][timeslot][endtime]" value="<?php echo $parameters['end_time'] ?>" readonly/>

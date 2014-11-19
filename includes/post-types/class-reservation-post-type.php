@@ -224,7 +224,7 @@ class reservation_post_type {
             }
             if ($column == 'actions') {
 
-                echo '<a href="' . get_edit_post_link($post_id) . '">Edit</a> | <a href="' . get_delete_post_link($post_id) . '">Delete</a>';
+                echo '<a href="' . get_edit_post_link($post_id) . '">' . __('Edit', 'syn_restaurant_plugin') . '</a> | <a href="' . get_delete_post_link($post_id) . '">' . __('Delete', 'syn_restaurant_plugin') . '</a>';
             }
         }
     }
