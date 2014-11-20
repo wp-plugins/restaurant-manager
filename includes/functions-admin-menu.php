@@ -407,102 +407,158 @@ function syntaxthemes_notifications_page() {
                         <p class="description"><?php _e('Set the reply to email address.', 'syn_restaurant_plugin') ?></p>
                     </td>
                 </tr>
-                <tr>
-                    <th scope="row"><?php _e('Administrator Email Subject', 'syn_restaurant_plugin') ?></th>
-                    <td>
-                        <input id="admin_email_subject" class="regular-text" name="admin_email_subject" type="text" placeholder="<?php _e('You have a booking request', 'syn_restaurant_plugin') ?>" value="<?php echo $admin_email_subject ?>" />
-                        <p class="description"><?php _e('Set the administrator email subject.', 'syn_restaurant_plugin') ?></p>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row"><?php _e('Administrator Email', 'syn_restaurant_plugin') ?></th>
-                    <td>
-                        <?php
-                        $admin_email_settings = array(
-                            'textarea_name' => 'admin_email',
-                            'textarea_rows' => 10,
-                            'media_buttons' => false,
-                            'teeny' => true,
-                            'wpautop' => true
-                        );
+        </table>
+        <h3><?php _e('Email Templates', 'syn_restaurant_plugin') ?></h3>
+        <p>
+            <?php _e('The following emails are automatically sent to your customers when the status of their reservation changes.  You can change these templates to suit your own needs.', 'syn_restaurant_plugin') ?>
+        </p>
+        <h4><?php _e('Template Tags', 'syn_restaurant_plugin') ?></h4>
+        <p>
+            <?php _e('Use the follwing template tags in your emails to automatically add your customer and their booking data to the emails. Tags labeled with an asterisk(*) can be used in the email subject.', 'syn_restaurant_plugin') ?>
+        </p>
+        <ul id="email_template_tags_list">
+            <li class="template-tag-item">
+                <span class="tag-name">%first_name%</span>
+                <span class="tag-description"><?php _e('* This is your customers first name.', 'syn_restaurant_plugin') ?></span>
+            </li>
+            <li class="template-tag-item">
+                <span class="tag-name">%last_name%</span>
+                <span class="tag-description"><?php _e('* This is your customers last name.', 'syn_restaurant_plugin') ?></span>
+            </li>
+            <li class="template-tag-item">
+                <span class="tag-name">%telephone%</span>
+                <span class="tag-description"><?php _e('The telephone number of the customer.', 'syn_restaurant_plugin') ?></span>
+            </li>
+            <li class="template-tag-item">
+                <span class="tag-name">%email_address%</span>
+                <span class="tag-description"><?php _e('The email address of the customer.', 'syn_restaurant_plugin') ?></span>
+            </li>
+            <li class="template-tag-item">
+                <span class="tag-name">%guests_count%</span>
+                <span class="tag-description"><?php _e('* The size of the party for the reservation.', 'syn_restaurant_plugin') ?></span>
+            </li>
+            <li class="template-tag-item">
+                <span class="tag-name">%reservation_date%</span>
+                <span class="tag-description"><?php _e('* The reservation date of the customer booking .', 'syn_restaurant_plugin') ?></span>
+            </li>
+            <li class="template-tag-item">
+                <span class="tag-name">%reservation_time%</span>
+                <span class="tag-description"><?php _e('* The reservation time of the customer booking .', 'syn_restaurant_plugin') ?></span>
+            </li>
+            <li class="template-tag-item">
+                <span class="tag-name">%message%</span>
+                <span class="tag-description"><?php _e('The message left by the customer when creating the reservation.', 'syn_restaurant_plugin') ?></span>
+            </li>
+            <li class="template-tag-item">
+                <span class="tag-name">%site_name%</span>
+                <span class="tag-description"><?php _e('The name of your restaurant set in the General Settings tab.', 'syn_restaurant_plugin') ?></span>
+            </li>
+            <li class="template-tag-item">
+                <span class="tag-name">%site_link%</span>
+                <span class="tag-description"><?php _e('A link to your website.', 'syn_restaurant_plugin') ?></span>
+            </li>
+            <li class="template-tag-item">
+                <span class="tag-name">%current_time%</span>
+                <span class="tag-description"><?php _e('This is the current date and time. Used for audit purposes.', 'syn_restaurant_plugin') ?></span>
+            </li>
+        </ul>    
+        <table class="form-table">
+            <tr>
+                <th scope="row"><?php _e('Administrator Email Subject', 'syn_restaurant_plugin') ?></th>
+                <td>
+                    <input id="admin_email_subject" class="regular-text" name="admin_email_subject" type="text" placeholder="<?php _e('You have a booking request', 'syn_restaurant_plugin') ?>" value="<?php echo $admin_email_subject ?>" />
+                    <p class="description"><?php _e('Set the administrator email subject.', 'syn_restaurant_plugin') ?></p>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row"><?php _e('Administrator Email', 'syn_restaurant_plugin') ?></th>
+                <td>
+                    <?php
+                    $admin_email_settings = array(
+                        'textarea_name' => 'admin_email',
+                        'textarea_rows' => 10,
+                        'media_buttons' => false,
+                        'teeny' => true,
+                        'wpautop' => true
+                    );
 
-                        wp_editor($admin_email, 'admin_email', $admin_email_settings);
-                        ?>
-                        <p class="description"><?php _e('Create the email which your administrator will receive.', 'syn_restaurant_plugin') ?></p>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row"><?php _e('New Reservation Email Subject', 'syn_restaurant_plugin') ?></th>
-                    <td>
-                        <input id="new_reservation_email_subject" class="regular-text" name="reservation_email_subject" type="text" placeholder="<?php _e('You have a booking request', 'syn_restaurant_plugin') ?>" value="<?php echo $reservation_email_subject ?>" />
-                        <p class="description"><?php _e('Set the new reservation email subject.', 'syn_restaurant_plugin') ?></p>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row"><?php _e('New Reservation Email', 'syn_restaurant_plugin') ?></th>
-                    <td>
-                        <?php
-                        $reservation_email_settings = array(
-                            'textarea_name' => 'reservation_email',
-                            'textarea_rows' => 10,
-                            'media_buttons' => false,
-                            'teeny' => true,
-                            'wpautop' => true
-                        );
+                    wp_editor($admin_email, 'admin_email', $admin_email_settings);
+                    ?>
+                    <p class="description"><?php _e('Create the email which your administrator will receive.', 'syn_restaurant_plugin') ?></p>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row"><?php _e('New Reservation Email Subject', 'syn_restaurant_plugin') ?></th>
+                <td>
+                    <input id="new_reservation_email_subject" class="regular-text" name="reservation_email_subject" type="text" placeholder="<?php _e('You have a booking request', 'syn_restaurant_plugin') ?>" value="<?php echo $reservation_email_subject ?>" />
+                    <p class="description"><?php _e('Set the new reservation email subject.', 'syn_restaurant_plugin') ?></p>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row"><?php _e('New Reservation Email', 'syn_restaurant_plugin') ?></th>
+                <td>
+                    <?php
+                    $reservation_email_settings = array(
+                        'textarea_name' => 'reservation_email',
+                        'textarea_rows' => 10,
+                        'media_buttons' => false,
+                        'teeny' => true,
+                        'wpautop' => true
+                    );
 
-                        wp_editor($reservation_email, 'new_reservation_email', $reservation_email_settings);
-                        ?>
-                        <p class="description"><?php _e('Create the email which your customer will receive.', 'syn_restaurant_plugin') ?></p>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row"><?php _e('Reservation Confirmed Email Subject', 'syn_restaurant_plugin') ?></th>
-                    <td>
-                        <input id="reservation_confirmed_email_subject" class="regular-text" name="reservation_confirmed_email_subject" type="text" placeholder="<?php _e('Your reservation request has been confirmed', 'syn_restaurant_plugin') ?>" value="<?php echo $reservation_confirmed_email_subject ?>" />
-                        <p class="description"><?php _e('Set the new reservation email subject.', 'syn_restaurant_plugin') ?></p>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row"><?php _e('Reservation Confirmed Email', 'syn_restaurant_plugin') ?></th>
-                    <td>
-                        <?php
-                        $reservation_confirmed_email_settings = array(
-                            'textarea_name' => 'reservation_confirmed_email',
-                            'textarea_rows' => 10,
-                            'media_buttons' => false,
-                            'teeny' => true,
-                            'wpautop' => true
-                        );
+                    wp_editor($reservation_email, 'new_reservation_email', $reservation_email_settings);
+                    ?>
+                    <p class="description"><?php _e('Create the email which your customer will receive.', 'syn_restaurant_plugin') ?></p>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row"><?php _e('Reservation Confirmed Email Subject', 'syn_restaurant_plugin') ?></th>
+                <td>
+                    <input id="reservation_confirmed_email_subject" class="regular-text" name="reservation_confirmed_email_subject" type="text" placeholder="<?php _e('Your reservation request has been confirmed', 'syn_restaurant_plugin') ?>" value="<?php echo $reservation_confirmed_email_subject ?>" />
+                    <p class="description"><?php _e('Set the new reservation email subject.', 'syn_restaurant_plugin') ?></p>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row"><?php _e('Reservation Confirmed Email', 'syn_restaurant_plugin') ?></th>
+                <td>
+                    <?php
+                    $reservation_confirmed_email_settings = array(
+                        'textarea_name' => 'reservation_confirmed_email',
+                        'textarea_rows' => 10,
+                        'media_buttons' => false,
+                        'teeny' => true,
+                        'wpautop' => true
+                    );
 
-                        wp_editor($reservation_confirmed_email, 'reservation_confirmed_email', $reservation_confirmed_email_settings);
-                        ?>
-                        <p class="description"><?php _e('Create the email which your customer will receive.', 'syn_restaurant_plugin') ?></p>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row"><?php _e('Reservation Rejected Email Subject', 'syn_restaurant_plugin') ?></th>
-                    <td>
-                        <input id="reservation_rejected_email_subject" class="regular-text" name="reservation_rejected_email_subject" type="text" placeholder="<?php _e('Unfortunately we cannot make your reservation', 'syn_restaurant_plugin') ?>" value="<?php echo $reservation_rejected_email_subject ?>" />
-                        <p class="description"><?php _e('Set the email subject for reservation rejections.', 'syn_restaurant_plugin') ?></p>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row"><?php _e('Reservation Rejected Email', 'syn_restaurant_plugin') ?></th>
-                    <td>
-                        <?php
-                        $reservation_rejected_email_settings = array(
-                            'textarea_name' => 'reservation_rejected_email',
-                            'textarea_rows' => 10,
-                            'media_buttons' => false,
-                            'teeny' => true,
-                            'wpautop' => true
-                        );
+                    wp_editor($reservation_confirmed_email, 'reservation_confirmed_email', $reservation_confirmed_email_settings);
+                    ?>
+                    <p class="description"><?php _e('Create the email which your customer will receive.', 'syn_restaurant_plugin') ?></p>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row"><?php _e('Reservation Rejected Email Subject', 'syn_restaurant_plugin') ?></th>
+                <td>
+                    <input id="reservation_rejected_email_subject" class="regular-text" name="reservation_rejected_email_subject" type="text" placeholder="<?php _e('Unfortunately we cannot make your reservation', 'syn_restaurant_plugin') ?>" value="<?php echo $reservation_rejected_email_subject ?>" />
+                    <p class="description"><?php _e('Set the email subject for reservation rejections.', 'syn_restaurant_plugin') ?></p>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row"><?php _e('Reservation Rejected Email', 'syn_restaurant_plugin') ?></th>
+                <td>
+                    <?php
+                    $reservation_rejected_email_settings = array(
+                        'textarea_name' => 'reservation_rejected_email',
+                        'textarea_rows' => 10,
+                        'media_buttons' => false,
+                        'teeny' => true,
+                        'wpautop' => true
+                    );
 
-                        wp_editor($reservation_rejected_email, 'reservation_rejected_email', $reservation_rejected_email_settings);
-                        ?>
-                        <p class="description"><?php _e('Create the email which your customer will receive.', 'syn_restaurant_plugin') ?></p>
-                    </td>
-                </tr>
+                    wp_editor($reservation_rejected_email, 'reservation_rejected_email', $reservation_rejected_email_settings);
+                    ?>
+                    <p class="description"><?php _e('Create the email which your customer will receive.', 'syn_restaurant_plugin') ?></p>
+                </td>
+            </tr>
             </tbody>
         </table>
         <p class="submit">

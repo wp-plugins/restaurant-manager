@@ -21,6 +21,7 @@ class reservation_post_type {
         add_action('init', array($this, 'register_post_type'));
         add_action('init', array($this, 'register_post_status'));
         add_action('save_post', array($this, 'save_post'), 20);
+        add_filter('post_updated_messages', array($this, 'post_updated_messages'));
         add_filter('manage_posts_columns', array($this, 'column_headers'), 10);
         add_action('manage_posts_custom_column', array($this, 'column_content'), 10, 2);
         add_filter("manage_edit-syn_rest_reservation_sortable_columns", array($this, 'column_sort'));
@@ -110,6 +111,48 @@ class reservation_post_type {
      */
     public function save_post($post_id) {
         
+    }
+
+    /**
+     * These are the messages which are displayed when the post is saved.
+     * 
+     * @global \syntaxthemes\restaurant\type $post
+     * @global type $post_ID
+     * @param type $messages
+     * @return string
+     */
+    public function post_updated_messages($messages) {
+
+        global $post, $post_ID;
+
+        switch ($post->post_status) {
+            case 'pending': $reservation_status = __('Status Pending.', 'syn_restaurant_plugin');
+                break;
+            case 'confirmed': $reservation_status = __('Status Confirmed.', 'syn_restaurant_plugin');
+                break;
+            case 'rejected': $reservation_status = __('Status Rejected.', 'syn_restaurant_plugin');
+                break;
+            case 'completed': $reservation_status = __('Status Completed.', 'syn_restaurant_plugin');
+                break;
+            default: $reservation_status = __('Status Unknown.', 'syn_restaurant_plugin');
+                break;
+        }
+
+        $messages[$this->_post_type] = array(
+            0 => '',
+            1 => sprintf(__('Reservation successfully updated. %s', 'syn_restaurant_plugin'), $reservation_status),
+            2 => __('Custom field updated.', 'syn_restaurant_plugin'),
+            3 => __('Custom field deleted.', 'syn_restaurant_plugin'),
+            4 => sprintf(__('Reservation successfully updated. %s', 'syn_restaurant_plugin'), $reservation_status),
+            5 => isset($_GET['revision']) ? sprintf(__('Reservation restored to revision from %s', 'syn_restaurant_plugin'), wp_post_revision_title((int) $_GET['revision'], false)) : false,
+            6 => sprintf(__('Reservation successfully created. %s', 'syn_restaurant_plugin'), $reservation_status),
+            7 => __('Reservation saved.', 'syn_restaurant_plugin'),
+            8 => __('Reservation submitted.', 'syn_restaurant_plugin'),
+            9 => __('Reservation scheduled.', 'syn_restaurant_plugin'),
+            10 => __('Reservation draft updated. Email notification has not been sent for this status.', 'syn_restaurant_plugin'),
+        );
+
+        return $messages;
     }
 
     /**

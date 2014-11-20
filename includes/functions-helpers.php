@@ -43,6 +43,10 @@ function syn_restaurant_manager_default_admin_email() {
                     Date: %reservation_date% at %reservation_time%
                 </p>
                 <p>
+                    <strong>Customer Request:</strong>
+                    %message%
+                </p>
+                <p>
                     Thank you.
                 </p>
                 <p>
@@ -77,6 +81,10 @@ function syn_restaurant_manager_default_reservation_email() {
                 <p>
                     <strong>Reservation Details:</strong>
                     Date: %reservation_date% at %reservation_time%
+                </p>
+                <p>
+                    <strong>Your Request:</strong>
+                    %message%
                 </p>
                 <p>
                     Thank you.
@@ -115,6 +123,10 @@ function syn_restaurant_manager_default_reservation_confirmed_email() {
                     Date: %reservation_date% at %reservation_time%
                 </p>
                 <p>
+                    <strong>Your Request:</strong>
+                    %message%
+                </p>
+                <p>
                  Thank you.
                 </p>
                 <p>
@@ -149,6 +161,10 @@ function syn_restaurant_manager_default_reservation_rejected_email() {
                 <p>
                     <strong>Reservation Details:</strong>
                     Date: %reservation_date% at %reservation_time%
+                </p>
+                <p>
+                    <strong>Your Request:</strong>
+                    %message%
                 </p>
                 <p>
                     Thank you.
@@ -277,7 +293,7 @@ function syn_restaurant_manager_schedule_template($parameters = array(), $key = 
  * Process the notifcation email when the reservation status changes.
  * @param type $status
  */
-function syntaxthemes_process_notification_email($status, $email_address, $replace) {
+function syntaxthemes_process_notification_email($status, $email_address, $post_id) {
 
     $syn_email = new \syntaxthemes\restaurant\email_notifications();
     $result = false;
@@ -286,15 +302,15 @@ function syntaxthemes_process_notification_email($status, $email_address, $repla
         case 'pending':
 
             $admin_email = get_bloginfo('admin_email');
-            $admin_sent = $syn_email->admin_booking_notification($admin_email, $replace);
+            $admin_sent = $syn_email->admin_booking_notification($admin_email, $post_id);
 
             if ($admin_sent) {
-                $result = $syn_email->customer_pending_booking_notification($email_address, $replace);
+                $result = $syn_email->customer_pending_booking_notification($email_address, $post_id);
             }
             break;
-        case 'confirmed': $result = $syn_email->customer_confirmed_booking_notification($email_address, $replace);
+        case 'confirmed': $result = $syn_email->customer_confirmed_booking_notification($email_address, $post_id);
             break;
-        case 'rejected': $result = $syn_email->customer_rejected_booking_notification($email_address, $replace);
+        case 'rejected': $result = $syn_email->customer_rejected_booking_notification($email_address, $post_id);
             break;
         default: null;
             break;
@@ -304,7 +320,6 @@ function syntaxthemes_process_notification_email($status, $email_address, $repla
 }
 
 //menu functions
-
 function syn_restaurant_menu_the_content_filter($content) {
 
     // array of custom shortcodes requiring the fix 
@@ -808,4 +823,14 @@ function syn_restaurant_manager_image_size_options() {
 
     return $options;
 }
+
+//function syn_restaurant_manager_get_status($status) {
+//
+//    $reservation_status = __('Status Unknown', 'syn_restaurant_plugin');
+//
+//    switch ($status) {
+//        case 'pending': $reservation_status = __('Status Pending', 'syn_restaurant_plugin');
+//            break;
+//    }
+//}
 ?>

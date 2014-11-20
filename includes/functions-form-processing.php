@@ -93,7 +93,7 @@ function syn_restaurant_manager_process_reservation_form() {
         $site_link
     );
 
-    $customer_sent = syntaxthemes_process_notification_email($post_status, $email_address, $replace);
+    $customer_sent = syntaxthemes_process_notification_email($post_status, $email_address, $post_id);
 
     $details = array(
         $first_name,

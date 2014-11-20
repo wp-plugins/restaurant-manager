@@ -22,7 +22,7 @@ class config {
      */
     public function __construct() {
 
-        $this->version = '1.2.5';
+        $this->version = '1.2.6';
         $this->plugin_name = 'Restaurant Manager';
         $this->plugin_slug = 'restaurant-manager';
         $this->plugin_base_name = 'restaurant-manager/restaurant-manager.php';
