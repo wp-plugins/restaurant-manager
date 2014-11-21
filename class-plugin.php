@@ -90,7 +90,7 @@ class plugin extends plugin_base {
     public function register_roles() {
 
         //Restaurant Manager Roles
-        add_role('syn_manager', _('Manager', 'syn_restaurant_plugin'), array(
+        add_role('syn_manager', __('Manager', 'syn_restaurant_plugin'), array(
             'read' => true
         ));
 
