@@ -52,21 +52,21 @@ class meal_post_type {
                 'parent' => __('Parent Meal', 'syn_restaurant_plugin'),
                 'menu_name' => 'House Menus'
             ),
-            'description' => __('This is where reservation items are stored', 'syn_restaurant_plugin'),
+            'description' => __('This is where meal items are stored', 'syn_restaurant_plugin'),
             'public' => true,
             'map_meta_cap' => true,
             'publicly_queryable' => true,
             'exclude_from_search' => true,
             'hierarchical' => false,
-            'rewrite' => array('slug' => 'menu', 'with_front' => true),
+            'rewrite' => array('slug' => 'meal', 'with_front' => true),
             'query_var' => true,
             'supports' => array('title', 'editor', 'comments', 'thumbnail', 'excerpt'),
             'has_archive' => true,
             'menu_position' => 211,
             'show_ui' => true,
             'show_in_menu' => false,
-                )
-        );
+            'capability_type' => array('meal', 'meals')
+        ));
     }
 
     /**
@@ -96,11 +96,16 @@ class meal_post_type {
             'show_in_nav_menus' => true,
             'show_admin_column' => true,
             'query_var' => true,
+            'capabilities' => array(
+                'manage_terms' => 'manage_syn_rest_menu',
+                'edit_terms' => 'manage_syn_rest_menu',
+                'delete_terms' => 'manage_syn_rest_menu',
+                'assign_terms' => 'edit_meals'
+            ),
             'rewrite' => array(
                 'slug' => 'menu',
                 'with_front' => false
-            ))
-        );
+        )));
 
         register_taxonomy('syn_rest_course', array($this->_post_type), array(
             'labels' => array(
@@ -124,11 +129,16 @@ class meal_post_type {
             'show_in_nav_menus' => true,
             'show_admin_column' => true,
             'query_var' => true,
+            'capabilities' => array(
+                'manage_terms' => 'manage_syn_rest_course',
+                'edit_terms' => 'manage_syn_rest_course',
+                'delete_terms' => 'manage_syn_rest_course',
+                'assign_terms' => 'edit_meals'
+            ),
             'rewrite' => array(
                 'slug' => 'course',
                 'with_front' => false
-            ))
-        );
+        )));
 
         register_taxonomy('syn_rest_diet', array($this->_post_type), array(
             'labels' => array(
@@ -152,12 +162,17 @@ class meal_post_type {
             'show_in_nav_menus' => true,
             'show_admin_column' => true,
             'query_var' => true,
+            'capabilities' => array(
+                'manage_terms' => 'manage_syn_rest_diet',
+                'edit_terms' => 'manage_syn_rest_diet',
+                'delete_terms' => 'manage_syn_rest_diet',
+                'assign_terms' => 'edit_meals'
+            ),
             'rewrite' => array(
                 'slug' => 'diet',
                 'with_front' => false
-            ))
-        );
-        
+        )));
+
         register_taxonomy('syn_rest_cuisine', array($this->_post_type), array(
             'labels' => array(
                 'name' => _x('Cuisines', 'taxonomy general name', 'syn_restaurant_plugin'),
@@ -180,11 +195,16 @@ class meal_post_type {
             'show_in_nav_menus' => true,
             'show_admin_column' => true,
             'query_var' => true,
+            'capabilities' => array(
+                'manage_terms' => 'manage_syn_rest_cuisine',
+                'edit_terms' => 'manage_syn_rest_cuisine',
+                'delete_terms' => 'manage_syn_rest_cuisine',
+                'assign_terms' => 'edit_meals'
+            ),
             'rewrite' => array(
                 'slug' => 'cuisine',
                 'with_front' => false
-            ))
-        );
+        )));
     }
 
     /**

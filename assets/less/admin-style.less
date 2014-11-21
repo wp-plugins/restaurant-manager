@@ -336,6 +336,66 @@
     }
 } 
 
+/* =Restaurant Dashboard
+-------------------------------------------------------------- */
+#restaurant_dashboard{
+    .section-introduction,
+    .section-information{
+        .clearfix();
+    }    
+    .column-image,
+    .column-text{
+        width: 50%;
+        display: inline-block;
+        float: left;
+        padding: 0 2%;
+        .box-sizing(border-box);
+
+        p{
+            font-size: 18px;
+            color: #999999;
+        }
+    }
+    .column-image{
+        width: 40%;
+        text-align: center;
+    }
+    .main-image{
+        width: 700px;
+    }
+    .main-title{
+        font-size: 54px;
+        line-height: 1.2em;
+        font-weight: 300;
+        margin: 80px 0 0 0;
+    }
+    
+    .column-features,
+    .column-addons,
+    .column-themes{
+        width: 33%;
+        display: inline-block;
+        float: left;
+        padding: 0 2%;
+        .box-sizing(border-box);
+    }
+}
+
+/* =Restaurant Meals List
+-------------------------------------------------------------- */
+.wp-list-table{
+    .column-thumbnail{
+        width: 50px;
+
+        .thumbnail,
+        .no-image{
+            display: block;
+            height: 50px;
+            width: 50px;
+        }
+    }
+}
+
 /* =Restaurant Reservation List
 -------------------------------------------------------------- */
 .wp-list-table{  

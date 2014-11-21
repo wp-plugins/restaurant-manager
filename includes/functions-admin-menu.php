@@ -8,14 +8,14 @@ function syn_restaurant_manager_admin_menu() {
 
     global $syn_restaurant_config;
 
-    if (current_user_can('manage_options')) {
+    if (current_user_can('manage_restaurant')) {
 
-        $parent_menu_slug = 'edit.php?post_type=syn_rest_meal';
+        $parent_menu_slug = 'restaurant_manager';
 
         //Settings for the custom admin
         $page_title = __('Restaurant', 'syn_restaurant_plugin');
         $menu_title = __('Restaurant', 'syn_restaurant_plugin');
-        $capability = 'manage_options';
+        $capability = 'manage_restaurant';
         $menu_slug = $parent_menu_slug;
         $function = null; // Callback function which displays the page content.
         $icon_url = 'dashicons-syntaxstudio';
@@ -26,20 +26,20 @@ function syn_restaurant_manager_admin_menu() {
 
         $submenu_pages = array(
             // Avoid duplicate pages. Add submenu page with same slug as parent slug.            
-//            array(
-//                'parent_slug' => $parent_menu_slug,
-//                'page_title' => 'Dashboard',
-//                'menu_title' => 'Dashboard',
-//                'capability' => 'manage_options',
-//                'menu_slug' => $parent_menu_slug,
-//                'function' => 'syn_restaurant_manager_add_ons_page', // Uses the same callback function as parent menu. 
-//            ),
+            array(
+                'parent_slug' => $parent_menu_slug,
+                'page_title' => __('Dashboard', 'syn_restaurant_plugin'),
+                'menu_title' => __('Welcome', 'syn_restaurant_plugin'),
+                'capability' => 'manage_restaurant',
+                'menu_slug' => $parent_menu_slug,
+                'function' => 'syn_restaurant_dashboard_page', // Uses the same callback function as parent menu. 
+            ),
             // Post Type :: View Meals
             array(
                 'parent_slug' => $parent_menu_slug,
                 'page_title' => __('All Meals', 'syn_restaurant_plugin'),
                 'menu_title' => __('Meals', 'syn_restaurant_plugin'),
-                'capability' => 'manage_options',
+                'capability' => 'edit_meals',
                 'menu_slug' => 'edit.php?post_type=syn_rest_meal',
                 'function' => null, // Uses the same callback function as parent menu. 
             ),
@@ -48,7 +48,7 @@ function syn_restaurant_manager_admin_menu() {
                 'parent_slug' => $parent_menu_slug,
                 'page_title' => __('Add New Meal', 'syn_restaurant_plugin'),
                 'menu_title' => __('Add Meal', 'syn_restaurant_plugin'),
-                'capability' => 'manage_options',
+                'capability' => 'edit_meals',
                 'menu_slug' => 'post-new.php?post_type=syn_rest_meal',
                 'function' => null, // Doesn't need a callback function.
             ),
@@ -56,7 +56,7 @@ function syn_restaurant_manager_admin_menu() {
                 'parent_slug' => $parent_menu_slug,
                 'page_title' => __('Menus', 'syn_restaurant_plugin'),
                 'menu_title' => __('Menus', 'syn_restaurant_plugin'),
-                'capability' => 'manage_options',
+                'capability' => 'edit_meals',
                 'menu_slug' => 'edit-tags.php?taxonomy=syn_rest_menu&post_type=syn_rest_meal',
                 'function' => null, // Uses the same callback function as parent menu. 
             ),
@@ -64,7 +64,7 @@ function syn_restaurant_manager_admin_menu() {
                 'parent_slug' => $parent_menu_slug,
                 'page_title' => __('Courses', 'syn_restaurant_plugin'),
                 'menu_title' => __('Courses', 'syn_restaurant_plugin'),
-                'capability' => 'manage_options',
+                'capability' => 'edit_meals',
                 'menu_slug' => 'edit-tags.php?taxonomy=syn_rest_course&post_type=syn_rest_meal',
                 'function' => null, // Uses the same callback function as parent menu. 
             ),
@@ -72,7 +72,7 @@ function syn_restaurant_manager_admin_menu() {
                 'parent_slug' => $parent_menu_slug,
                 'page_title' => __('Diets', 'syn_restaurant_plugin'),
                 'menu_title' => __('Diets', 'syn_restaurant_plugin'),
-                'capability' => 'manage_options',
+                'capability' => 'edit_meals',
                 'menu_slug' => 'edit-tags.php?taxonomy=syn_rest_diet&post_type=syn_rest_meal',
                 'function' => null, // Uses the same callback function as parent menu. 
             ),
@@ -80,7 +80,7 @@ function syn_restaurant_manager_admin_menu() {
                 'parent_slug' => $parent_menu_slug,
                 'page_title' => __('Cuisines', 'syn_restaurant_plugin'),
                 'menu_title' => __('Cuisines', 'syn_restaurant_plugin'),
-                'capability' => 'manage_options',
+                'capability' => 'edit_meals',
                 'menu_slug' => 'edit-tags.php?taxonomy=syn_rest_cuisine&post_type=syn_rest_meal',
                 'function' => null, // Uses the same callback function as parent menu. 
             ),
@@ -88,7 +88,7 @@ function syn_restaurant_manager_admin_menu() {
                 'parent_slug' => $parent_menu_slug,
                 'page_title' => __('All Reservations', 'syn_restaurant_plugin'),
                 'menu_title' => __('Reservations', 'syn_restaurant_plugin'),
-                'capability' => 'manage_options',
+                'capability' => 'edit_reservations',
                 'menu_slug' => 'edit.php?post_type=syn_rest_reservation',
                 'function' => null, // Uses the same callback function as parent menu. 
             ),
@@ -96,7 +96,7 @@ function syn_restaurant_manager_admin_menu() {
                 'parent_slug' => $parent_menu_slug,
                 'page_title' => __('Settings', 'syn_restaurant_plugin'),
                 'menu_title' => __('Settings', 'syn_restaurant_plugin'),
-                'capability' => 'manage_options',
+                'capability' => 'manage_restaurant_options',
                 'menu_slug' => 'syn_restaurant_manager_settings',
                 'function' => 'syn_restaurant_manager_settings_page', // Uses the same callback function as parent menu. 
             ),
@@ -104,7 +104,7 @@ function syn_restaurant_manager_admin_menu() {
                 'parent_slug' => $parent_menu_slug,
                 'page_title' => __('Add-ons', 'syn_restaurant_plugin'),
                 'menu_title' => __('Add-ons', 'syn_restaurant_plugin'),
-                'capability' => 'manage_options',
+                'capability' => 'manage_restaurant_options',
                 'menu_slug' => 'syn_restaurant_manager_add_ons',
                 'function' => 'syn_restaurant_manager_add_ons_page', // Uses the same callback function as parent menu. 
             ),
@@ -114,6 +114,16 @@ function syn_restaurant_manager_admin_menu() {
         foreach ($submenu_pages as $submenu) {
 
             add_submenu_page($submenu['parent_slug'], $submenu['page_title'], $submenu['menu_title'], $submenu['capability'], $submenu['menu_slug'], $submenu['function']);
+        }
+
+        $role = syn_restaurant_manager_get_user_role();
+   
+        if (in_array($role, array('syn_manager', 'syn_staff'))) {
+            remove_menu_page('edit.php');           //Posts
+            remove_menu_page('upload.php');         //Media
+            remove_menu_page('edit-comments.php');  //Comments
+            remove_menu_page('tools.php');          //Tools
+            remove_menu_page('options-general.php');//Settings
         }
     }
 }
@@ -146,6 +156,76 @@ if (!function_exists('syn_restaurant_manager_set_current_menu')) {
     add_filter('parent_file', 'syn_restaurant_manager_set_current_menu');
 }
 
+function syn_restaurant_dashboard_page() {
+
+    global $syn_restaurant_config;
+    ?>
+    <div class="wrap">
+        <div id="restaurant_dashboard">
+            <div class="section-introduction">
+                <div class="column-image">
+                    <img class="main-image" src="http://www.syntaxthemes.co.uk/wp-content/uploads/2014/11/taurus_restaurant_manager_display.png" alt="SyntaxThemes Restaurant Manager Themes and Plugin" />    
+                </div>
+                <div class="column-text">
+                    <h2 class="main-title"><?php echo sprintf(__('Welcome to<br />Restaurant Manager %s', 'syn_restaurant_plugin'), $syn_restaurant_config->version) ?></h2>
+                    <p>
+                        <?php
+                        _e('Thank you for using Restaurant Manager WordPress plugin. You can now manage your restaurant meals, '
+                                . 'menus and table reservations.', 'syn_restaurant_plugin')
+                        ?>
+                    </p>    
+                    <p> 
+                        Please <a href="https://wordpress.org/plugins/restaurant-manager/" target="_blank" title="Rate the restaurant manager plugin.">rate</a> this plugin if 
+                        you like it and use it!! It is free... For continued development I need your support.
+                    </p>
+                    <p>
+                        If you have any problems or you would like to put forward ideas for extra features or ideas please <a href="http://www.syntaxthemes.co.uk/forums/" target="_blank" title="Restaurant Manager Support.">let us know</a>
+                    </p>
+                </div>
+            </div>
+            <!--            <div class="section-information">
+                            <div class="column-features features">
+                                <h2>Features</h2>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. 
+                                    In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor 
+                                    libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti.
+                                </p>
+                                <h4>Lorem ipsum dolor sit amet</h4>
+                                <p>
+                                    Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.
+                                </p>    
+                            </div>
+                            <div class="column-addons addons">
+                                <h2>Features</h2>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. 
+                                    In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor 
+                                    libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti.
+                                </p>
+                                <h4>Lorem ipsum dolor sit amet</h4>
+                                <p>
+                                    Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.
+                                </p>  
+                            </div>
+                            <div class="column-themes themes">
+                                <h2>Features</h2>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. 
+                                    In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor 
+                                    libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti.
+                                </p>
+                                <h4>Lorem ipsum dolor sit amet</h4>
+                                <p>
+                                    Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.
+                                </p>  
+                            </div>
+                        </div>-->
+        </div>
+    </div>
+    <?php
+}
+
 /**
  * The settings page is created here. A tabbed navigation control has also been created 
  * for these pages.
@@ -172,17 +252,17 @@ function syn_restaurant_manager_settings_page() {
             </h2>             
             <?php if ($tab === 'general') { ?>
                 <div class="nav_tab_content">       
-                    <?php syntaxthemes_general_page() ?>
+                    <?php syn_restaurant_manager_general_page() ?>
                 </div> 
             <?php } ?>
             <?php if ($tab === 'reservation_schedule') { ?>
                 <div class="nav_tab_content">
-                    <?php syntaxthemes_reservation_schedule_page() ?>
+                    <?php syn_restaurant_manager_reservation_schedule_page() ?>
                 </div>
             <?php } ?>
             <?php if ($tab === 'notifications') { ?>
                 <div class="nav_tab_content">
-                    <?php syntaxthemes_notifications_page() ?>
+                    <?php syn_restaurant_manager_notifications_page() ?>
                 </div>
             <?php } ?>
             <?php
@@ -197,7 +277,7 @@ function syn_restaurant_manager_settings_page() {
  * The general settings page.
  * @global type $syn_restaurant_config
  */
-function syntaxthemes_general_page() {
+function syn_restaurant_manager_general_page() {
 
     global $syn_restaurant_config;
 
@@ -312,7 +392,7 @@ function syntaxthemes_general_page() {
  * The reservation schedule settings page.
  * @global type $syn_restaurant_config
  */
-function syntaxthemes_reservation_schedule_page() {
+function syn_restaurant_manager_reservation_schedule_page() {
 
     global $syn_restaurant_config;
 
@@ -370,7 +450,7 @@ function syntaxthemes_reservation_schedule_page() {
  * The notifications settings page.
  * @global type $syn_restaurant_config
  */
-function syntaxthemes_notifications_page() {
+function syn_restaurant_manager_notifications_page() {
 
     global $syn_restaurant_config;
 
@@ -576,7 +656,7 @@ function syntaxthemes_notifications_page() {
 function syn_restaurant_manager_add_ons_page() {
     ?>
     <div class="wrap">
-        <h2>Add-ons</h2>
+        <h2><?php _e('Add-ons', 'syn_restaurant_plugin') ?></h2>
         <div id="syn_restaurant_manager_addons">
             <ul class="addon-list">
                 <li class="addon-item">

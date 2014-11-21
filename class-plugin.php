@@ -23,6 +23,7 @@ class plugin extends plugin_base {
         add_action('wp_enqueue_scripts', array($this, 'frontend_scripts'));
         add_action('init', array($this, 'add_actions_and_filters'));
         add_action('init', array($this, 'register_script_files'));
+        add_action('init', array($this, 'register_roles'), 5);
     }
 
     /**
@@ -80,6 +81,82 @@ class plugin extends plugin_base {
 
             $eventmeta_data = new eventmeta_data();
             $eventmeta_data->create_table();
+        }
+    }
+
+    /**
+     * Register the plugin custom roles and permissions.
+     */
+    public function register_roles() {
+
+        //Restaurant Manager Roles
+        add_role('syn_manager', _('Manager', 'syn_restaurant_plugin'), array(
+            'read' => true
+        ));
+
+        add_role('syn_staff', 'Staff', array(
+            'read' => true
+        ));
+
+        $role_names = array(
+            'administrator',
+            'editor',
+            'syn_manager',
+            'syn_staff'
+        );
+
+        foreach ($role_names as $role_name) {
+            $role = get_role($role_name);
+
+            $role->add_cap('read');
+            $role->add_cap('edit_posts');
+            $role->add_cap('manage_restaurant');
+
+            if (in_array($role_name, array('administrator', 'editor', 'syn_manager'))) {
+
+                $role->add_cap('upload_files');
+                
+                $role->add_cap('read_private_meals');
+                $role->add_cap('edit_meals');
+                $role->add_cap('edit_others_meals');
+                $role->add_cap('edit_private_meals');
+                $role->add_cap('edit_published_meals');
+                $role->add_cap('publish_meals');
+                $role->add_cap('delete_meals');
+                $role->add_cap('delete_private_meals');
+                $role->add_cap('delete_published_meals');
+                $role->add_cap('delete_others_meals');
+
+                $role->add_cap('manage_syn_rest_menu');
+                $role->add_cap('manage_syn_rest_course');
+                $role->add_cap('manage_syn_rest_diet');
+                $role->add_cap('manage_syn_rest_cuisine');
+
+                $role->add_cap('read_private_reservations');
+                $role->add_cap('edit_reservations');
+                $role->add_cap('edit_others_reservations');
+                $role->add_cap('edit_private_reservations');
+                $role->add_cap('edit_published_reservations');
+                $role->add_cap('publish_reservations');
+                $role->add_cap('delete_reservations');
+                $role->add_cap('delete_private_reservations');
+                $role->add_cap('delete_published_reservations');
+                $role->add_cap('delete_others_reservations');
+
+                $role->add_cap('manage_restaurant_options');                
+            }
+
+            if (in_array($role_name, array('syn_staff'))) {
+
+                $role->add_cap('read_private_reservations');
+                $role->add_cap('edit_reservations');
+                $role->add_cap('edit_others_reservations');
+                $role->add_cap('edit_private_reservations');
+                $role->add_cap('edit_published_reservations');
+                $role->add_cap('publish_reservations');
+                
+                $role->add_cap('manage_restriction');
+            }
         }
     }
 

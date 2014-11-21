@@ -143,6 +143,8 @@ function syn_restaurant_manager_process_general_settings_form() {
     update_option($syn_restaurant_config->plugin_prefix . 'restaurant_telephone', $restaurant_telephone);
     update_option($syn_restaurant_config->plugin_prefix . 'currency_symbol', $currency_symbol);
     update_option($syn_restaurant_config->plugin_prefix . 'country_code', $country_code);
+
+    echo '<div class="updated"><p>' . __('Your general settings have been successfully updated.', 'syn_restaurant_plugin') . '</p></div>';
 }
 
 add_action('syn_restaurant_manager_process_form', 'syn_restaurant_manager_process_general_settings_form');
@@ -174,7 +176,7 @@ function syn_restaurant_manager_process_reservation_schedule_settings_form() {
     $scheduler = $session->post_var('scheduler', null, true);
     update_option($syn_restaurant_config->plugin_prefix . 'scheduler', $scheduler);
 
-    //var_dump($scheduler);
+    echo '<div class="updated"><p>' . __('Your reservation schedule settings have been successfully updated.', 'syn_restaurant_plugin') . '</p></div>';
 }
 
 add_action('syn_restaurant_manager_process_form', 'syn_restaurant_manager_process_reservation_schedule_settings_form');
@@ -225,6 +227,8 @@ function syn_restaurant_manager_process_notifications_settings_form() {
     update_option($syn_restaurant_config->plugin_prefix . 'reservation_confirmed_email', $reservation_confirmed_email);
     update_option($syn_restaurant_config->plugin_prefix . 'reservation_rejected_email_subject', $reservation_rejected_email_subject);
     update_option($syn_restaurant_config->plugin_prefix . 'reservation_rejected_email', $reservation_rejected_email);
+
+    echo '<div class="updated"><p>' . __('Your notifications settings have been successfully updated.', 'syn_restaurant_plugin') . '</p></div>';
 }
 
 add_action('syn_restaurant_manager_process_form', 'syn_restaurant_manager_process_notifications_settings_form');

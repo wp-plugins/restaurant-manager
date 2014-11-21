@@ -6,7 +6,7 @@ Author URI: http://www.syntaxthemes.co.uk/restaurant
 Tags: restaurant, reservations, bookings, table bookings, table reservations, reservation notifications, reservation confirm, reservation decline, schedules, schedule reservations
 Requires at least: 3.8
 Tested up to: 4.0
-Stable tag: 1.2.6
+Stable tag: 1.2.7
 Text Domain: syn_restaurant_plugin
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -37,6 +37,9 @@ Restaurant Manager Plugin will integrate seamlessly into your current theme.  It
 - Fast and easy to use.
 - Easily modify the CSS to better fit your theme.
 - Log all of your events when a user changes the reservation status.
+- Manage your restaurant staff with Manager and Staff roles.
+- Improved reservation screen and bookings list.
+- New Mailchimp and SMS support.
 - Excellent documentation and online support.
 
 **Managing Restaurant Meals and Menus**
@@ -138,6 +141,13 @@ Go to the Reservation Schedule tab on the settings page.  Click add new schedule
 There are currently no upgrade notices.
 
 == Changelog ==
+
+**Version 1.2.7**
+
+- New roles and permissions
+- Manager Role - Enables meals, menus & reservations creation.
+- Staff Role - Only create and manage reservations - Cannot delete reservations.
+- When saving settings better notifications to the user.
 
 **Version 1.2.6**
 

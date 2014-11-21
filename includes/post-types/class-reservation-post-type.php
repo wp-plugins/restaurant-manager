@@ -64,8 +64,8 @@ class reservation_post_type {
             'menu_position' => 201,
             'show_ui' => true,
             'show_in_menu' => false,
-                )
-        );
+            'capability_type' => array('reservation', 'reservations')
+        ));
     }
 
     /**
@@ -269,7 +269,14 @@ class reservation_post_type {
             }
             if ($column == 'reservation-actions') {
 
-                echo '<a class="edit-reservation-button button secondary-button" title="' . __('Edit Reservation', 'syn_restaurant_plugin') . '" href="' . get_edit_post_link($post_id) . '"><span class="rman-pencil"></span></a> <a class="delete-reservation-button button button-secondary" title="' . __('Delete Reservation', 'syn_restaurant_plugin') . '" href="' . get_delete_post_link($post_id) . '" onclick="return confirm(\'' . __('Are you sure you would like to delete this reservation?', 'syn_restaurant_plugin') . '\')"><span class="rman-trash-o"></span></a>';
+                $edit_link = '<a class="edit-reservation-button button secondary-button" title="' . __('Edit Reservation', 'syn_restaurant_plugin') . '" href="' . get_edit_post_link($post_id) . '"><span class="rman-pencil"></span></a>';
+                $delete_link = '<a class="delete-reservation-button button button-secondary" title="' . __('Delete Reservation', 'syn_restaurant_plugin') . '" href="' . get_delete_post_link($post_id) . '" onclick="return confirm(\'' . __('Are you sure you would like to delete this reservation?', 'syn_restaurant_plugin') . '\')"><span class="rman-trash-o"></span></a>';
+
+                if (current_user_can('edit_reservations') && current_user_can('delete_reservations')) {
+                    echo $edit_link . ' ' . $delete_link;
+                } else if (current_user_can('edit_reservations')) {
+                    echo $edit_link;
+                }
             }
         }
     }
