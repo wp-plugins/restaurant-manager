@@ -95,7 +95,7 @@ class syn_restaurant_menu extends syn_shortcode_script_loader {
                     'label' => __('Image Size', 'synth_astrono_theme'),
                     'desc' => __('Choose the scale of the post image.', 'synth_astrono_theme'),
                     'std' => 'medium',
-                    'options' => synth_taurus_image_size_options(),
+                    'options' => syn_restaurant_manager_image_size_options(),
                     'type' => 'select'
                 ),
             )

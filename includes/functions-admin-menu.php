@@ -10,7 +10,7 @@ function syn_restaurant_manager_admin_menu() {
 
     if (current_user_can('manage_restaurant')) {
 
-        $parent_menu_slug = 'restaurant_manager';
+        $parent_menu_slug = 'syn_restaurant_manager';
 
         //Settings for the custom admin
         $page_title = __('Restaurant', 'syn_restaurant_plugin');
@@ -117,13 +117,13 @@ function syn_restaurant_manager_admin_menu() {
         }
 
         $role = syn_restaurant_manager_get_user_role();
-   
+
         if (in_array($role, array('syn_manager', 'syn_staff'))) {
             remove_menu_page('edit.php');           //Posts
             remove_menu_page('upload.php');         //Media
             remove_menu_page('edit-comments.php');  //Comments
             remove_menu_page('tools.php');          //Tools
-            remove_menu_page('options-general.php');//Settings
+            remove_menu_page('options-general.php'); //Settings
         }
     }
 }
@@ -147,7 +147,7 @@ if (!function_exists('syn_restaurant_manager_set_current_menu')) {
                 $submenu_file = 'edit-tags.php?taxonomy=' . $current_screen->taxonomy . '&post_type=' . $current_screen->post_type;
             }
 
-            //$parent_file = 'syn_restaurant_manager';
+            $parent_file = 'syn_restaurant_manager';
         }
 
         return $parent_file;
