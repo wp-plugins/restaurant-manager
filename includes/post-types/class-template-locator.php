@@ -29,6 +29,30 @@ class template_locator {
             $find[] = $file;
             $find[] = 'templates/restaurant-manager/' . $file;
         }
+        
+        if (is_tax('syn_rest_menu')) {
+            $file = 'taxonomy-menu.php';
+            $find[] = $file;
+            $find[] = 'templates/restaurant-manager/' . $file;
+        }
+        
+        if (is_tax('syn_rest_course')) {
+            $file = 'taxonomy-course.php';
+            $find[] = $file;
+            $find[] = 'templates/restaurant-manager/' . $file;
+        }
+        
+        if (is_tax('syn_rest_diet')) {
+            $file = 'taxonomy-diet.php';
+            $find[] = $file;
+            $find[] = 'templates/restaurant-manager/' . $file;
+        }
+        
+        if (is_tax('syn_rest_cuisine')) {
+            $file = 'taxonomy-cuisine.php';
+            $find[] = $file;
+            $find[] = 'templates/restaurant-manager/' . $file;
+        }
 
         if ($file) {
 
@@ -44,8 +68,6 @@ class template_locator {
 
     public function get_template_part($slug, $name = '') {
 
-        global $syn_taurus_core_config;
-
         $template = '';
 
         // Look in yourtheme/slug-name.php and yourtheme/templates/restaurant-manager/slug-name.php
@@ -54,8 +76,8 @@ class template_locator {
         }
 
         // Get default slug-name.php
-        if (!$template && $name && file_exists($syn_taurus_core_config->plugin_path . "templates/restaurant-manager/{$slug}-{$name}.php")) {
-            $template = "$syn_taurus_core_config->plugin_path/templates/restaurant-manager/{$slug}-{$name}.php";
+        if (!$template && $name && file_exists("{$this->_config->plugin_path}templates/restaurant-manager/{$slug}-{$name}.php")) {
+            $template = "{$this->_config->plugin_path}templates/restaurant-manager/{$slug}-{$name}.php";
         }
 
         // If template file doesn't exist, look in yourtheme/slug.php and yourtheme/templates/restaurant-manager/slug.php
