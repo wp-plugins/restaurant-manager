@@ -6,7 +6,7 @@ Author URI: http://www.syntaxthemes.co.uk/restaurant
 Tags: restaurant, reservations, bookings, table bookings, table reservations, reservation notifications, reservation confirm, reservation decline, schedules, schedule reservations
 Requires at least: 3.8
 Tested up to: 4.0
-Stable tag: 1.2.9
+Stable tag: 1.3.0
 Text Domain: syn_restaurant_plugin
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -141,6 +141,10 @@ Go to the Reservation Schedule tab on the settings page.  Click add new schedule
 There are currently no upgrade notices.
 
 == Changelog ==
+
+**Version 1.3.0**
+
+- Improved the base code for creating reservations.
 
 **Version 1.2.9**
 

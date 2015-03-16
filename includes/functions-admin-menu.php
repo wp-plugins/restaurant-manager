@@ -671,7 +671,7 @@ function syn_restaurant_manager_add_ons_page() {
                         </div> 
                         <div class="addon-footer">
                             <a class="read-more-link" href="https://creativemarket.com/syntaxthemes/109450-Taurus-Restaurant-Responsive-Theme" alt="Read more about this plugin" target="_blank"><?php _e('Read More', '') ?></a>
-                            <a class="buy-now button-primary" href="https://creativemarket.com/syntaxthemes/109450-Taurus-Restaurant-Responsive-Theme" alt="Buy this plugin" target="_blank"><?php _e('Buy Now $59', '') ?></a>
+                            <a class="buy-now button-primary" href="https://creativemarket.com/syntaxthemes/109450-Taurus-Restaurant-Responsive-Theme" alt="Buy this plugin" target="_blank"><?php _e('Buy Now $35', '') ?></a>
                         </div>
                     </div>
                 </li>
