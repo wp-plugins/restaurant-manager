@@ -21,4 +21,19 @@ require_once('data/class-events-data.php');
 require_once('data/class-eventmeta-data.php');
 require_once('class-event-log.php');
 require_once('class-events-list-table.php');
+
+/**
+ * Restaurant Manager Widgets
+ */
+if (!function_exists('synth_restaurant_manager_register_widgets')) {
+
+    function synth_restaurant_manager_register_widgets() {
+
+        require_once('widgets/class-restaurant-reservation-widget.php');
+
+        register_widget('synth_restaurant_reservation_widget');
+    }
+
+}
+add_action('widgets_init', 'syntaxthemes\restaurant\synth_restaurant_manager_register_widgets');
 ?>
